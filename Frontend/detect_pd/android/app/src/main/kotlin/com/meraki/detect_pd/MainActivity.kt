@@ -1,4 +1,4 @@
-package com.meraki.detact_pd
+package com.meraki.detect_pd
 
 import io.flutter.embedding.android.FlutterActivity
 

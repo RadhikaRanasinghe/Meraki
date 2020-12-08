@@ -1,4 +1,4 @@
-# detact_pd
+# detect_pd
 
 Team Meraki SDGP.
 
