@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b970539-65c4-4d26-b029-036e649b694b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/lib/images/PositiveBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/lib/images/PositiveBackground2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Meraki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Meraki.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/lib/images/PositiveBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/images/NegativeBackground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/lib/images/PositiveBackground2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/images/NegativeBackground2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/test/widget_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +53,24 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd\lib\main" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd\lib\images" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd" />
+      <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd\lib\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/Frontend/detect_pd/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -94,9 +106,26 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2663" y="253" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612438761299" />
-    <state x="2384" y="143" key="SettingsEditor" timestamp="1612439143684">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1585" height="238" key="GridCell.Tab.0.bottom" timestamp="1612451474059">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1585" height="238" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612451474059" />
+    <state width="1585" height="238" key="GridCell.Tab.0.center" timestamp="1612451474059">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1585" height="238" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612451474059" />
+    <state width="1585" height="238" key="GridCell.Tab.0.left" timestamp="1612451474058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1585" height="238" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612451474058" />
+    <state width="1585" height="238" key="GridCell.Tab.0.right" timestamp="1612451474059">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1585" height="238" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612451474059" />
+    <state x="464" y="143" key="SettingsEditor" timestamp="1612451363024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="143" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1612451363024" />
     <state x="2384" y="143" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1612439143684" />
   </component>
 </project>
