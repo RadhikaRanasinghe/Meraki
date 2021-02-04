@@ -16,14 +16,16 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:LogisticRegression" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85b84aca-5712-4952-b6df-cc44c3e5e028" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/test/widget_test.dart" afterDir="false" />
-    </list>
+    <list default="true" id="85b84aca-5712-4952-b6df-cc44c3e5e028" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +78,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="LogisticRegression" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -87,22 +101,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="171" y="209" width="1482" height="686" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1612455256269" />
-    <state width="1622" height="76" key="GridCell.Tab.0.bottom" timestamp="1612455183930">
+    <state width="1622" height="440" key="GridCell.Tab.0.bottom" timestamp="1612455261900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1622" height="76" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612455183930" />
-    <state width="1622" height="76" key="GridCell.Tab.0.center" timestamp="1612455183929">
+    <state width="1622" height="440" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612455261900" />
+    <state width="1622" height="440" key="GridCell.Tab.0.center" timestamp="1612455261900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1622" height="76" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612455183929" />
-    <state width="1622" height="76" key="GridCell.Tab.0.left" timestamp="1612455183929">
+    <state width="1622" height="440" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612455261900" />
+    <state width="1622" height="440" key="GridCell.Tab.0.left" timestamp="1612455261900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1622" height="76" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612455183929" />
-    <state width="1622" height="76" key="GridCell.Tab.0.right" timestamp="1612455183929">
+    <state width="1622" height="440" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612455261900" />
+    <state width="1622" height="440" key="GridCell.Tab.0.right" timestamp="1612455261900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1622" height="76" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612455183929" />
+    <state width="1622" height="440" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612455261900" />
     <state x="413" y="197" key="SettingsEditor" timestamp="1612454560103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
