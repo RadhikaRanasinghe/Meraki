@@ -15,9 +15,9 @@ class TestImageBuilder(object):
     def __init__(self):
         pass
 
-    def build(self) -> object:
+    def build(self) -> TestImage:
         test_image = TestImage()
-        
+
         test_image.set_rms(self.__rms)
         test_image.set_max_between_st_ht(self.__max_between_st_ht)
         test_image.set_min_between_st_ht(self.__min_between_st_ht)
