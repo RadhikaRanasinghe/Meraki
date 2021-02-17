@@ -1,5 +1,7 @@
-class TestImageBuilder(object):
+from TestImage import TestImage
 
+
+class TestImageBuilder(object):
     __rms: float = None
     __max_between_st_ht: float = None
     __min_between_st_ht: float = None
@@ -15,7 +17,7 @@ class TestImageBuilder(object):
 
     def build(self) -> object:
         test_image = TestImage()
-
+        
         test_image.set_rms(self.__rms)
         test_image.set_max_between_st_ht(self.__max_between_st_ht)
         test_image.set_min_between_st_ht(self.__min_between_st_ht)
