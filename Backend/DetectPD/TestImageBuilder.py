@@ -1,4 +1,4 @@
-class TestImageBuilder:
+class TestImageBuilder(object):
 
     __rms: float = None
     __max_between_st_ht: float = None
@@ -13,18 +13,22 @@ class TestImageBuilder:
     def __init__(self):
         pass
 
-    # def build(self) -> object:
-    #     return TestImage(
-    #         self.__rms,
-    #         self.__max_between_st_ht,
-    #         self.__min_between_st_ht,
-    #         self.__std_deviation_st_ht,
-    #         self.__mrt,
-    #         self.__max_ht,
-    #         self.__min_ht,
-    #         self.__std_ht,
-    #         self.__changes_from_negative_to_positive_between_st_ht
-    #     )
+    def build(self) -> object:
+        test_image = TestImage()
+
+        test_image.set_rms(self.__rms)
+        test_image.set_max_between_st_ht(self.__max_between_st_ht)
+        test_image.set_min_between_st_ht(self.__min_between_st_ht)
+        test_image.set_std_deviation_st_ht(self.__std_deviation_st_ht)
+        test_image.set_mrt(self.__mrt)
+        test_image.set_max_ht(self.__max_ht)
+        test_image.set_min_ht(self.__min_ht)
+        test_image.set_std_ht(self.__std_ht)
+        test_image.set_changes_from_negative_to_positive_between_st_ht(
+            self.__changes_from_negative_to_positive_between_st_ht
+        )
+
+        return test_image
 
     def get_rms(self) -> float:
         return self.__rms
