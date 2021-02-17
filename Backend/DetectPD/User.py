@@ -2,7 +2,7 @@ from TestImage import TestImage
 
 
 class User:
-    def __init__(self, __test_image, __age, __gender, __handedness):
+    def __init__(self, __test_image: TestImage, __age: int, __gender: int, __handedness: int):
         self.__test_image: TestImage = __test_image
         self.__age: int = __age
         self.__gender: int = __gender
