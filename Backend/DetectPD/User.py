@@ -1,4 +1,4 @@
-from .TestImage import TestImage
+from TestImage import TestImage
 
 
 class User:
