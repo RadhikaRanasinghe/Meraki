@@ -1,0 +1,23 @@
+POST request format
+
+    URL - '/create_user'
+
+    INPUT
+        image : binary file
+        age : int
+        gender : int
+        handedness : int
+
+    OUTPUT
+        image_no: int
+
+
+GET request format
+
+    URL - '/retrieve_result/<int:image_no>'
+
+    INPUT
+        image_no: int (as a parameter)
+
+    OUTPUT
+        result: Boolean (True if PD is detected)
