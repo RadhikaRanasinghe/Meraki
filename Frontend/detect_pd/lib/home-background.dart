@@ -11,6 +11,9 @@ class Home extends StatelessWidget {
       body:HomeBackground(
         title: 'Home',
         height: 153.0,
+        bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
+        smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
+        backgroundColor: Color.fromRGBO(94, 163, 184, 100),
       ),
     );
   }
@@ -19,22 +22,25 @@ class Home extends StatelessWidget {
 class HomeBackground extends StatelessWidget {
   final title;
   final height;
+  final bigSquareColor;
+  final smallSquareColor;
+  final backgroundColor;
 
-  HomeBackground({this.title, this.height});
+  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: height,
-      color: Color.fromRGBO(94, 163, 184, 100),
+      color: backgroundColor,
       child: Stack(
         children: [
           Positioned(
             top: -47,
             left: -41,
             child: Square(
-              color:  Color.fromRGBO(22, 111, 123, 100),
+              color:  bigSquareColor,
               size: 142.0,
               borderRadius: 31.0,
             ),
@@ -43,7 +49,7 @@ class HomeBackground extends StatelessWidget {
             top: -37,
             left: 58,
             child: Square(
-              color: Color.fromRGBO(169, 229, 238, 30),
+              color: smallSquareColor,
               size: 93.0,
               borderRadius: 18.0,
             ),
