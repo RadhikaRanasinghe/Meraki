@@ -10,6 +10,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       body:HomeBackground(
         title: 'Home',
+        logoPath: 'assets/testImage.jpg',
         height: 153.0,
         bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
         smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
@@ -25,8 +26,9 @@ class HomeBackground extends StatelessWidget {
   final bigSquareColor;
   final smallSquareColor;
   final backgroundColor;
+  final logoPath;
 
-  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor});
+  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor, this.logoPath});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,7 @@ class HomeBackground extends StatelessWidget {
             top: 65,
             left: 241,
             child: Image(
-              image: AssetImage('assets/testImage.jpg'),
+              image: AssetImage(logoPath),
               width: 134,
               height: 88,
             ),
