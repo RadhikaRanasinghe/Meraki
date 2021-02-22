@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="868029db-da99-4b9b-b463-20a59721cca0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/assets/NegativeBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/assets/NegativeBackground2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/assets/PositiveBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/assets/PositiveBackground2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/detect_pd/assets/pd_log_bg_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1opRMsSaCbOyoLhMfERXffVvxys" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Frontend/detect_pd/lib" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd\lib" />
+      <recent name="C:\Users\Malith\AndroidStudioProjects\Meraki\Frontend\detect_pd\assets" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="868029db-da99-4b9b-b463-20a59721cca0" name="Default Changelist" comment="" />
+      <created>1613981500697</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1613981500697</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="419" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613981699136">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="419" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1613981699136" />
+    <state x="466" y="154" key="SettingsEditor" timestamp="1613981689023">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="466" y="154" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1613981689023" />
+  </component>
+</project>
