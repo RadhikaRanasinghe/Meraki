@@ -173,11 +173,6 @@ class NavBar extends StatelessWidget {
 //       ),
 //     );
 //   }
-<<<<<<< Updated upstream:Frontend/detect_pd/lib/navbar.dart
-// }
-=======
 // }
 
 
-
->>>>>>> Stashed changes:Frontend/detect_pd/lib/NavBar.dart
