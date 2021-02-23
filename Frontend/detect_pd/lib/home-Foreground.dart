@@ -39,7 +39,9 @@ class HomeForeground extends StatelessWidget {
           expandedHeight: expandedHeight,
           floating: false,
           pinned: false,
-          title: appBarChild,
+          flexibleSpace: FlexibleSpaceBar(
+            background: appBarChild,
+          ),
         ),
         SliverFillRemaining(
           child: Container(
