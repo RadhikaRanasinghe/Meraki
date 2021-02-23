@@ -44,6 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Frontend/detect_pd/assets" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
@@ -96,8 +97,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1877" height="382" key="GridCell.Tab.0.bottom" timestamp="1614084372936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="382" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614084372936" />
+    <state width="1877" height="382" key="GridCell.Tab.0.center" timestamp="1614084372936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="382" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614084372936" />
+    <state width="1877" height="382" key="GridCell.Tab.0.left" timestamp="1614084372935">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="382" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614084372935" />
+    <state width="1877" height="382" key="GridCell.Tab.0.right" timestamp="1614084372936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="382" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614084372936" />
     <state x="500" y="160" key="SettingsEditor" timestamp="1614084080781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
