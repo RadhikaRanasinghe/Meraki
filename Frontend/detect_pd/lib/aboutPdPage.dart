@@ -33,7 +33,7 @@ class AboutPDPage extends StatelessWidget {
               "like to take the guided test or continue? \n\nLorem Ipsum is "
               "simply dummy text of the printing and typesetting industry."
               "Would you like to take the guided test or continue?",
-          fontSize: 20,
+          fontSize: 20.0,
           alignment: Alignment.topCenter,
           textColor: Colors.white,
         ),

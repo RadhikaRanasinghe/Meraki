@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18610d05-4a1a-4640-9f64-d6dee11a479e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/detect_pd/lib/aboutPdPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/detect_pd/lib/aboutPdPage.dart" afterDir="false" />
-    </list>
+    <list default="true" id="18610d05-4a1a-4640-9f64-d6dee11a479e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,9 +106,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1543" height="2" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614089396157" />
-    <state x="500" y="160" key="SettingsEditor" timestamp="1614088343339">
+    <state x="500" y="160" key="SettingsEditor" timestamp="1614194595824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="500" y="160" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614088343339" />
+    <state x="500" y="160" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614194595824" />
   </component>
 </project>
