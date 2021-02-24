@@ -15,6 +15,7 @@ class Home extends StatelessWidget {
         bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
         smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
         backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+        titleColor: Colors.white,
       ),
     );
   }
@@ -27,8 +28,9 @@ class HomeBackground extends StatelessWidget {
   final smallSquareColor;
   final backgroundColor;
   final logoPath;
+  final titleColor;
 
-  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor, this.logoPath});
+  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor, this.logoPath, this.titleColor});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,9 @@ class HomeBackground extends StatelessWidget {
               onPressed: () {},
               child: Text(title,
                 style: TextStyle(
-                    fontSize: 20
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: titleColor
                 ),
               ),
             ),
