@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'TesterModel.dart';
 
-class PostRequestTest extends StatefulWidget {
+class PostRequest extends StatefulWidget {
   @override
-  _PostRequestTestState createState() => _PostRequestTestState();
+  _PostRequestState createState() => _PostRequestState();
 }
 
 Future<TesterModel> createUser(String age, String gender, String handedness) async{
@@ -28,7 +28,7 @@ Future<TesterModel> createUser(String age, String gender, String handedness) asy
   }
 }
 
-class _PostRequestTestState extends State<PostRequestTest> {
+class _PostRequestState extends State<PostRequest> {
 
   TesterModel _user;
   final TextEditingController ageController = TextEditingController();
