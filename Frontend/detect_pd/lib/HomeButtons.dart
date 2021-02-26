@@ -19,6 +19,11 @@ class Buttons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        foregroundDecoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0),
+            border: Border.all(
+            color: Colors.yellowAccent, width: 3.0
+        )
+        ),
         //height: 310.0,
         child: Center(
           child: Column(
