@@ -1,11 +1,11 @@
-import 'package:detect_pd/HomeButtons.dart';
+import 'package:detect_pd/widgets/HomeButtons.dart';
 import 'package:detect_pd/settingsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'home-Foreground.dart';
-import 'home-background.dart';
+import 'widgets/home-Foreground.dart';
+import 'widgets/home-background.dart';
 import 'main.dart';
-import 'navbar.dart';
+import 'widgets/navbar.dart';
 
 // void main() => runApp(MaterialApp(
 //   home: FaqPage(),

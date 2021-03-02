@@ -1,4 +1,5 @@
 import 'package:detect_pd/FAQ-Page.dart';
+import 'package:detect_pd/about-page.dart';
 import 'package:flutter/material.dart';
 
 // void main(){
@@ -206,9 +207,13 @@ class SquareButtons extends StatelessWidget {
               color: Colors.black12,
               margin: buttonMargin,
               child: InkWell(
+                // todo : change this back to variable
                 onTap: (){
                   // ignore: unnecessary_statements
-                  link2;
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutPDPage()));
+                  // };
                 },
                 splashColor: Colors.black12,
                 child: Center(

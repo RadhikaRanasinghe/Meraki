@@ -1,7 +1,7 @@
-import 'package:detect_pd/navbar.dart';
+import 'package:detect_pd/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'home-Foreground.dart';
-import 'home-background.dart';
+import 'widgets/home-Foreground.dart';
+import 'widgets/home-background.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -20,11 +20,12 @@ class AboutPDPage extends StatelessWidget {
         expandedHeight: 153.0,
         appBarChild: HomeBackground(
           title: 'About PD',
-          logoPath: 'assets/testImage.jpg',
+          logoPath: 'assets/pd_log_bg_small.png',
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
           backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          titleColor: Colors.white,
         ),
         appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
         fillChild: AboutPD(

@@ -1,11 +1,11 @@
-import 'package:detect_pd/HomeButtons.dart';
-import 'package:detect_pd/Settings.dart';
-import 'package:detect_pd/home-background.dart';
-import 'package:detect_pd/navbar.dart';
+import 'package:detect_pd/widgets/HomeButtons.dart';
+import 'package:detect_pd/widgets/Settings.dart';
+import 'package:detect_pd/widgets/home-background.dart';
+import 'package:detect_pd/widgets/navbar.dart';
 import 'package:detect_pd/settingsPage.dart';
 import 'package:flutter/material.dart';
 import 'FAQ-Page.dart';
-import 'home-Foreground.dart';
+import 'package:detect_pd/widgets/home-Foreground.dart';
 
 void main() {
   runApp(MaterialApp(
