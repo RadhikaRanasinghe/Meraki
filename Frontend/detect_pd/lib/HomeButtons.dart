@@ -24,7 +24,7 @@ class Buttons extends StatelessWidget {
           topRight: Radius.circular(40.0),
         ),
             border: Border.all(
-            color: Colors.yellowAccent, width: 3.0
+            color: Colors.white, width: 1.0
         )
         ),
         //height: 310.0,
@@ -180,7 +180,7 @@ class SquareButtons extends StatelessWidget {
                   // ignore: unnecessary_statements
                   link1;
                 },
-                splashColor: Colors.green,
+                splashColor: Colors.black12,
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -204,7 +204,7 @@ class SquareButtons extends StatelessWidget {
                   // ignore: unnecessary_statements
                   link2;
                 },
-                splashColor: Colors.green,
+                splashColor: Colors.black12,
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -228,7 +228,7 @@ class SquareButtons extends StatelessWidget {
                   // ignore: unnecessary_statements
                   link3;
                 },
-                splashColor: Colors.green,
+                splashColor: Colors.black12,
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -252,7 +252,7 @@ class SquareButtons extends StatelessWidget {
                   // ignore: unnecessary_statements
                   link4;
                 },
-                splashColor: Colors.green,
+                splashColor: Colors.black12,
                 child: Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
