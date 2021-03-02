@@ -8,11 +8,23 @@ class Detector:
         pass
 
     def load_features(self, image_no: int):
-        # self.__image_no = image_no
+        # TODO: GET the image from the database.
+
+        # TODO: Run the C++ file.
+
+        # TODO: Read RMS.txt(assume its a csv).
+
+        # TODO: Fill the __user variable.
+
         pass
 
     def process(self, image_no: int) -> bool:
         result: bool = None
+
+        # TODO: Run data science .py file or do it here.
+
+        # TODO: Return the output.
+
         return result
 
     def get_user(self) -> User:

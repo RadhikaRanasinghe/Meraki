@@ -1,6 +1,5 @@
-from PIL import Image
 from flask import Flask, request, jsonify, abort
-from flask_restful import Api, Resource, reqparse, fields, marshal_with
+from flask_restful import Api, reqparse, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -72,9 +71,14 @@ def retrieve_result(image_no):
     gender = result['gender']
     handedness = result['handedness']
 
-    # TODO: Run the C++ file.
+    # TODO: Create & initialize Detector object.
 
-    # TODO: Read the RMS.txt and RUN the models
+    # TODO: Run load_features()
+    # TODO: Run process()
+
+    # TODO: Save __user details of the Detector object to the database.
+
+    # TODO: send the result(diagnosis) to the front end.
 
     return jsonify({"result": True})
 
