@@ -19,7 +19,10 @@ class Buttons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        foregroundDecoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0),
+        foregroundDecoration: BoxDecoration(borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
+        ),
             border: Border.all(
             color: Colors.yellowAccent, width: 3.0
         )
@@ -92,7 +95,7 @@ class TakePhoto extends StatelessWidget{
         ),
         color: Colors.grey,
         icon: Icon(Icons.camera_alt_outlined),
-        label: Text("Take Photo"),
+        label: Text("Take Photo", style: new TextStyle(color: Colors.white)),
         padding: padding,
         elevation: elevation,
         onPressed: (){
@@ -129,7 +132,7 @@ class UploadPhoto extends StatelessWidget{
         ),
         color: Colors.grey,
         icon: Icon(Icons.upload_outlined),
-        label: Text("Upload Photo"),
+        label: Text("Upload Photo", style: new TextStyle(color: Colors.white)),
         padding: padding,
         elevation: elevation,
         onPressed: (){
