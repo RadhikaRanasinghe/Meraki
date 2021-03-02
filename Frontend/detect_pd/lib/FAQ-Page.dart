@@ -1,32 +1,51 @@
-
+import 'package:detect_pd/HomeButtons.dart';
+import 'package:detect_pd/settingsPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'home-Foreground.dart';
 import 'home-background.dart';
+import 'main.dart';
+import 'navbar.dart';
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-));
+// void main() => runApp(MaterialApp(
+//   home: FaqPage(),
+// ));
 
-class Home extends StatelessWidget {
+class FaqPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: HomeForeground(
-          expandedHeight: 153.0,
-          appBarChild: HomeBackground(
-            title: 'FAQ',
-            logoPath: 'assets/testImage.jpg',
-            height: 10.0,
-            bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
-            smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-            backgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          ),
-          appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          fillChild: FaqForground(spacing:40.0),
-          fillColor:  Color.fromRGBO(240, 241, 226, 100),
-        )
+      body: HomeForeground(
+        expandedHeight: 153.0,
+        appBarChild: HomeBackground(
+          title: 'FAQ',
+          logoPath: 'assets/pd_log_bg_small.png',
+          height: 153.0,
+          bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
+          smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
+          backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          titleColor: Colors.white,
+        ),
+        appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
+        // fillChild: Buttons(),
+        // fillChild: Settings(),
+        fillChild: FaqForground(spacing:40.0),
+        fillColor:  Color.fromRGBO(240, 241, 226, 100),
+      ),
+      bottomNavigationBar: NavBar(
+        link1: null,
+        link2: (){
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()));
+        },
+        link3: (){
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()));
+        },
+        backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
+      ),
     );
   }
 }
@@ -46,13 +65,13 @@ class FaqForground extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
         children:<Widget>[
 
-          GreyButtons(buttonText:'test'),
+          GreyButtons(buttonText:'Question 1'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'test1'),
+          GreyButtons(buttonText:'Question 2'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'test2'),
+          GreyButtons(buttonText:'Question 3'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'test3'),
+          GreyButtons(buttonText:'Question 4'),
           // GreyButtons()
         ]
       )

@@ -1,8 +1,9 @@
+import 'package:detect_pd/FAQ-Page.dart';
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(App());
-}
+// void main(){
+//   runApp(App());
+// }
 
 class App extends StatelessWidget {
   @override
@@ -48,7 +49,12 @@ class Buttons extends StatelessWidget {
                   link1: null,
                   link2: null,
                   link3: null,
-                  link4: null,
+                  // todo : change this back to variable
+                  // link4: (){
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => FaqPage()));
+                  // },
                   padding: EdgeInsets.all(50.0),
                   bodyMargin: EdgeInsets.all(0.0),
                   buttonMargin: EdgeInsets.all(8.0),
@@ -248,9 +254,13 @@ class SquareButtons extends StatelessWidget {
               color: Colors.black12,
               margin: buttonMargin,
               child: InkWell(
+                // todo : change this back to variable
                 onTap: (){
                   // ignore: unnecessary_statements
-                  link4;
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FaqPage()));
+                  // };
                 },
                 splashColor: Colors.black12,
                 child: Center(
