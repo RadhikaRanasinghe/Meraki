@@ -27,23 +27,26 @@ def create_user():
 @app.route('/retrieve_result', methods=['GET'])
 def retrieve_result():
 
-    image_no = int(request.args.get('image_no'))
+    if 'image_no' in request.args:
+        image_no = int(request.args.get('image_no'))
 
-    user_model = conn.select_record(image_no)
+        user_model = conn.select_record(image_no)
 
-    if user_model != 0:
+        if user_model != 0:
 
-        detector = Detector()
+            detector = Detector()
 
-        detector.load_features(user_model)
+            detector.load_features(user_model)
 
-        result = detector.process(image_no)
+            result = detector.process(image_no)
 
-        conn.insert_values_test_image(detector.get_user().get_test_image(), image_no)
+            conn.insert_values_test_image(detector.get_user().get_test_image(), image_no)
 
-        return jsonify({"result": result}), 200
+            return jsonify({"result": result}), 200
+        else:
+            return jsonify({"result": 0}), 204
     else:
-        return jsonify({"result": 0}), 204
+        return jsonify({"result": 0}), 400
 
 
 if __name__ == 'FrontendController':
