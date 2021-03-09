@@ -20,7 +20,7 @@ class Detector:
         pass
 
     def process(self, image_no: int) -> bool:
-        result: bool = None
+        result: bool = True
 
         # TODO: Run data science .py file or do it here.
 
