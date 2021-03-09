@@ -145,19 +145,6 @@ class Dropdown extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 5,),
-        // Align(
-        //   alignment: Alignment(-0.60, 0),
-        //   child: ClipPath(
-        //     clipper: ArrowClipper(),
-        //     child: Container(
-        //       height: 20,
-        //       width: 30,
-        //       decoration: BoxDecoration(
-        //         color: Colors.grey
-        //       ),
-        //     ),
-        //   ),
-        // ),
         Material(
           elevation: 20,
           shape: ArrowShape(),
@@ -174,13 +161,15 @@ class Dropdown extends StatelessWidget {
                     bodyMargin: const EdgeInsets.only(left:30.0, top:0.0,right:30.0,bottom:10.0),
                     padding: EdgeInsets.all(5.0),
                     elevation: 6.0,
-                    link: null),
+                    link: null  // TODO: implement UploadPhoto function
+                ),
                 TakePhoto(width: 250.0,
                     height: 50.12,
                     bodyMargin: const EdgeInsets.only(top: 10.0),
                     padding: EdgeInsets.all(5.0),
                     elevation: 6.0,
-                    link: null),
+                    link: null  // TODO: implement TakePhoto function
+                ),
               ],
             ),
           ),
@@ -190,84 +179,26 @@ class Dropdown extends StatelessWidget {
   }
 }
 
-// class DropDownItem extends StatelessWidget {
-//
-//   final String text;
-//   final IconData iconData;
-//   final bool isSelected;
-//
-//   const DropDownItem({
-//     Key key,
-//     this.text,
-//     this.iconData,
-//     this.isSelected
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(8.0),
-//         color: Colors.grey,  //dropdownItems container color
-//       ),
-//       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-//       child: Row(
-//         children: [
-//           Text(text,
-//             style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600),
-//           ),
-//           Spacer(),
-//           Icon(
-//             iconData,
-//             color: Colors.white,
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-class ArrowClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-
-    path.moveTo(0, size.height);
-    path.lineTo(size.width / 2, 0);
-    path.lineTo(size.width, size.height);
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}
-
 class ArrowShape extends ShapeBorder {
   @override
-  // TODO: implement dimensions
   EdgeInsetsGeometry get dimensions => throw UnimplementedError();
 
   @override
   Path getInnerPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getInnerPath
     throw UnimplementedError();
   }
 
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
-    // TODO: implement getOuterPath
     return getClip(rect.size/1600);
   }
 
   @override
   void paint(Canvas canvas, Rect rect, {TextDirection textDirection}) {
-    // TODO: implement paint
   }
 
   @override
   ShapeBorder scale(double t) {
-    // TODO: implement scale
     throw UnimplementedError();
   }
 }
