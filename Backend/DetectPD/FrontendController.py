@@ -1,87 +1,50 @@
-from flask import Flask, request, jsonify, abort
-from flask_restful import Api, reqparse, fields, marshal_with
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, request, jsonify
+import mysql_connection as conn
+from Detector import Detector
 
 app = Flask(__name__)
-api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-db = SQLAlchemy(app)
-
-get_args = reqparse.RequestParser()
-get_args.add_argument("image_no", type=int, help="Image Number is required", required=True)
-
-post_args = reqparse.RequestParser()
-post_args.add_argument("image", type=bin, help="Image is required", required=True)
-post_args.add_argument("age", type=int, help="Age is required", required=True)
-post_args.add_argument("gender", type=int, help="Gender is required", required=True)
-post_args.add_argument("handedness", type=int, help="Handedness is required", required=True)
-
-
-class UserModel(db.Model):
-    image_no = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    age = db.Column(db.Integer)
-    gender = db.Column(db.Integer)
-    handedness = db.Column(db.Integer)
-
-    def __repr__(self):
-        return f"image_no={self.image_no}, age={self.age}, gender={self.gender}, handedness={self.handedness}"
-
-
-# db.create_all()
-
-resource_fields = {
-    'image_no': fields.Integer,
-    'age': fields.Integer,
-    'gender': fields.Integer,
-    'handedness': fields.Integer
-}
 
 
 @app.route('/create_user', methods=['POST'])
-@marshal_with(resource_fields)
 def create_user():
-    # TODO: write a function to check whether every input is there.
 
-    file = request.files['image']
     payload = request.form.to_dict()
 
-    age = payload['age']
-    gender = payload['gender']
-    handedness = payload['handedness']
+    if 'image' in request.files and payload.keys() >= {'age', 'gender', 'handedness'}:
+        file = request.files['image'].read()
 
-    user = UserModel(age=age, gender=gender, handedness=handedness)
-    db.session.add(user)
-    db.session.commit()
+        age = int(payload['age'])
+        gender = int(payload['gender'])
+        handedness = int(payload['handedness'])
 
-    image_no = user.image_no
+        user_id = conn.insert_values_test(age, gender, handedness, file)
 
-    # TODO: change this to whatever storage.
-    file.save(f'images/{image_no}.png')
-
-    return user, 201
+        return jsonify({"image_no": user_id}), 201
+    else:
+        return jsonify({"image_no": 0}), 400
 
 
-@app.route('/retrieve_result/<int:image_no>', methods=['GET'])
-def retrieve_result(image_no):
-    result = UserModel.query.filter_by(id=image_no).first()
-    if not result:
-        abort(404, message="Could not find Image with that image_no")
+@app.route('/retrieve_result', methods=['GET'])
+def retrieve_result():
 
-    age = result['age']
-    gender = result['gender']
-    handedness = result['handedness']
+    image_no = int(request.args.get('image_no'))
 
-    # TODO: Create & initialize Detector object.
+    user_model = conn.select_record(image_no)
 
-    # TODO: Run load_features()
-    # TODO: Run process()
+    if user_model != 0:
 
-    # TODO: Save __user details of the Detector object to the database.
+        detector = Detector()
 
-    # TODO: send the result(diagnosis) to the front end.
+        detector.load_features(user_model)
 
-    return jsonify({"result": True})
+        result = detector.process(image_no)
+
+        conn.insert_values_test_image(detector.get_user().get_test_image(), image_no)
+
+        return jsonify({"result": result}), 200
+    else:
+        return jsonify({"result": 0}), 204
 
 
-if __name__ == '__main__':
+if __name__ == 'FrontendController':
     app.run(debug=True)
