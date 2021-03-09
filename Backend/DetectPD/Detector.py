@@ -1,4 +1,5 @@
 from User import User
+from UserModel import UserModel
 
 
 class Detector:
@@ -7,7 +8,7 @@ class Detector:
     def __init__(self):
         pass
 
-    def load_features(self, image_no: int):
+    def load_features(self, image_no: UserModel):
         # TODO: GET the image from the database.
 
         # TODO: Run the C++ file.

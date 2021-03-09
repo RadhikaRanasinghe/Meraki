@@ -21,3 +21,10 @@ GET request format
 
     OUTPUT
         result: Boolean (True if PD is detected)
+
+
+status codes used:
+    201 - successfully created (POST)
+    200 - successful diagnosis (GET)
+    400 - missing input (GET/POST)
+    204 - not found content (GET)
