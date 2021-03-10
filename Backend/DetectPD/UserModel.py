@@ -1,10 +1,11 @@
 class UserModel:
-    def __init__(self, user_id: int, age: int, gender: int, handedness: int, test_image: bytes):
+    def __init__(self, user_id: int, age: int, gender: int, handedness: int, test_image: bytes, test_image_id: int):
         self.__id: int = user_id
         self.__age: int = age
         self.__gender: int = gender
         self.__handedness: int = handedness
         self.__test_image: bytes = test_image
+        self.__test_image_id: int = test_image_id
 
     def __str__(self):
         return f"UserModel{{id={self.__id}, age={self.__age}, gender={self.__gender}, handedness={self.__handedness}," \
@@ -39,3 +40,9 @@ class UserModel:
 
     def set_test_image(self, test_image: bytes):
         self.__test_image = test_image
+
+    def get_test_image_id(self) -> int:
+        return self.__test_image_id
+
+    def set_test_image_id(self, test_image_id: int):
+        self.__test_image = test_image_id
