@@ -1,4 +1,4 @@
-import 'package:detect_pd/neg-results-background.dart';
+import 'package:detect_pd/widgets/neg-results-background.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
