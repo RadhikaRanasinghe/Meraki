@@ -1,5 +1,4 @@
 import 'package:detect_pd/splash-screen.dart';
-import 'package:detect_pd/widgets/dropdown-square-buttons.dart';
 import 'package:detect_pd/widgets/home-buttons.dart';
 import 'package:detect_pd/widgets/Settings.dart';
 import 'package:detect_pd/widgets/home-background.dart';
@@ -38,7 +37,7 @@ class HomePage extends StatelessWidget {
           titleColor: Colors.white,
         ),
         appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        fillChild: AllButtons(),
+        fillChild: NewSquare(),
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(

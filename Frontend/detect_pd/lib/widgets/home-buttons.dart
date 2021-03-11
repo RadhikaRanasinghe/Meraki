@@ -22,14 +22,28 @@ class NewSquare extends StatelessWidget {
       child: Center(
         child: Column(
           children: <Widget>[
-            DropdownButton(buttonName:"START TEST", width: 300.0,
-                height: 70.0,
-                bodyMargin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
+            Container(
+              width: 300.0,
+              height: 70.0,
+              margin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
+              child: RaisedButton.icon(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    side: BorderSide(color: Colors.grey, width: 1)
+                ),
+                color: Colors.grey,
+                icon: Icon(Icons.search_sharp, color: Colors.black),
+                label: Text("START TEST",
+                  style: TextStyle(
+                      color: Colors.white70, fontSize: 25.0
+                  ),
+                ),
                 padding: EdgeInsets.all(5.0),
+                splashColor: null,
                 elevation: 6.0,
-                link: null,
-                icon: Icons.search_sharp,
-                fontSize: 25.0),
+                onPressed: null,
+              ),
+            ),
             Icon(Icons.arrow_drop_down, color: Colors.black, size: 30.0,),
             DropdownButton(buttonName:"Upload Photo", width: 260.0,
                 height: 50.0,
@@ -67,7 +81,7 @@ class NewSquare extends StatelessWidget {
 
 class DropdownButton extends StatelessWidget{
 
-  String buttonName;
+  final String buttonName;
   final width;
   final height;
   final bodyMargin;
@@ -101,10 +115,7 @@ class DropdownButton extends StatelessWidget{
         padding: padding,
         splashColor: null,
         elevation: elevation,
-        onPressed: (){
-          // ignore: unnecessary_statements
-          link;
-        },
+        onPressed: link,
       ),
     );
   }
@@ -142,10 +153,7 @@ class SquareButtons extends StatelessWidget {
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
-              onTap: (){
-                // ignore: unnecessary_statements
-                link1;
-              },
+              onTap: link1,
               splashColor: Colors.green,
               child: Center(
                 child: Column(
@@ -166,10 +174,7 @@ class SquareButtons extends StatelessWidget {
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
-              onTap: (){
-                // ignore: unnecessary_statements
-                link2;
-              },
+              onTap:link2,
               splashColor: Colors.green,
               child: Center(
                 child: Column(
@@ -190,10 +195,7 @@ class SquareButtons extends StatelessWidget {
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
-              onTap: (){
-                // ignore: unnecessary_statements
-                link3;
-              },
+              onTap: link3,
               splashColor: Colors.green,
               child: Center(
                 child: Column(
@@ -214,10 +216,7 @@ class SquareButtons extends StatelessWidget {
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
-              onTap: (){
-                // ignore: unnecessary_statements
-                link4;
-              },
+              onTap: link4,
               splashColor: Colors.green,
               child: Center(
                 child: Column(
