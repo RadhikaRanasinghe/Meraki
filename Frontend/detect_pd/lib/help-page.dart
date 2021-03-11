@@ -1,7 +1,11 @@
-import 'navbar.dart';
+import 'package:detect_pd/settings-page.dart';
+import 'package:detect_pd/widgets/home-background.dart';
+import 'package:detect_pd/widgets/navbar.dart';
+
 import 'package:flutter/material.dart';
 import 'home-Foreground.dart';
-import 'home-background.dart';
+import 'main.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -25,7 +29,7 @@ class HelpPage extends StatelessWidget {
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
           backgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          //titleColor: Colors.white,
+          titleColor: Colors.white,
         ),
         appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
         fillChild: AboutPD(
@@ -43,8 +47,16 @@ class HelpPage extends StatelessWidget {
       ),
       bottomNavigationBar: NavBar(
         link1: null,
-        link2: null,
-        link3: null,
+        link2: (){
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()));
+        },
+        link3: (){
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()));
+        },
         backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
       ),
     );

@@ -41,11 +41,7 @@ class HomePage extends StatelessWidget {
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(
-        link1: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => AboutPDPage()));
-        },
+        link1: null,
         link2: null,
         link3: (){
           Navigator.pushReplacement(

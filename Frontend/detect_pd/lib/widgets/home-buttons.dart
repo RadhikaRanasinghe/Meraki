@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../about-page.dart';
+import '../faq-page.dart';
+import '../help-page.dart';
+
 void main(){
   runApp(App());
 }
@@ -62,9 +66,15 @@ class NewSquare extends StatelessWidget {
             Flexible(
               child: SquareButtons(
                 link1: null,
-                link2: null,
-                link3: null,
-                link4: null,
+                link2: (){
+                  Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => AboutPDPage()));
+                },
+                link3: (){
+                  Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => HelpPage()));
+                },
+                link4: (){
+                  Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => FaqPage()));
+                },
                 padding: EdgeInsets.all(50.0),
                 bodyMargin: EdgeInsets.all(0.0),
                 buttonMargin: EdgeInsets.all(8.0),
