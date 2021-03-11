@@ -5,6 +5,7 @@ import 'package:detect_pd/widgets/results-foreground.dart';
 import 'package:flutter/material.dart';
 
 import 'about-page.dart';
+import 'main.dart';
 
 void main() => runApp(MaterialApp(
       home: PositiveResultsPage(),
@@ -28,7 +29,10 @@ class PositiveResultsPage extends StatelessWidget {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => AboutPDPage()));
         },
-        link2: null,
+        link2: () {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+        },
         link3: () {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => SettingsPage()));
