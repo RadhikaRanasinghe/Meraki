@@ -1,4 +1,4 @@
-import 'package:detect_pd/widgets/HomeButtons.dart';
+import 'package:detect_pd/widgets/home-buttons.dart';
 import 'package:detect_pd/widgets/Settings.dart';
 import 'package:detect_pd/widgets/home-background.dart';
 import 'package:detect_pd/widgets/navbar.dart';

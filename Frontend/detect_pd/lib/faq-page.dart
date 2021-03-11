@@ -1,5 +1,5 @@
-import 'package:detect_pd/widgets/HomeButtons.dart';
-import 'package:detect_pd/settingsPage.dart';
+import 'package:detect_pd/widgets/home-buttons.dart';
+import 'package:detect_pd/settings-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'widgets/home-Foreground.dart';

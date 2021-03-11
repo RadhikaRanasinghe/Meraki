@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'home-Foreground.dart';
-import 'home-background.dart';
+import 'widgets/home-background.dart';
+import 'widgets/home-foreground.dart';
 
 void main() => runApp(MaterialApp(
   home: Home(),

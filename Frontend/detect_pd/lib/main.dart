@@ -1,8 +1,9 @@
-import 'package:detect_pd/widgets/HomeButtons.dart';
+import 'package:detect_pd/widgets/dropdown-square-buttons.dart';
+import 'package:detect_pd/widgets/home-buttons.dart';
 import 'package:detect_pd/widgets/Settings.dart';
 import 'package:detect_pd/widgets/home-background.dart';
 import 'package:detect_pd/widgets/navbar.dart';
-import 'package:detect_pd/settingsPage.dart';
+import 'package:detect_pd/settings-page.dart';
 import 'package:flutter/material.dart';
 import 'FAQ-Page.dart';
 import 'package:detect_pd/widgets/home-Foreground.dart';
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
           titleColor: Colors.white,
         ),
         appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        fillChild: Buttons(),
+        fillChild: AllButtons(),
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(
