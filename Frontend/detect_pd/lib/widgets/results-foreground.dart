@@ -8,9 +8,9 @@ class ResultsForeground extends StatelessWidget {
   final fillColor;
   final resultImage;
   final expandedHeight;
+  final result;
 
-
-  ResultsForeground({this.mainBackgroundColor, this.fillColor , this.resultImage,this.expandedHeight});
+  ResultsForeground({this.mainBackgroundColor, this.fillColor , this.resultImage,this.expandedHeight,this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class ResultsForeground extends StatelessWidget {
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40)),
                 ),
-                child:ResultsText(result: 'Parkinson\'s Disease \nDetected!',disclaimer: 'Disclaimer: Consult a medical professional for further clarification ',fontcolor:const Color(0xffe8e8e8)) ,
+                child:ResultsText(result: result,disclaimer: 'Disclaimer: Consult a medical professional for further clarification ',fontcolor:const Color(0xffe8e8e8)) ,
               )),
         ),
       ],

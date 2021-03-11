@@ -35,12 +35,12 @@ class FaqPage extends StatelessWidget {
       bottomNavigationBar: NavBar(
         link1: null,
         link2: (){
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => HomePage()));
         },
         link3: (){
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
@@ -96,10 +96,7 @@ class GreyButtons extends StatelessWidget {
     return Container(
       child: new Center(
         child: InkWell(
-          onTap:(){
-            // ignore: unnecessary_statements
-            function;
-          },
+          onTap:function,
         child: Container(
        child: new Text(buttonText,
     style: TextStyle(

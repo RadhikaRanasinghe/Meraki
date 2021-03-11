@@ -1,3 +1,4 @@
+import 'package:detect_pd/splash-screen.dart';
 import 'package:detect_pd/widgets/dropdown-square-buttons.dart';
 import 'package:detect_pd/widgets/home-buttons.dart';
 import 'package:detect_pd/widgets/Settings.dart';
@@ -8,9 +9,15 @@ import 'package:flutter/material.dart';
 import 'FAQ-Page.dart';
 import 'package:detect_pd/widgets/home-Foreground.dart';
 
+import 'about-page.dart';
+
 void main() {
   runApp(MaterialApp(
-      home: HomePage(),
+    initialRoute:'load' ,
+      routes:{
+      'load':(context) =>SplashScreen(),
+      },
+      // home: HomePage(),
     debugShowCheckedModeBanner: false,
   ));
 }
@@ -35,10 +42,14 @@ class HomePage extends StatelessWidget {
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(
-        link1: null,
+        link1: (){
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => AboutPDPage()));
+        },
         link2: null,
         link3: (){
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },

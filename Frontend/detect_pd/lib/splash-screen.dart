@@ -2,12 +2,13 @@
 
 import 'dart:async';
 
+import 'package:detect_pd/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MaterialApp(
-  debugShowCheckedModeBanner: false,
-  home: SplashScreen(),
-));
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    ));
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,15 +16,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 4),
-            ()=> print("Add the function after the Splash Screen")
-    );
+    Timer(
+        Duration(seconds: 4),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage())));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,30 +44,37 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/testImage.jpg', height: 150.0, width: 150.0,)
+                      Image.asset(
+                        'assets/testImage.jpg',
+                        height: 150.0,
+                        width: 150.0,
+                      )
                     ],
                   ),
                 ),
               ),
-              Expanded(flex: 1,
+              Expanded(
+                flex: 1,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircularProgressIndicator(),
+                    // CircularProgressIndicator(),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
                     ),
-                    Text("from",
-                      style: TextStyle(color: Colors.white,
+                    Text(
+                      "from",
+                      style: TextStyle(
+                          color: Colors.white,
                           fontSize: 18.0,
-                          fontWeight: FontWeight.bold
-                      ),
+                          fontWeight: FontWeight.bold),
                     ),
-                    Text("Meraki",
-                      style: TextStyle(color: Colors.white,
+                    Text(
+                      "Meraki",
+                      style: TextStyle(
+                          color: Colors.white,
                           fontSize: 18.0,
-                          fontWeight: FontWeight.bold
-                      ),
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

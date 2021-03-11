@@ -1,5 +1,7 @@
+import 'package:detect_pd/settings-page.dart';
 import 'package:detect_pd/widgets/navbar.dart';
 import 'package:flutter/material.dart';
+import 'main.dart';
 import 'widgets/home-Foreground.dart';
 import 'widgets/home-background.dart';
 
@@ -43,8 +45,16 @@ class AboutPDPage extends StatelessWidget {
       ),
       bottomNavigationBar: NavBar(
         link1: null,
-        link2: null,
-        link3: null,
+        link2: (){
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()));
+        },
+        link3: (){
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()));
+        },
         backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
       ),
     );
