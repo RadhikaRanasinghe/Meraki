@@ -2,11 +2,17 @@ from flask import Flask, request, jsonify
 
 import mysql_connection as conn
 from Detector import Detector
+from TestImage import TestImage
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/create_user', methods=['POST'])
+@application.route('/', methods=['GET'])
+def hello_world():
+    return "Hello World"
+
+
+@application.route('/create_user', methods=['POST'])
 def create_user():
 
     payload = request.form.to_dict()
@@ -35,7 +41,7 @@ def create_user():
         return jsonify({"image_no": 0}), 400
 
 
-@app.route('/retrieve_result', methods=['GET'])
+@application.route('/retrieve_result', methods=['GET'])
 def retrieve_result():
     if 'image_no' in request.args:
         image_no = request.args.get('image_no')
@@ -55,7 +61,17 @@ def retrieve_result():
                     detector.load_features(user_model)
                     result = detector.process(image_no)
 
-                    test_image = detector.get_user().get_test_image()
+                    # test_image = detector.get_user().get_test_image()
+                    test_image = TestImage()
+                    test_image.set_rms(1.01)
+                    test_image.set_mrt(2.02)
+                    test_image.set_std_ht(3.03)
+                    test_image.set_min_ht(4.3)
+                    test_image.set_max_ht(5.4)
+                    test_image.set_min_between_st_ht(6.3)
+                    test_image.set_max_between_st_ht(7.4)
+                    test_image.set_std_deviation_st_ht(8.5)
+                    test_image.set_changes_from_negative_to_positive_between_st_ht(9.01)
                     conn.insert_values_test_image(test_image, image_no, result)
 
                     return jsonify({"result": result}), 200
@@ -70,5 +86,5 @@ def retrieve_result():
         return jsonify({"result": 0}), 400
 
 
-if __name__ == 'FrontendController':
-    app.run(debug=True)
+if __name__ == '__main__':
+    application.run()
