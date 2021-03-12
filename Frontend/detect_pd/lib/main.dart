@@ -7,7 +7,6 @@ import 'package:detect_pd/settings-page.dart';
 import 'package:flutter/material.dart';
 import 'FAQ-Page.dart';
 import 'package:detect_pd/widgets/home-Foreground.dart';
-
 import 'about-page.dart';
 
 void main() {

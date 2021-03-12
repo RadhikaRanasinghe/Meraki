@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../about-page.dart';
+import '../camera-form-page.dart';
 import '../faq-page.dart';
+import '../gallery-form-page.dart';
 import '../help-page.dart';
 
 void main(){
@@ -54,14 +56,18 @@ class NewSquare extends StatelessWidget {
                 bodyMargin: const EdgeInsets.all(5.0),
                 padding: EdgeInsets.all(5.0),
                 elevation: 6.0,
-                link: null,
+                link: (){
+                  Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => GalleryFormPage()));
+                },
                 icon: Icons.upload_outlined),
             DropdownButton(buttonName:"Take Photo", width: 260.0,
                 height: 50.0,
                 bodyMargin: const EdgeInsets.only(top: 5.0),
                 padding: EdgeInsets.all(5.0),
                 elevation: 6.0,
-                link: null,
+                link: (){
+                  Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => CameraFormPage()));
+                },
                 icon: Icons.camera_alt_outlined),
             Flexible(
               child: SquareButtons(

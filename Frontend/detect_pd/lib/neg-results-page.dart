@@ -3,15 +3,14 @@ import 'package:detect_pd/widgets/navbar.dart';
 import 'package:detect_pd/widgets/neg-results-background.dart';
 import 'package:detect_pd/widgets/results-foreground.dart';
 import 'package:flutter/material.dart';
-
 import 'about-page.dart';
 import 'main.dart';
 
 void main() => runApp(MaterialApp(
-      home: PositiveResultsPage(),
+      home: NegativeResultsPage(),
     ));
 
-class PositiveResultsPage extends StatelessWidget {
+class NegativeResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

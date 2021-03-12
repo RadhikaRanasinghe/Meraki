@@ -3,7 +3,7 @@ import 'package:detect_pd/widgets/home-background.dart';
 import 'package:detect_pd/widgets/navbar.dart';
 
 import 'package:flutter/material.dart';
-import 'home-Foreground.dart';
+import 'widgets/home-foreground.dart';
 import 'main.dart';
 
 

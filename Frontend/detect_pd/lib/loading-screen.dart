@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
           expandedHeight: 153.0,
           appBarChild: HomeBackground(
             title: '',
-            logoPath: 'assets/testImage.jpg',
+            logoPath: 'assets/pd_log_bg_small.png',
             height: 10.0,
             bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
             smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                 child: Loader(),
               ),
               SizedBox(height: 50),
-              Text("Processing!",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:Colors.white),)
+              Text("Processing",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color:const Color(0xFF033E6B)),)
             ],
           ),
           fillColor:  Color.fromRGBO(240, 241, 226, 100),

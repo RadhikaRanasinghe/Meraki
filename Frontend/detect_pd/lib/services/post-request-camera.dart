@@ -10,12 +10,12 @@ import 'package:detect_pd/widgets/home-foreground.dart';
 import '../neg-results-page.dart';
 import '../pos-result-page.dart';
 
-class GalleryAccess extends StatefulWidget {
+class CameraAccess extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => GalleryAccessState();
+  State<StatefulWidget> createState() => CameraAccessState();
 }
 
-class GalleryAccessState extends State<GalleryAccess> {
+class CameraAccessState extends State<CameraAccess> {
   File galleryFile;
   File image;
   final picker = ImagePicker();
@@ -27,7 +27,7 @@ class GalleryAccessState extends State<GalleryAccess> {
   String handedness;
   List<String> handednessList = ["Right-handed", "Left-handed"];
 
-  Future<dynamic> pickImageFromGallery(ImageSource source) async {
+  Future<dynamic> takeImageFromCamera(ImageSource source) async {
     final image = await picker.getImage(source: source);
 
     setState(() {
@@ -80,7 +80,6 @@ class GalleryAccessState extends State<GalleryAccess> {
     //       MaterialPageRoute(builder: (context) => NegativeResultsPage()));
     // }
     // ------------------------------------------------------------------------- //
-
   }
 
   @override
@@ -167,13 +166,13 @@ class GalleryAccessState extends State<GalleryAccess> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
-                  child: new Text('Select Image from Gallery'),
+                  child: new Text('Take photo from camera'),
                   color: Colors.grey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                     // side: BorderSide(color: Colors.grey)
                   ),
-                  onPressed: () => pickImageFromGallery(ImageSource.gallery),
+                  onPressed: () => takeImageFromCamera(ImageSource.camera),
                 ),
               ),
               SizedBox(
