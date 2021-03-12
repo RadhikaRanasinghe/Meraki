@@ -3,10 +3,15 @@ from flask import Flask, request, jsonify
 import mysql_connection as conn
 from Detector import Detector
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/create_user', methods=['POST'])
+@application.route('/')
+def hello_world():
+    return "Hello DetectPD"
+
+
+@application.route('/create_user', methods=['POST'])
 def create_user():
 
     payload = request.form.to_dict()
@@ -35,7 +40,7 @@ def create_user():
         return jsonify({"image_no": 0}), 400
 
 
-@app.route('/retrieve_result', methods=['GET'])
+@application.route('/retrieve_result', methods=['GET'])
 def retrieve_result():
     if 'image_no' in request.args:
         image_no = request.args.get('image_no')
@@ -70,5 +75,5 @@ def retrieve_result():
         return jsonify({"result": 0}), 400
 
 
-if __name__ == 'FrontendController':
-    app.run(debug=True)
+if __name__ == '__main__':
+    application.run(debug=True)
