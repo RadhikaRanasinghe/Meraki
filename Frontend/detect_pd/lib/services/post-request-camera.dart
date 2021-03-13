@@ -111,6 +111,7 @@ class CameraAccessState extends State<CameraAccess> {
                     borderRadius: BorderRadius.circular(10)),
                 child: TextField(
                   controller: ageController,
+                  keyboardType: TextInputType.number,
                   decoration: new InputDecoration(
                     labelText: 'Age',
                     contentPadding: EdgeInsets.all(2.0),
