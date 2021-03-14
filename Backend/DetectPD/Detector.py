@@ -22,7 +22,8 @@ class Detector:
 
     def process(self, image_no: int) -> bool:
         result: bool = True
-        with open('Models/VotingClassifier/ensemble_classifier.pickle', 'rb') as file:
+
+        with open('Models/ensemble_classifier.pickle', 'rb') as file:
             ensemble_classifier = pickle.load(file)
 
         x = [[self.__user.get_gender(), self.__user.get_handedness(), self.__user.get_age(),
@@ -39,10 +40,6 @@ class Detector:
             result = True
         elif y_pred == 1:
             result = False
-
-        # TODO: Run data science .py file or do it here.
-
-        # TODO: Return the output.
 
         return result
 
