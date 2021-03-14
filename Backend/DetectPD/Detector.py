@@ -6,7 +6,6 @@ from TestImageBuilder import TestImageBuilder
 from User import User
 from UserModel import UserModel
 
-
 class Detector:
     __user: User = None
 
@@ -25,16 +24,14 @@ class Detector:
         features = feature_file.read()
         features = features.split(" ")
 
-        test_image = TestImageBuilder()
-        test_image.set_rms(float(features[1]))
-        test_image.set_std_deviation_st_ht(float(features[2]))
-        test_image.set_max_between_st_ht(float(features[3]))
-        test_image.set_min_between_st_ht(float(features[4]))
-        test_image.set_mrt(float(features[5]))
-        test_image.set_max_ht(float(features[6]))
-        test_image.set_min_ht(float(features[7]))
-        test_image.set_std_ht(float(features[8]))
-        test_image.set_changes_from_negative_to_positive_between_st_ht(float(features[9]))
+        test_image = TestImageBuilder() \
+            .set_rms(float(features[1])) \
+            .set_std_deviation_st_ht(float(features[2])) \
+            .set_max_between_st_ht(float(features[3])) \
+            .set_min_between_st_ht(features[4]).set_mrt(float(features[5])) \
+            .set_max_ht(float(features[6])) \
+            .set_min_ht(features[7]).set_std_ht(float(features[8])) \
+            .set_changes_from_negative_to_positive_between_st_ht(float(features[9]))
 
         self.__user.set_test_image(test_image)
         self.__user.set_age(image_no.get_age())
