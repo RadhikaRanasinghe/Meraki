@@ -20,7 +20,7 @@ class Detector:
 
         pass
 
-    def process(self, image_no: int) -> bool:
+    def process(self) -> bool:
         result: bool = True
 
         with open('Models/ensemble_classifier.pickle', 'rb') as file:
