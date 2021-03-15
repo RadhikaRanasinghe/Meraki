@@ -21,6 +21,21 @@
   <component name="ChangeListManager">
     <list default="true" id="999e3eeb-0811-4150-9515-38da04c98dc0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RF_BestModel1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RF_BestModel2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RF_BestModel3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RF_WorstModel.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RF_results.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/ROS/RF_BestModel1_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/ROS/RF_BestModel2_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/ROS/RF_BestModel3_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/ROS/RF_WorstModel_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/ROS/RF_results_ROS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/SMOTE/RF_BestModel1_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/SMOTE/RF_BestModel2_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/SMOTE/RF_BestModel3_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/SMOTE/RF_WorstModel_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/SMOTE/RF_results_SMOTE.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
