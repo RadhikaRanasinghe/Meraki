@@ -1,4 +1,9 @@
+import base64
+import io
+import os
+import PIL.Image as Image
 from User import User
+from TestImageBuilder import TestImageBuilder
 from UserModel import UserModel
 import pickle
 
@@ -10,13 +15,41 @@ class Detector:
         pass
 
     def load_features(self, image_no: UserModel):
-        # TODO: GET the image from the database.
+        b = base64.b64decode(image_no.get_test_image())
+        img = Image.open(io.BytesIO(b))
+        img.save('images/image' + str(image_no.get_id()) + '.png')
 
         # TODO: Run the C++ file.
 
-        # TODO: Read RMS.txt(assume its a csv).
+        # temp testing
+        img.save('images/image' + str(image_no.get_id()) + '_pen.png')
+        img.save('images/image' + str(image_no.get_id()) + '_template.png')
 
-        # TODO: Fill the __user variable.
+        os.remove('/images/image' + str(image_no.get_id()) + '.png')
+        os.remove('/images/image' + str(image_no.get_id()) + " _pen" + '.png')
+        os.remove('/images/image' + str(image_no.get_id()) + " _template" + '.png')
+
+        feature_file = open("Results/RMS" + str(image_no.get_id()) + ".txt", "r")
+        features = feature_file.read()
+        features = features.split(", ")
+
+        test_image = TestImageBuilder() \
+            .set_rms(float(features[1])) \
+            .set_std_deviation_st_ht(float(features[2])) \
+            .set_max_between_st_ht(float(features[3])) \
+            .set_min_between_st_ht(features[4]) \
+            .set_mrt(float(features[5])) \
+            .set_max_ht(float(features[6])) \
+            .set_min_ht(features[7]) \
+            .set_std_ht(float(features[8])) \
+            .set_changes_from_negative_to_positive_between_st_ht(float(features[9])).build()
+
+        self.__user.set_test_image(test_image)
+        self.__user.set_age(image_no.get_age())
+        self.__user.set_gender(image_no.get_gender())
+        self.__user.set_handedness(image_no.get_handedness())
+        os.remove("Results/RMS" + str(image_no.get_id()) + ".txt")
+        pass
 
         pass
 
