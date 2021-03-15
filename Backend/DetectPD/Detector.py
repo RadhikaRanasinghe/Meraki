@@ -1,11 +1,12 @@
-import base64
 import io
 import os
-from PIL import Image, ImageFile
-from User import User
-from TestImageBuilder import TestImageBuilder
-from UserModel import UserModel
 import pickle
+
+from PIL import Image, ImageFile
+
+from TestImageBuilder import TestImageBuilder
+from User import User
+from UserModel import UserModel
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
