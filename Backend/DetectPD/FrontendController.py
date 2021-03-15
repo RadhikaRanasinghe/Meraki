@@ -58,7 +58,7 @@ def retrieve_result():
                     detector = Detector()
 
                     detector.load_features(user_model)
-                    result = detector.process(image_no)
+                    result = detector.process()
 
                     test_image = detector.get_user().get_test_image()
                     conn.insert_values_test_image(test_image, image_no, result)
