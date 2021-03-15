@@ -11,9 +11,6 @@ import pickle
 class Detector:
     __user: User = None
 
-    def __init__(self):
-        pass
-
     def load_features(self, image_no: UserModel):
         b = base64.b64decode(image_no.get_test_image())
         img = Image.open(io.BytesIO(b))
@@ -49,9 +46,6 @@ class Detector:
         self.__user.set_gender(image_no.get_gender())
         self.__user.set_handedness(image_no.get_handedness())
         os.remove("Results/RMS" + str(image_no.get_id()) + ".txt")
-        pass
-
-        pass
 
     def process(self) -> bool:
         result: bool = True
