@@ -55,7 +55,7 @@ class Detector:
     def process(self) -> bool:
         result: bool = True
 
-        with open('Models/ensemble_classifier.pickle', 'rb') as file:
+        with open('models/ensemble_classifier.pickle', 'rb') as file:
             ensemble_classifier = pickle.load(file)
 
         x = [[self.__user.get_gender(), self.__user.get_handedness(), self.__user.get_age(),
@@ -66,7 +66,6 @@ class Detector:
               self.__user.get_test_image().get_changes_from_negative_to_positive_between_st_ht()]]
 
         y_pred = ensemble_classifier.predict(x)
-        print(y_pred)
 
         if y_pred == 2:
             result = True
