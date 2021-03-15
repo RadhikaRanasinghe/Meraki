@@ -6,6 +6,7 @@ from User import User
 from TestImageBuilder import TestImageBuilder
 from UserModel import UserModel
 import pickle
+
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
@@ -22,13 +23,15 @@ class Detector:
         img.save('images/image' + str(image_no.get_id()) + '_pen.jpg')
         img.save('images/image' + str(image_no.get_id()) + '_template.jpg')
 
-        os.remove('/images/image' + str(image_no.get_id()) + '.png')
-        os.remove('/images/image' + str(image_no.get_id()) + " _pen" + '.jpg')
-        os.remove('/images/image' + str(image_no.get_id()) + " _template" + '.jpg')
+        img.close()
+        os.remove('images/image' + str(image_no.get_id()) + '.png')
+        os.remove('images/image' + str(image_no.get_id()) + " _pen" + '.jpg')
+        os.remove('images/image' + str(image_no.get_id()) + " _template" + '.jpg')
 
         feature_file = open("Results/RMS" + str(image_no.get_id()) + ".txt", "r")
         features = feature_file.read()
         features = features.split(", ")
+        feature_file.close()
 
         test_image = TestImageBuilder() \
             .set_rms(float(features[1])) \
@@ -41,10 +44,11 @@ class Detector:
             .set_std_ht(float(features[8])) \
             .set_changes_from_negative_to_positive_between_st_ht(float(features[9])).build()
 
-        self.__user.set_test_image(test_image)
-        self.__user.set_age(image_no.get_age())
-        self.__user.set_gender(image_no.get_gender())
-        self.__user.set_handedness(image_no.get_handedness())
+        self.__user = User(
+            test_image=test_image,
+            age=image_no.get_age(),
+            gender=image_no.get_gender(),
+            handedness=image_no.get_handedness())
         os.remove("Results/RMS" + str(image_no.get_id()) + ".txt")
 
     def process(self) -> bool:
