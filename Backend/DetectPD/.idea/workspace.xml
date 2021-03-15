@@ -20,135 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="999e3eeb-0811-4150-9515-38da04c98dc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(3)_size_0.1.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(5)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(7)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_data_n(9)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(3)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(5)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(7)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/best_model_n(9)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(3)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(5)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(7)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_data_n(9)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(3)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(5)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(7)_size(0.4).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.01).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.02).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.03).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.04).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.1).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.2).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.3).pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Models/KNN/worst_model_n(9)_size(0.4).pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +105,7 @@
       <workItem from="1613657097897" duration="4121000" />
       <workItem from="1613665367775" duration="599000" />
       <workItem from="1613666048420" duration="1846000" />
-      <workItem from="1615814512145" duration="317000" />
+      <workItem from="1615814512145" duration="932000" />
     </task>
     <servers />
   </component>
