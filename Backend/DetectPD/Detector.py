@@ -1,30 +1,30 @@
 import base64
 import io
 import os
-import PIL.Image as Image
+from PIL import Image, ImageFile
 from User import User
 from TestImageBuilder import TestImageBuilder
 from UserModel import UserModel
 import pickle
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 class Detector:
     __user: User = None
 
     def load_features(self, image_no: UserModel):
-        b = base64.b64decode(image_no.get_test_image())
-        img = Image.open(io.BytesIO(b))
-        img.save('images/image' + str(image_no.get_id()) + '.png')
+        img = Image.open(io.BytesIO(image_no.get_test_image()))
+        img.save('images/image' + str(image_no.get_id()) + '.jpg')
 
         # TODO: Run the C++ file.
 
         # temp testing
-        img.save('images/image' + str(image_no.get_id()) + '_pen.png')
-        img.save('images/image' + str(image_no.get_id()) + '_template.png')
+        img.save('images/image' + str(image_no.get_id()) + '_pen.jpg')
+        img.save('images/image' + str(image_no.get_id()) + '_template.jpg')
 
         os.remove('/images/image' + str(image_no.get_id()) + '.png')
-        os.remove('/images/image' + str(image_no.get_id()) + " _pen" + '.png')
-        os.remove('/images/image' + str(image_no.get_id()) + " _template" + '.png')
+        os.remove('/images/image' + str(image_no.get_id()) + " _pen" + '.jpg')
+        os.remove('/images/image' + str(image_no.get_id()) + " _template" + '.jpg')
 
         feature_file = open("Results/RMS" + str(image_no.get_id()) + ".txt", "r")
         features = feature_file.read()
