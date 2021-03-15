@@ -20,6 +20,10 @@ class Detector:
 
         # TODO: Run the C++ file.
 
+        # temp testing
+        img.save('images/image' + str(image_no.get_id()) + '_pen.png')
+        img.save('images/image' + str(image_no.get_id()) + '_template.png')
+
         os.remove('/images/image' + str(image_no.get_id()) + '.png')
         os.remove('/images/image' + str(image_no.get_id()) + " _pen" + '.png')
         os.remove('/images/image' + str(image_no.get_id()) + " _template" + '.png')
@@ -37,7 +41,7 @@ class Detector:
             .set_max_ht(float(features[6])) \
             .set_min_ht(features[7]) \
             .set_std_ht(float(features[8])) \
-            .set_changes_from_negative_to_positive_between_st_ht(float(features[9]))
+            .set_changes_from_negative_to_positive_between_st_ht(float(features[9])).build()
 
         self.__user.set_test_image(test_image)
         self.__user.set_age(image_no.get_age())
