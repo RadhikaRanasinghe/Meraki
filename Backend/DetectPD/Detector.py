@@ -28,7 +28,7 @@ class Detector:
         os.remove('images/image' + str(image_no.get_id()) + " _pen" + '.jpg')
         os.remove('images/image' + str(image_no.get_id()) + " _template" + '.jpg')
 
-        feature_file = open("Results/RMS" + str(image_no.get_id()) + ".txt", "r")
+        feature_file = open("results/RMS" + str(image_no.get_id()) + ".txt", "r")
         features = feature_file.read()
         features = features.split(", ")
         feature_file.close()
@@ -49,7 +49,7 @@ class Detector:
             age=image_no.get_age(),
             gender=image_no.get_gender(),
             handedness=image_no.get_handedness())
-        os.remove("Results/RMS" + str(image_no.get_id()) + ".txt")
+        os.remove("results/RMS" + str(image_no.get_id()) + ".txt")
 
     def process(self) -> bool:
         result: bool = True
