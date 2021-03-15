@@ -12,5 +12,6 @@ detector = Detector()
 user_model = select_record_test(30)
 img = Image.open(io.BytesIO(user_model.get_test_image()))
 img.save('images/image' + str(user_model.get_id()) + '.jpg')
+img.close()
 
 os.remove('images/image30.jpg')

@@ -24,14 +24,14 @@ class Detector:
         img.save('images/image' + str(image_no.get_id()) + '_template.jpg')
 
         img.close()
-        os.remove('images/image' + str(image_no.get_id()) + '.png')
-        os.remove('images/image' + str(image_no.get_id()) + " _pen" + '.jpg')
-        os.remove('images/image' + str(image_no.get_id()) + " _template" + '.jpg')
+        os.remove('images/image' + str(image_no.get_id()) + '.jpg')
+        os.remove('images/image' + str(image_no.get_id()) + '_pen.jpg')
+        os.remove('images/image' + str(image_no.get_id()) + '_template.jpg')
 
         feature_file = open("results/RMS" + str(image_no.get_id()) + ".txt", "r")
         features = feature_file.read()
-        features = features.split(", ")
         feature_file.close()
+        features = features.split(", ")
 
         test_image = TestImageBuilder() \
             .set_rms(float(features[1])) \
@@ -42,7 +42,8 @@ class Detector:
             .set_max_ht(float(features[6])) \
             .set_min_ht(features[7]) \
             .set_std_ht(float(features[8])) \
-            .set_changes_from_negative_to_positive_between_st_ht(float(features[9])).build()
+            .set_changes_from_negative_to_positive_between_st_ht(float(features[9]))\
+            .build()
 
         self.__user = User(
             test_image=test_image,
