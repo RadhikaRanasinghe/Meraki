@@ -1,0 +1,18 @@
+The source-code contains four files:
+
+- extractHand.cpp -> given an input image, it extracts the handwriting and saves it as an output image.
+- extractTemplate.cpp -> given an input image, it extracts the template and save it as an output image.
+- extractFeats.cpp -> given an input image, the handwriting image and the class identifier, it extracts the features and save them in the RMS.txt file.
+- run.sh -> script that contains a toy example of the execution code
+
+Steps to follow:
+1. run "./compile.sh" to compile all .cpp files
+2. run "run.sh"
+
+IMPORTANT ***
+Please, install the OpenCV library according to the link: https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html
+
+Any further comment, please drop us an e-mail:
+- Danillo Roberto Pereira: cotonilo@gmail.com 
+- Clayton Reginaldo Pereira: claytontey@gmail.com
+- Joao Paulo Papa: papa@fc.unesp.br
