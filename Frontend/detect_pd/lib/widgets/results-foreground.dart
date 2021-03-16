@@ -19,6 +19,7 @@ class ResultsForeground extends StatelessWidget {
         SliverAppBar(
             floating: false,
             pinned: false,
+            automaticallyImplyLeading: false,
             expandedHeight: expandedHeight,
             flexibleSpace: FlexibleSpaceBar(
                 background:resultImage

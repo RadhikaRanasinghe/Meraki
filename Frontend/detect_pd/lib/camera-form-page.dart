@@ -1,4 +1,4 @@
-import 'package:detect_pd/services/post-request-camera.dart';
+import 'package:detect_pd/services/api-camera.dart';
 import 'package:detect_pd/settings-page.dart';
 import 'package:detect_pd/widgets/navbar.dart';
 import 'package:flutter/material.dart';

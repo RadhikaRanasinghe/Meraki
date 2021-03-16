@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'widgets/home-background.dart';
 import 'widgets/home-foreground.dart';
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-));
+// void main() => runApp(MaterialApp(
+//   home: LoadingPage(),
+// ));
 
-class Home extends StatelessWidget {
+class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +150,16 @@ class LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
               ]),
             )));
   }
+
+  // disposing the active timer
+  @override
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
 }
+
 
 class Dot extends StatelessWidget {
   final double radius;

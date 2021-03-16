@@ -1,4 +1,4 @@
-import 'package:detect_pd/services/post-request-gallery.dart';
+import 'package:detect_pd/services/api-gallery.dart';
 import 'package:detect_pd/settings-page.dart';
 import 'package:detect_pd/widgets/navbar.dart';
 import 'package:flutter/cupertino.dart';
