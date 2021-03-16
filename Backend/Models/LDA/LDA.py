@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import pickle
 
-pd_data = pd.read_csv('DetectPD.csv')
+pd_data = pd.read_csv('Data/DetectPD.csv')
 
 le = sklearn.preprocessing.LabelEncoder()
 gender = le.fit_transform(list(pd_data['GENDER']))
@@ -35,7 +35,6 @@ highestAccuracy = 0
 lowModel = 0
 highModel = 0
 
-
 X = np.array(X)
 y = np.array(y)
 
@@ -53,7 +52,7 @@ for x in range(10000):
         lowModel = clf
         highModel = clf
         lowestAccuracy = accuracy
-        highestAccuracy1 = accuracy
+        highestAccuracy = accuracy
     else:
         if accuracy < lowestAccuracy:
             lowestAccuracy = accuracy
@@ -61,49 +60,17 @@ for x in range(10000):
             print("==========Low=========")
             print(sklearn.metrics.classification_report(y_test, predictions))
             print(accuracy)
-            with open('LDA_low_result'+str(accuracy)+'.pickle', 'wb') as handle:
-                pickle.dump(highModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            with open('LDA_low_result' + str(accuracy) + '.pickle', 'wb') as handle:
+                pickle.dump(lowModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
                 print('success')
 
-        elif accuracy > highestAccuracy1:
+        elif accuracy > highestAccuracy:
             print("==========High=========")
             print(sklearn.metrics.classification_report(y_test, predictions))
             print(accuracy)
-            highestAccuracy1 = accuracy
-            highModel1 = clf
-            with open('LDA_high_result'+str(accuracy)+'.pickle', 'wb') as handle:
-                pickle.dump(highModel1, handle, protocol=pickle.HIGHEST_PROTOCOL)
+            highestAccuracy = accuracy
+            highModel = clf
+            with open('LDA_high_result' + str(accuracy) + '.pickle', 'wb') as handle:
+                pickle.dump(highModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
                 print('success')
 
-# print()
-#
-# print("Lowest : " + str(lowestAccuracy))
-# lowPredict = lowModel.predict(X_test)
-# print(accuracy_score(y_test, lowPredict) * 100)
-# print()
-# print("Highest 1 :" + str(highestAccuracy1))
-# highPredict = highModel.predict(X_test)
-#
-# print(accuracy_score(y_test, highPredict) * 100)
-
-# print()
-# print("Highest 2 : " + str(highestAccuracy2))
-#
-# print()
-# print("Highest 3: " + str(highestAccuracy3))
-
-# with open('LDA_high_result1.pickle', 'wb') as handle:
-#     pickle.dump(highModel1, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#     print('success')
-#
-# with open('LDA_high_result2.pickle', 'wb') as handle:
-#     pickle.dump(highModel2, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#     print('success')
-#
-# with open('LDA_high_result3.pickle', 'wb') as handle:
-#     pickle.dump(highModel3, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#     print('success')
-#
-# with open('LDA_low_result.pickle', 'wb') as handle:
-#     pickle.dump(lowModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
-#     print('success')
