@@ -1,42 +1,55 @@
 
-######**_The Best Model 1: 
+######**_The Best Model 1_**: 
 
-Accuracy: 100.0 
+Accuracy: 100.0
 
-F1 score: 1.0
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       1.00      1.00      1.00        21
+           2       1.00      1.00      1.00        43
 
-Recall score: 1.0
+    accuracy                           1.00        64
+   macro avg       1.00      1.00      1.00        64
+weighted avg       1.00      1.00      1.00        64
 
 ######**_The Best Model 2_**: 
 
-Accuracy: 98.4375 
+Accuracy: 98.4375
 
-F1 score: 0.975609756097561
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       1.00      0.95      0.97        19
+           2       0.98      1.00      0.99        45
 
-Recall score: 0.9523809523809523
+    accuracy                           0.98        64
+   macro avg       0.99      0.97      0.98        64
+weighted avg       0.98      0.98      0.98        64
 
 ######**_The Best Model 3_**: 
 
-Accuracy: 96.875 
+Accuracy: 96.875
 
-F1 score: 0.9411764705882353
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       0.96      0.96      0.96        24
+           2       0.97      0.97      0.97        40
 
-Recall score: 0.8888888888888888
+    accuracy                           0.97        64
+   macro avg       0.97      0.97      0.97        64
+weighted avg       0.97      0.97      0.97        64
 
-######**_The worst model_**: 
+######**_The Worst Model_**: 
 
-Accuracy: 76.5625 
+Accuracy: 76.5625
 
-F1 score: 0.6808510638297872
+              precision    recall  f1-score   support
 
-Precision score: 0.7272727272727273
+           1       0.95      0.56      0.71        32
+           2       0.69      0.97      0.81        32
 
-Recall score: 0.64
+    accuracy                           0.77        64
+   macro avg       0.82      0.77      0.76        64
+weighted avg       0.82      0.77      0.76        64
 
-######**_The number of models with 100% accuracy in 10,000 iterations_**:26
+
+######**_The number of models with 100% accuracy in 10,000 iterations_**:23

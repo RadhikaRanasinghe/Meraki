@@ -1,42 +1,55 @@
 
-######**_The Best Model 1: 
+######**_The Best Model 1_**: 
 
-Accuracy: 100.0 
+Accuracy: 100.0
 
-F1 score: 1.0
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       1.00      1.00      1.00        45
+           2       1.00      1.00      1.00        39
 
-Recall score: 1.0
+    accuracy                           1.00        84
+   macro avg       1.00      1.00      1.00        84
+weighted avg       1.00      1.00      1.00        84
 
 ######**_The Best Model 2_**: 
 
-Accuracy: 98.80952380952381 
+Accuracy: 98.80952380952381
 
-F1 score: 0.9896907216494846
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       1.00      0.98      0.99        45
+           2       0.97      1.00      0.99        39
 
-Recall score: 0.9795918367346939
+    accuracy                           0.99        84
+   macro avg       0.99      0.99      0.99        84
+weighted avg       0.99      0.99      0.99        84
 
 ######**_The Best Model 3_**: 
 
-Accuracy: 97.61904761904762 
+Accuracy: 97.61904761904762
 
-F1 score: 0.9761904761904763
+              precision    recall  f1-score   support
 
-Precision score: 1.0
+           1       0.97      0.97      0.97        37
+           2       0.98      0.98      0.98        47
 
-Recall score: 0.9534883720930233
+    accuracy                           0.98        84
+   macro avg       0.98      0.98      0.98        84
+weighted avg       0.98      0.98      0.98        84
 
-######**_The worst model_**: 
+######**_The Worst Model_**: 
 
-Accuracy: 76.19047619047619 
+Accuracy: 77.38095238095238
 
-F1 score: 0.7297297297297298
+              precision    recall  f1-score   support
 
-Precision score: 0.7105263157894737
+           1       0.86      0.70      0.77        46
+           2       0.70      0.87      0.78        38
 
-Recall score: 0.75
+    accuracy                           0.77        84
+   macro avg       0.78      0.78      0.77        84
+weighted avg       0.79      0.77      0.77        84
 
-######**_The number of models with 100% accuracy in 10,000 iterations_**:9
+
+######**_The number of models with 100% accuracy in 10,000 iterations_**:6
