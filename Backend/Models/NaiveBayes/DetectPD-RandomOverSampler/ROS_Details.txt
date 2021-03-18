@@ -1,0 +1,47 @@
+----------------------- Best -----------------------
+
+accu_score = 94.04761904761905
+
+              precision    recall  f1-score   support
+           1       0.96      0.87      0.92        31
+           2       0.93      0.98      0.95        53
+    accuracy                           0.94        84
+   macro avg       0.95      0.93      0.93        84
+weighted avg       0.94      0.94      0.94        84
+
+
+-----------------------------------------------------
+
+accu_score = 91.66666666666666
+
+              precision    recall  f1-score   support
+           1       0.93      0.91      0.92        44
+           2       0.90      0.93      0.91        40
+    accuracy                           0.92        84
+   macro avg       0.92      0.92      0.92        84
+weighted avg       0.92      0.92      0.92        84
+
+
+-----------------------------------------------------
+
+accu_score = 90.47619047619048
+
+              precision    recall  f1-score   support
+           1       0.97      0.83      0.89        41
+           2       0.86      0.98      0.91        43
+    accuracy                           0.90        84
+   macro avg       0.91      0.90      0.90        84
+weighted avg       0.91      0.90      0.90        84
+
+
+
+----------------------- Worst -----------------------
+
+accu_score = 61.904761904761905
+
+              precision    recall  f1-score   support
+           1       0.76      0.37      0.50        43
+           2       0.57      0.88      0.69        41
+    accuracy                           0.62        84
+   macro avg       0.67      0.63      0.60        84
+weighted avg       0.67      0.62      0.59        84
