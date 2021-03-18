@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="999e3eeb-0811-4150-9515-38da04c98dc0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD/RF_BestModel1.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD/RF_BestModel2.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD/RF_BestModel3.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD/RF_WorstModel.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD/RF_results.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ADASYNC/RF_BestModel1_ADASYN.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ADASYNC/RF_BestModel2_ADASYN.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ADASYNC/RF_BestModel3_ADASYN.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ADASYNC/RF_WorstModel_ADASYN.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ADASYNC/RF_results_ADASYN.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ROS/RF_BestModel1_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ROS/RF_BestModel2_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ROS/RF_BestModel3_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ROS/RF_WorstModel_ROS.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_ROS/RF_results_ROS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_SMOTE/RF_BestModel1_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_SMOTE/RF_BestModel2_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_SMOTE/RF_BestModel3_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_SMOTE/RF_WorstModel_SMOTE.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/DetectPD_SMOTE/RF_results_SMOTE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/RandomForest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/data/DetectPD-ADASYN.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/data/DetectPD-RandomOverSampler.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/data/DetectPD-SMOTE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/data/DetectPD-Unbiased.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/data/DetectPD.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/RandomForest/requirements.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JupyterTrust" id="3a4126c7-0539-4f3a-9f94-a7cda617d4a2" />
+  <component name="ProjectId" id="1oZTsAlkFeckUXqfBYMesX8jjFP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Flask Rest API Tutorial/test.py" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Code with Me" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="DetectPD" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="999e3eeb-0811-4150-9515-38da04c98dc0" name="Default Changelist" comment="" />
+      <created>1613493319188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1613493319188</updated>
+      <workItem from="1613493320207" duration="4255000" />
+      <workItem from="1613538575315" duration="6846000" />
+      <workItem from="1613577480685" duration="1695000" />
+      <workItem from="1613579480301" duration="603000" />
+      <workItem from="1613656238852" duration="840000" />
+      <workItem from="1613657097897" duration="4121000" />
+      <workItem from="1613665367775" duration="599000" />
+      <workItem from="1613666048420" duration="1846000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1506" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613496985471">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613496985471" />
+    <state x="591" y="218" key="FileChooserDialogImpl" timestamp="1613660348506">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1181" y="275" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613496906410" />
+    <state x="591" y="218" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1613660348506" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1613497012274">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613497012274" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1613497012274">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613497012274" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1613497012274">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613497012274" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1613497012274">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613497012274" />
+    <state x="369" y="115" key="SettingsEditor" timestamp="1613666140238">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1459" y="165" key="SettingsEditor/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1613496953257" />
+    <state x="369" y="115" key="SettingsEditor/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1613666140238" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DetectPD$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1613496988731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/DetectPD$TestProcess.coverage" NAME="TestProcess Coverage Results" MODIFIED="1615706628987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DetectPD$Detector.coverage" NAME="Detector Coverage Results" MODIFIED="1615712566565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DetectPD$Flask__FrontendController_py_.coverage" NAME="Flask (FrontendController.py) Coverage Results" MODIFIED="1615729652343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>
