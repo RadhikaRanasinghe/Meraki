@@ -16,6 +16,8 @@ def create_user():
 
     payload = request.form.to_dict()
 
+    print(payload, request.files)
+
     if 'image' in request.files and payload.keys() >= {'age', 'gender', 'handedness'}:
         file = request.files['image']
 
@@ -76,4 +78,4 @@ def retrieve_result():
 
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run()
