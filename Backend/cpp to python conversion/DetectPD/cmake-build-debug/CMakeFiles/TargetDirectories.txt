@@ -1,0 +1,3 @@
+C:/Users/ASUS/CLionProjects/DetectPD/cmake-build-debug/CMakeFiles/DetectPD.dir
+C:/Users/ASUS/CLionProjects/DetectPD/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/CLionProjects/DetectPD/cmake-build-debug/CMakeFiles/rebuild_cache.dir
