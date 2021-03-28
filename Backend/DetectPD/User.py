@@ -3,6 +3,14 @@ from TestImage import TestImage
 
 class User:
     def __init__(self, test_image: TestImage, age: int, gender: int, handedness: int):
+        """this is the constructor
+
+        Args:
+            test_image (TestImage): TestImage object
+            age (int): age of the user
+            gender (int): gender of the user
+            handedness (int): handednes of the user
+        """
         self.__test_image: TestImage = test_image
         self.__age: int = age
         self.__gender: int = gender
