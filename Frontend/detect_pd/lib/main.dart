@@ -5,6 +5,7 @@ import 'package:detect_pd/widgets/home-background.dart';
 import 'package:detect_pd/widgets/navbar.dart';
 import 'package:detect_pd/settings-page.dart';
 import 'package:flutter/material.dart';
+import 'package:showcaseview/showcase_widget.dart';
 import 'FAQ-Page.dart';
 import 'package:detect_pd/widgets/home-Foreground.dart';
 import 'about-page.dart';
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
           titleColor: Colors.white,
         ),
         appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        fillChild: NewSquare(),
+        fillChild: ShowCaseWidget(builder: Builder(builder: (_) => NewSqaure())),
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(

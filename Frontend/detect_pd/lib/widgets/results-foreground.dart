@@ -35,9 +35,9 @@ class ResultsForeground extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   color: fillColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40)),
+                  // borderRadius: BorderRadius.only(
+                  //     topLeft: Radius.circular(40),
+                  //     topRight: Radius.circular(40)),
                 ),
                 child:ResultsText(result: result,disclaimer: 'Disclaimer: Consult a medical professional for further clarification ',fontcolor:const Color(0xffe8e8e8)) ,
               )),

@@ -5,9 +5,9 @@ import 'widgets/home-background.dart';
 import 'widgets/home-foreground.dart';
 
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-));
+// void main() => runApp(MaterialApp(
+//   home: Home(),
+// ));
 
 class Home extends StatelessWidget {
   @override

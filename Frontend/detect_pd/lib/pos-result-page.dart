@@ -25,24 +25,24 @@ class PositiveResultsPage extends StatelessWidget {
           ),
           expandedHeight: 300.0,
           result: 'Parkinson\'s Disease \n Detected!'),
-      bottomNavigationBar: NavBar(
-        link1: () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => AboutPDPage()));
-        },
-        link2: () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()));
-        },
-        link3: () {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()));
-        },
-        backgroundColor: Color.fromRGBO(240, 241, 226, 100),
-      ),
+      // bottomNavigationBar: NavBar(
+      //   link1: () {
+      //     Navigator.pushReplacement(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => AboutPDPage()));
+      //   },
+      //   link2: () {
+      //     Navigator.pushReplacement(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => HomePage()));
+      //   },
+      //   link3: () {
+      //     Navigator.pushReplacement(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => SettingsPage()));
+      //   },
+      //   backgroundColor: Color.fromRGBO(240, 241, 226, 100),
+      // ),
     );
   }
 }

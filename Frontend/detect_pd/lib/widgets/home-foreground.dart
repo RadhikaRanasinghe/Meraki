@@ -53,10 +53,10 @@ class HomeForeground extends StatelessWidget {
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                   color: fillColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40)
-                  ),
+                  // borderRadius: BorderRadius.only(
+                  //     topLeft: Radius.circular(40),
+                  //     topRight: Radius.circular(40)
+                  // ),
               ),
               child: Center(
                 child: fillChild,

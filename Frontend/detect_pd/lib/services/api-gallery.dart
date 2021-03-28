@@ -85,8 +85,8 @@ class GalleryAccessState extends State<GalleryAccess> {
   }
 
   Future doUpload() async {
-    // var request = http.MultipartRequest('POST', Uri.parse("http://detectpd.us-east-2.elasticbeanstalk.com/create_user"));
-    var request = http.MultipartRequest('POST', Uri.parse("http://10.0.2.2:5000/create_user"));
+    var request = http.MultipartRequest('POST', Uri.parse("http://detectpd.us-east-2.elasticbeanstalk.com/create_user"));
+    // var request = http.MultipartRequest('POST', Uri.parse("http://10.0.2.2:5000/create_user"));
 
     // creating request.fields
     request.fields['age'] = ageController.text;
@@ -134,8 +134,8 @@ class GalleryAccessState extends State<GalleryAccess> {
     );
 
     //async function to perform http get
-    // final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
-    final response = await http.get('http://10.0.2.2:5000/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
+    final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
+    // final response = await http.get('http://10.0.2.2:5000/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
 
     final decoded = json.decode(response.body) as Map<String, dynamic>; //converting it from json to key value pair
 

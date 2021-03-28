@@ -48,9 +48,9 @@ class NavBar extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(borderRadius),
-              topLeft: Radius.circular(borderRadius)),
+          // borderRadius: BorderRadius.only(
+          //     topRight: Radius.circular(borderRadius),
+          //     topLeft: Radius.circular(borderRadius)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(

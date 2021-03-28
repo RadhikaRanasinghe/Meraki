@@ -43,7 +43,7 @@ class HelpPage extends StatelessWidget {
           textColor: Colors.white,
         ),
         // fillColor:  Color.fromRGBO(240, 241, 226, 100),
-        fillColor:  Color(0xff1a89bf),
+        fillColor:  Color(0xff033e6b),
       ),
       bottomNavigationBar: NavBar(
         link1: null,

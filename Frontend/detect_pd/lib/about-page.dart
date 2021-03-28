@@ -5,14 +5,14 @@ import 'main.dart';
 import 'widgets/home-Foreground.dart';
 import 'widgets/home-background.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: AboutPDPage(),
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//       home: AboutPDPage(),
+//       theme: ThemeData(
+//         canvasColor: Color.fromRGBO(118, 176, 195, 100),
+//       )
+//   ));
+// }
 
 class AboutPDPage extends StatelessWidget {
   @override
