@@ -29,7 +29,7 @@ def naive_bayes_classifier():
     hand_pd.drop("IMAGE_NAME", axis=1, inplace=True)
     hand_pd.drop("_ID_EXAM", axis=1, inplace=True)
 
-    # preprocessing columns
+    # preprocessing columns using label encoders
     le = sklearn.preprocessing.LabelEncoder()
     gender = le.fit_transform(list(hand_pd['GENDER']))
     handedness = le.fit_transform(list(hand_pd['RIGH/LEFT-HANDED']))
@@ -53,7 +53,7 @@ def naive_bayes_classifier():
     X = np.array(X)
     y = np.array(y)
 
-    # Total instances
+    # print total rows in dataset
     print("# Total = " + str(len(hand_pd.index)))
     print(hand_pd.head(10))
 
