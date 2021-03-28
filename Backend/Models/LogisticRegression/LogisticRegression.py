@@ -9,6 +9,7 @@ import pickle
 
 pd_data = pd.read_csv('DetectPD.csv')
 
+# creating dummy data
 le = sklearn.preprocessing.LabelEncoder()
 gender = le.fit_transform(list(pd_data['GENDER']))
 handedness = le.fit_transform(list(pd_data['RIGH/LEFT-HANDED']))
@@ -32,6 +33,7 @@ y = list(class_type)
 X = np.array(X)
 y = np.array(y)
 
+# initializing variables
 lowestAccuracy = 0
 highestAccuracy1 = 0
 highestAccuracy2 = 0
@@ -42,15 +44,14 @@ highModel2 = 0
 highModel3 = 0
 
 for x in range(10000):
-    print(x)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)  # spliting test size and train size
     logmodel = LogisticRegression(solver='lbfgs', max_iter=20000)
-    logmodel.fit(X_train, y_train)
-    predictions = logmodel.predict(X_test)
+    logmodel.fit(X_train, y_train)  # fitting  the training data into the model
+    predictions = logmodel.predict(X_test)  # predicting using the model
     classification_report(y_test, predictions)
     confusion_matrix(y_test, predictions)
-    modelAccuracy = accuracy_score(y_test, predictions) * 100
-    if x == 0:
+    modelAccuracy = accuracy_score(y_test, predictions) * 100  # getting the accuracy score for the prediction
+    if x == 0:  # if its the first iteration
         lowModel = logmodel
         highModel1 = logmodel
         highModel2 = lowModel
@@ -59,23 +60,23 @@ for x in range(10000):
         highestAccuracy1 = modelAccuracy
         highestAccuracy2 = modelAccuracy
         highestAccuracy3 = modelAccuracy
-        file = open("log.txt", "w")
+        file = open("log.txt", "w")  # creating anf writing the accuracies to a log file
         file.write("Highest accuracy 1 : " + str(highestAccuracy1) +
                    "\n Highest accuracy 2 : " + str(highestAccuracy2) +
                    "\n Highest accuracy 3 : " + str(highestAccuracy3) +
                    "\n Lowest accuracy : " + str(lowestAccuracy))
         file.close()
     else:
-        if modelAccuracy < lowestAccuracy:
+        if modelAccuracy < lowestAccuracy:  # if the current model accuracy is lover than the lowest accuracy
             lowestAccuracy = modelAccuracy
             lowModel = logmodel
             file = open("log.txt", "a")
             file.write(" \n Lowest accuracy : " + str(lowestAccuracy))
             file.close()
-        elif modelAccuracy > highestAccuracy3:
+        elif modelAccuracy > highestAccuracy3:  # if the current model accuracy is higher than the 3rd highest accuracy
             file = open("log.txt", "a")
-            if modelAccuracy > highestAccuracy2:
-                if modelAccuracy > highestAccuracy1:
+            if modelAccuracy > highestAccuracy2:  # if the current model accuracy is higher than the 2ndrd highest accuracy
+                if modelAccuracy > highestAccuracy1:  # if the current model accuracy is higher than the 1st highest accuracy
                     highestAccuracy1 = modelAccuracy
                     highModel1 = logmodel
                     file.write("\n Highest 1 accuracy : " + str(highestAccuracy1))
@@ -93,6 +94,7 @@ for x in range(10000):
 
             file.close()
 
+# saving the models
 with open('LogR_BestModel_1.pickle', 'wb') as handle:
     pickle.dump(highModel1, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
