@@ -44,7 +44,7 @@ highModel2 = 0
 highModel3 = 0
 
 for x in range(10000):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)  # spliting test size and train size
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)  # splitting test size and train size
     logmodel = LogisticRegression(solver='lbfgs', max_iter=20000)
     logmodel.fit(X_train, y_train)  # fitting  the training data into the model
     predictions = logmodel.predict(X_test)  # predicting using the model
@@ -89,12 +89,8 @@ for x in range(10000):
                 highModel3 = logmodel
                 file.write("\n Highest 3 accuracy : " + str(highestAccuracy3))
             file.close()
-            # highestAccuracy = modelAccuracy
-            # highModel = logmodel
 
-            file.close()
-
-# saving the models
+# saving the models as pickle files
 with open('LogR_BestModel_1.pickle', 'wb') as handle:
     pickle.dump(highModel1, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
