@@ -78,14 +78,14 @@ int main(int argc, char** argv )
 
     sprintf(file_name,"%s_template.jpg",argv[1]);
     blur(img,img,Size(3*BLUR_RADIUS, 3*BLUR_RADIUS) );
-    cvtColor( img, img_gray, CV_BGR2GRAY );
+    cvtColor( img, img_gray, cv::COLOR_BGR2RGB );
 
     Mat element2 = getStructuringElement( erosion_type,
                                           Size( 2*erosion_size + 1, 2*erosion_size+1 ),
                                           Point( erosion_size, erosion_size ) );
 
     //Otsu threshold is used to remove the noise and background
-    cv::threshold(img_gray, img_gray, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cv::threshold(img_gray, img_gray, 0, 255, THRESH_BINARY | THRESH_OTSU);
     dilate( img_gray, img_gray, element2 );
     dilate( img_gray, img_gray, element2 );
     erode( img_gray, img_gray, element2 );
@@ -97,5 +97,4 @@ int main(int argc, char** argv )
 
     return 0;
 }
-
 
