@@ -148,7 +148,8 @@ class DropdownButton extends StatelessWidget{
       width: width,
       height: height,
       margin: bodyMargin,
-      child: RaisedButton.icon(   // using the raised button widget with an icon
+      // using the raised button widget with an icon
+      child: RaisedButton.icon(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
             side: BorderSide(color: Colors.grey, width: 1)
@@ -199,7 +200,8 @@ class _SquareButtonsState extends State<SquareButtons> {
       padding: padding,
       margin: bodyMargin,
       child: GridView.count(
-        physics: NeverScrollableScrollPhysics(),  // disable the scrolling in grid view
+        // disable the scrolling in grid view
+        physics: NeverScrollableScrollPhysics(),
         crossAxisCount: 2,
         children: <Widget>[
           Card(

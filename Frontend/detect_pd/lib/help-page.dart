@@ -9,7 +9,8 @@ import 'main.dart';
 void main() {
   runApp(MaterialApp(
       home: HelpPage(),
-      theme: ThemeData(   // using a theme
+      // using a theme
+      theme: ThemeData(
         canvasColor: Color.fromRGBO(118, 176, 195, 100),
       )
   ));

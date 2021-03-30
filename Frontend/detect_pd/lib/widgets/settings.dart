@@ -20,9 +20,11 @@ class Settings extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Color.fromRGBO(5, 88, 115, 100),
-        child: Center(  //center the widgets in the body
+        //center the widgets in the body
+        child: Center(
           child: Column(
-            children: <Widget>[   // creating the setting buttons
+            // creating the setting buttons
+            children: <Widget>[
               SettingsButton(buttonName:"Settings 1", width: 260.0,
                   height: 50.0,
                   bodyMargin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
@@ -108,7 +110,8 @@ class SettingsButton extends StatelessWidget{
         ),
         padding: padding,
         elevation: elevation,
-        onPressed: (){    // after pressing the button
+        // after pressing the button
+        onPressed: (){
           // ignore: unnecessary_statements
           link;
         },
