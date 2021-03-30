@@ -11,6 +11,10 @@ from sklearn.naive_bayes import GaussianNB
 
 
 def naive_bayes_classifier():
+    """ Method used to create and train Machine Learning model using Naive Bayes classifier.
+    This method utilizes four datasets to train the models."""
+
+    # four datasets used to train the models
     hand_pd = pd.read_csv("Datasets/DetectPD.csv")
     # hand_pd = pd.read_csv("Datasets/DetectPD-ADASYN.csv")
     # hand_pd = pd.read_csv("Datasets/DetectPD-RandomOverSampler.csv")
@@ -25,7 +29,7 @@ def naive_bayes_classifier():
     hand_pd.drop("IMAGE_NAME", axis=1, inplace=True)
     hand_pd.drop("_ID_EXAM", axis=1, inplace=True)
 
-    # preprocessing columns
+    # preprocessing columns using label encoders
     le = sklearn.preprocessing.LabelEncoder()
     gender = le.fit_transform(list(hand_pd['GENDER']))
     handedness = le.fit_transform(list(hand_pd['RIGH/LEFT-HANDED']))
@@ -49,17 +53,7 @@ def naive_bayes_classifier():
     X = np.array(X)
     y = np.array(y)
 
-    # # Replace strings with dummy numbers
-    # gender = pd.get_dummies(hand_pd['GENDER'], drop_first=True)
-    # hand = pd.get_dummies(hand_pd['RIGH/LEFT-HANDED'], drop_first=True)
-    #
-    # # Add the new columns to table
-    # hand_pd = pd.concat([hand_pd, gender, hand], axis=1)
-    #
-    # hand_pd.drop("GENDER", axis=1, inplace=True)
-    # hand_pd.drop("RIGH/LEFT-HANDED", axis=1, inplace=True)
-
-    # Total instances
+    # print total rows in dataset
     print("# Total = " + str(len(hand_pd.index)))
     print(hand_pd.head(10))
 
@@ -70,27 +64,29 @@ def naive_bayes_classifier():
     highestScore = 0
     highCount = 0
 
-    # X = hand_pd.drop("CLASS_TYPE", axis=1)  # Dependant variables
-    # y = hand_pd["CLASS_TYPE"]  # Independent variables
-
+    # fit model in 10,000 iterations
     for i in range(10000):
         """
             train_test_split() parameters: dependent variable, independent variable, test size as 10% 
-            random_state set to None which means train_test_split() will return different result each execution
-            if random_state set to integer, train_test_split() will return same result each execution
+            random_state set to None which means train_test_split() will return different result each 
+            execution if random_state set to integer, train_test_split() will return same result each 
+            execution
         """
+
+        # train_test_split with test size as 0.1 and train size as 0.9
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=None)
 
-        model = GaussianNB()  # Gaussian Naive Bayes function
+        # Gaussian Naive Bayes function
+        model = GaussianNB()
 
-        model.fit(X_train, y_train)  # fit model - train the model
+        # fit model - train the model
+        model.fit(X_train, y_train)
 
-        predicted = model.predict(X_test)  # Y_pred
+        # Y_pred
+        predicted = model.predict(X_test)
 
         score = metrics.accuracy_score(y_test, predicted)
         print(score * 100)
-        # print(metrics.classification_report(y_test, predicted))
-        # print(metrics.confusion_matrix(y_test, predicted))
 
         # first iteration
         if i == 0:
@@ -101,6 +97,8 @@ def naive_bayes_classifier():
         else:
             if score < lowestScore:
                 lowestScore = score
+
+                # assign the low accuracy model
                 lowestModel = model
 
                 print(metrics.classification_report(y_test, predicted))
@@ -108,6 +106,8 @@ def naive_bayes_classifier():
 
             elif score > highestScore:
                 highestScore = score
+
+                # assign the high accuracy model
                 highestModel = model
                 highCount += 1
 
@@ -121,17 +121,6 @@ def naive_bayes_classifier():
     # Saving models as pickle files
     with open("GNB_WorstModel.pickle", "wb") as worstModel:
         pickle.dump(lowestModel, worstModel)
-
-    # # Loading models from pickle files
-    # pickle_in = open("GNB_BestModel.pickle", "rb")
-    # loadedModel = pickle.load(pickle_in)
-    #
-    # new_pred = loadedModel.predict(X_test)
-    # new_score = metrics.accuracy_score(y_test, new_pred)
-    # print(new_score*100)
-
-    # scores.append(score)
-    # scores.sort()
 
 
 naive_bayes_classifier()
