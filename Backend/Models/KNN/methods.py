@@ -14,6 +14,7 @@ def print_results(path, dataset_type):
     :return: void
     """
 
+    # Opening the md file to save results.
     f = open(f"KNN_results{dataset_type}.md", "w")
     text = "## All Records\n"
     header = "# KNN Results\n\n## Summarization\n\n"
@@ -21,6 +22,7 @@ def print_results(path, dataset_type):
     lowest_worst = {'name': "name", 'best': 0, 'worst': 100, 'difference': 100}
     lowest_deference = {'name': "name", 'best': 0, 'worst': 100, 'difference': 100}
 
+    # Reading all the save pickle files to make result md files.
     for neighbors in range(3, 10, 2):
         for ts in range(1, 5, 1):
             test_size = ts/10
@@ -60,12 +62,15 @@ def print_results(path, dataset_type):
 
             text += msg
 
+    # Showing the details of higest best acuracy model of all model.
     header += f"### The Highest Best\n\n>#{highest_best['name']}\n>> - **Best\t\t: {highest_best['best']}**" \
               f"\n>> - worst\t\t: {highest_best['worst']}\n>> - deference\t: {highest_best['difference']}\n\n"
 
+    # Showing the details of lowest worst acuracy model of all model.
     header += f"### The Lowest Worst\n\n>#{lowest_worst['name']}\n>> - Best\t\t: {lowest_worst['best']}" \
               f"\n>> - **worst\t: {lowest_worst['worst']}**\n>> - deference\t: {lowest_worst['difference']}\n\n"
 
+    # Showing the details of lowest acuracy diference model of all model.
     header += f"### The Lowest difference\n\n>#{lowest_deference['name']}\n>> - Best\t\t\t: {lowest_deference['best']}" \
               f"\n>> - worst\t\t\t: {lowest_deference['worst']}\n>> - **deference\t: {lowest_deference['difference']}**\n\n"
 
