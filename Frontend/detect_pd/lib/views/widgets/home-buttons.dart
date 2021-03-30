@@ -11,21 +11,6 @@ import 'package:detect_pd/views/ui/gallery-form-page.dart';
 import 'package:detect_pd/views/ui/help-page.dart';
 import 'package:detect_pd/utils/globals.dart' as globals;
 
-
-void main(){
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ShowCaseWidget(builder: Builder(builder: (_) => NewSqaure())),
-    );
-  }
-}
-
 class NewSqaure extends StatefulWidget {
   static const LAUNCH_STRING = "LAUNCH_STRING";
 

@@ -1,14 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-
-// void main() => runApp(MaterialApp(
-//   home: LoadingPage(),
-// ));
 
 class LoadingPage extends StatelessWidget {
 

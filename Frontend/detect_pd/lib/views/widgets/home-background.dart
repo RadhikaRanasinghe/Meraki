@@ -1,26 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-));
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:HomeBackground(
-        title: 'Home',
-        logoPath: 'assets/testImage.jpg',
-        height: 153.0,
-        bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
-        smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-        backgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        titleColor: Colors.white,
-      ),
-    );
-  }
-}
-
 class HomeBackground extends StatelessWidget {
   final title;
   final height;

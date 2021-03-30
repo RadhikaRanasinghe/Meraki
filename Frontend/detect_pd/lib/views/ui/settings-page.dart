@@ -7,13 +7,6 @@ import 'package:detect_pd/views/ui/about-page.dart';
 import 'package:detect_pd/views/widgets/home-Foreground.dart';
 import 'package:detect_pd/views/ui/main.dart';
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: SettingsPage(),
-//     debugShowCheckedModeBanner: false,
-//   ));
-// }
-
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

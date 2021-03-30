@@ -5,15 +5,6 @@ import 'package:detect_pd/views/ui/main.dart';
 import 'package:detect_pd/views/widgets/home-Foreground.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 
-// void main() {
-//   runApp(MaterialApp(
-//       home: AboutPDPage(),
-//       theme: ThemeData(
-//         canvasColor: Color.fromRGBO(118, 176, 195, 100),
-//       )
-//   ));
-// }
-
 class AboutPDPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

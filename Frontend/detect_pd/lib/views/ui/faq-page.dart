@@ -7,10 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/main.dart';
 
-// void main() => runApp(MaterialApp(
-//   home: FaqPage(),
-// ));
-
 class FaqPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,26 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: Home()
-  ));
-}
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeForeground(
-        expandedHeight: 153.0,
-        appBarChild: Text('home Background'),
-        appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        fillChild: Text('drop-down, square buttons'),
-        fillColor:  Color.fromRGBO(240, 241, 226, 100),
-      )
-    );
-  }
-}
-
 class HomeForeground extends StatelessWidget {
   final expandedHeight;
   final appBarChild;

@@ -1,34 +1,5 @@
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: Stack(
-          children: [
-            Positioned(
-                bottom: 0,
-              left: 0,
-              child: NavBar(
-                link1: null,
-                link2: null,
-                link3: null,
-                backgroundColor: Colors.redAccent,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class NavBar extends StatelessWidget {
   final backgroundColor;
   final link1;

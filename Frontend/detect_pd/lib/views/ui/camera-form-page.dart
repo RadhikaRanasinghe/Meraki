@@ -5,17 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: CameraFormPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
-
-// -------------------------------------------------------------------------- //
 class CameraFormPage extends StatefulWidget {
   @override
   _CameraFormPageState createState() => _CameraFormPageState();

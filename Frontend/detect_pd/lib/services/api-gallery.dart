@@ -14,53 +14,6 @@ import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
 
-
-void main() {
-  runApp(MaterialApp(
-      home: GalleryFormPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
-
-// -------------------------------------------------------------------------- //
-class GalleryFormPage extends StatefulWidget {
-  @override
-  _GalleryFormPageState createState() => _GalleryFormPageState();
-}
-
-class _GalleryFormPageState extends State<GalleryFormPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeForeground(
-        expandedHeight: null,
-        appBarChild: Text('home Background'),
-        appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
-        fillChild: GalleryAccess(),
-        // fillColor:  Color.fromRGBO(240, 241, 226, 100),
-        fillColor:  Color(0xff82d5c1),
-      ),
-      bottomNavigationBar: NavBar(
-        link1: null,
-        link2: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()));
-        },
-        link3: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()));
-        },
-      ),
-    );
-  }
-}
-
-
 class GalleryAccess extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => GalleryAccessState();
@@ -132,11 +85,6 @@ class GalleryAccessState extends State<GalleryAccess> {
     // decode backend response from POST request
     final decodeRespStr = json.decode(respStr) as Map<String, dynamic>;
     int imageNo = decodeRespStr['image_no'];
-
-    // Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => (LoadingPage()))
-    // );
 
     //async function to perform http get
     final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script

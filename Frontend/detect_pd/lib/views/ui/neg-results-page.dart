@@ -6,10 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/about-page.dart';
 import 'package:detect_pd/views/ui/main.dart';
 
-void main() => runApp(MaterialApp(
-      home: NegativeResultsPage(),
-    ));
-
 class NegativeResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

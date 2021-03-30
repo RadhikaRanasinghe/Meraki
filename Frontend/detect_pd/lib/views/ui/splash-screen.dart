@@ -1,14 +1,6 @@
-//import 'dart:html';
-
 import 'dart:async';
-
 import 'package:detect_pd/views/ui/main.dart';
 import 'package:flutter/material.dart';
-
-void main() => runApp(new MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    ));
 
 class SplashScreen extends StatefulWidget {
   @override

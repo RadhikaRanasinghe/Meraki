@@ -3,15 +3,8 @@ import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:detect_pd/views/widgets/results-background.dart';
 import 'package:detect_pd/views/widgets/results-foreground.dart';
 import 'package:flutter/material.dart';
-
 import 'package:detect_pd/views/ui/about-page.dart';
 import 'package:detect_pd/views/ui/main.dart';
-
-
-void main() =>
-    runApp(MaterialApp(
-      home: PositiveResultsPage(),
-    ));
 
 class PositiveResultsPage extends StatelessWidget {
   @override

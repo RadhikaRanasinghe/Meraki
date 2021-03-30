@@ -6,17 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: GalleryFormPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
-
-// -------------------------------------------------------------------------- //
 class GalleryFormPage extends StatefulWidget {
   @override
   _GalleryFormPageState createState() => _GalleryFormPageState();
