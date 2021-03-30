@@ -1,7 +1,4 @@
-//import 'dart:html';
-
 import 'dart:async';
-
 import 'package:detect_pd/main.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 4),
+        Duration(seconds: 4),   // Setting the time duration for the splash screen
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => HomePage())));
   }
@@ -29,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Stack(    // allowing widget to overflow to another widget
         fit: StackFit.expand,
         children: [
           Container(
@@ -41,10 +38,10 @@ class _SplashScreenState extends State<SplashScreen> {
               Expanded(
                 flex: 2,
                 child: Container(
-                  child: Column(
+                  child: Column(  // makes widget into the center of the body
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
+                      Image.asset(  // assigning the image logo
                         'assets/pd_log_bg_small.png',
                         height: 150.0,
                         width: 150.0,

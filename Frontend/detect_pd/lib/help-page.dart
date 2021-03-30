@@ -1,7 +1,6 @@
 import 'package:detect_pd/settings-page.dart';
 import 'package:detect_pd/widgets/home-background.dart';
 import 'package:detect_pd/widgets/navbar.dart';
-
 import 'package:flutter/material.dart';
 import 'widgets/home-foreground.dart';
 import 'main.dart';
@@ -10,7 +9,7 @@ import 'main.dart';
 void main() {
   runApp(MaterialApp(
       home: HelpPage(),
-      theme: ThemeData(
+      theme: ThemeData(   // using a theme
         canvasColor: Color.fromRGBO(118, 176, 195, 100),
       )
   ));
@@ -64,6 +63,7 @@ class HelpPage extends StatelessWidget {
 }
 
 class AboutPD extends StatelessWidget {
+  // creating the variables
   final description;
   final fontSize;
   final alignment;
