@@ -1,15 +1,11 @@
-import 'package:detect_pd/widgets/home-buttons.dart';
-import 'package:detect_pd/settings-page.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
+import 'package:detect_pd/views/widgets/home-background.dart';
+import 'package:detect_pd/views/widgets/home-foreground.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
+import 'package:detect_pd/views/widgets/home-buttons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'widgets/home-Foreground.dart';
-import 'widgets/home-background.dart';
-import 'main.dart';
-import 'widgets/navbar.dart';
-
-// void main() => runApp(MaterialApp(
-//   home: FaqPage(),
-// ));
+import 'package:detect_pd/views/ui/main.dart';
 
 class FaqPage extends StatelessWidget {
   @override

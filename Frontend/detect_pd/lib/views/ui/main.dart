@@ -1,14 +1,11 @@
-import 'package:detect_pd/splash-screen.dart';
-import 'package:detect_pd/widgets/home-buttons.dart';
-import 'package:detect_pd/widgets/Settings.dart';
-import 'package:detect_pd/widgets/home-background.dart';
-import 'package:detect_pd/widgets/navbar.dart';
-import 'package:detect_pd/settings-page.dart';
+import 'package:detect_pd/views/ui/splash-screen.dart';
+import 'package:detect_pd/views/widgets/home-buttons.dart';
+import 'package:detect_pd/views/widgets/home-background.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcase_widget.dart';
-import 'FAQ-Page.dart';
-import 'package:detect_pd/widgets/home-Foreground.dart';
-import 'about-page.dart';
+import 'package:detect_pd/views/widgets/home-foreground.dart';
 
 void main() {
   runApp(MaterialApp(

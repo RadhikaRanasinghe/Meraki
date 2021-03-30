@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
-
 class ResultsForeground extends StatelessWidget {
   final mainBackgroundColor;
   final fillColor;

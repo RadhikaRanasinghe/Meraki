@@ -1,65 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:detect_pd/loading-screen.dart';
-import 'package:detect_pd/widgets/navbar.dart';
+import 'package:detect_pd/views/ui/loading-screen.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:dropdownfield/dropdownfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
-import 'package:detect_pd/widgets/home-foreground.dart';
-import '../main.dart';
-import '../neg-results-page.dart';
-import '../pos-result-page.dart';
-import '../settings-page.dart';
-
-
-void main() {
-  runApp(MaterialApp(
-      home: CameraFormPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
-
-// -------------------------------------------------------------------------- //
-class CameraFormPage extends StatefulWidget {
-  @override
-  _CameraFormPageState createState() => _CameraFormPageState();
-}
-
-class _CameraFormPageState extends State<CameraFormPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeForeground(
-        expandedHeight: null,
-        appBarChild: Text('home Background'),
-        appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
-        fillChild: CameraAccess(),
-        // fillColor:  Color.fromRGBO(240, 241, 226, 100),
-        fillColor:  Color(0xff82d5c1),
-      ),
-      bottomNavigationBar: NavBar(
-        link1: null,
-        link2: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()));
-        },
-        link3: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()));
-        },
-      ),
-    );
-  }
-}
-
+import 'package:detect_pd/views/widgets/home-foreground.dart';
+import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/views/ui/neg-results-page.dart';
+import 'package:detect_pd/views/ui/pos-result-page.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
 
 class CameraAccess extends StatefulWidget {
   @override
@@ -118,6 +71,11 @@ class CameraAccessState extends State<CameraAccess> {
     request.headers.addAll(headers);
     print("request: " + request.toString());
 
+    Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => (LoadingPage()))
+    );
+
     // send the POST request
     final resp = await request.send();
     print(resp.statusCode);
@@ -127,11 +85,6 @@ class CameraAccessState extends State<CameraAccess> {
     // decode backend response from POST request
     final decodeRespStr = json.decode(respStr) as Map<String, dynamic>;
     int imageNo = decodeRespStr['image_no'];
-
-    Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => (LoadingPage()))
-    );
 
     //async function to perform http get
     final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script

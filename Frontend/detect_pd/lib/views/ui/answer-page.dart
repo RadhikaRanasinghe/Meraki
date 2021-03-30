@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/home-background.dart';
-import 'widgets/home-foreground.dart';
-
-
-// void main() => runApp(MaterialApp(
-//   home: Home(),
-// ));
+import 'package:detect_pd/views/widgets/home-background.dart';
+import 'package:detect_pd/views/widgets/home-foreground.dart';
 
 class Home extends StatelessWidget {
   @override

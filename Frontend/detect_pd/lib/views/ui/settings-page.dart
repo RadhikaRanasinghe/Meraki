@@ -1,19 +1,11 @@
-import 'package:detect_pd/widgets/home-buttons.dart';
-import 'package:detect_pd/widgets/Settings.dart';
-import 'package:detect_pd/widgets/home-background.dart';
-import 'package:detect_pd/widgets/navbar.dart';
+import 'package:detect_pd/views/widgets/home-buttons.dart';
+import 'package:detect_pd/views/widgets/Settings.dart';
+import 'package:detect_pd/views/widgets/home-background.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'FAQ-Page.dart';
-import 'about-page.dart';
-import 'widgets/home-Foreground.dart';
-import 'main.dart';
-
-// void main() {
-//   runApp(MaterialApp(
-//     home: SettingsPage(),
-//     debugShowCheckedModeBanner: false,
-//   ));
-// }
+import 'package:detect_pd/views/ui/about-page.dart';
+import 'package:detect_pd/views/widgets/home-Foreground.dart';
+import 'package:detect_pd/views/ui/main.dart';
 
 class SettingsPage extends StatelessWidget {
   @override

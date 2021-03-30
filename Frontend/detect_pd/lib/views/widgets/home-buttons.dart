@@ -3,28 +3,13 @@ import 'package:ext_storage/ext_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:showcaseview/showcaseview.dart';
-import 'package:detect_pd/widgets/showcaseview.dart';
-import '../about-page.dart';
-import '../camera-form-page.dart';
-import '../faq-page.dart';
-import '../gallery-form-page.dart';
-import '../help-page.dart';
-import 'package:detect_pd/globals.dart' as globals;
-import 'package:detect_pd/services/api-firbase-storage.dart' as fire;
-
-void main(){
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ShowCaseWidget(builder: Builder(builder: (_) => NewSqaure())),
-    );
-  }
-}
+import 'package:detect_pd/views/widgets/showcaseview.dart';
+import 'package:detect_pd/views/ui/about-page.dart';
+import 'package:detect_pd/views/ui/camera-form-page.dart';
+import 'package:detect_pd/views/ui/faq-page.dart';
+import 'package:detect_pd/views/ui/gallery-form-page.dart';
+import 'package:detect_pd/views/ui/help-page.dart';
+import 'package:detect_pd/utils/globals.dart' as globals;
 
 class NewSqaure extends StatefulWidget {
   static const LAUNCH_STRING = "LAUNCH_STRING";

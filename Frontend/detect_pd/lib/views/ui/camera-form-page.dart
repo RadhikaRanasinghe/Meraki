@@ -1,21 +1,10 @@
 import 'package:detect_pd/services/api-camera.dart';
-import 'package:detect_pd/settings-page.dart';
-import 'package:detect_pd/widgets/navbar.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'widgets/home-foreground.dart';
-import 'main.dart';
+import 'package:detect_pd/views/widgets/home-foreground.dart';
+import 'package:detect_pd/views/ui/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-      home: CameraFormPage(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        canvasColor: Color.fromRGBO(118, 176, 195, 100),
-      )
-  ));
-}
-
-// -------------------------------------------------------------------------- //
 class CameraFormPage extends StatefulWidget {
   @override
   _CameraFormPageState createState() => _CameraFormPageState();
