@@ -58,8 +58,8 @@ class Detector:
         This function loads the pickle file of the voting classifier model and takes the features returned
         by the function load features. The function then predicts the accordingly and returns the result.
 
-        Returns:
-            result: A boolean containing the result predicted by the voting classifier.
+        :return:A variable called 'result' containing a boolean containing the result predicted by the voting classifier
+
         """
 
         # Initializing and assigning the variable 'result' to True
