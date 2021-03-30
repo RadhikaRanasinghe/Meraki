@@ -1,10 +1,10 @@
-import 'package:detect_pd/settings-page.dart';
-import 'package:detect_pd/widgets/home-background.dart';
-import 'package:detect_pd/widgets/navbar.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
+import 'package:detect_pd/views/widgets/home-background.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
 
 import 'package:flutter/material.dart';
-import 'widgets/home-foreground.dart';
-import 'main.dart';
+import 'package:detect_pd/views/widgets/home-foreground.dart';
+import 'package:detect_pd/views/ui/main.dart';
 
 
 void main() {

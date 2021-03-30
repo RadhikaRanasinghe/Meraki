@@ -3,14 +3,14 @@ import 'package:ext_storage/ext_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:showcaseview/showcaseview.dart';
-import 'package:detect_pd/widgets/showcaseview.dart';
-import '../about-page.dart';
-import '../camera-form-page.dart';
-import '../faq-page.dart';
-import '../gallery-form-page.dart';
-import '../help-page.dart';
-import 'package:detect_pd/globals.dart' as globals;
-import 'package:detect_pd/services/api-firbase-storage.dart' as fire;
+import 'package:detect_pd/views/widgets/showcaseview.dart';
+import 'package:detect_pd/views/ui/about-page.dart';
+import 'package:detect_pd/views/ui/camera-form-page.dart';
+import 'package:detect_pd/views/ui/faq-page.dart';
+import 'package:detect_pd/views/ui/gallery-form-page.dart';
+import 'package:detect_pd/views/ui/help-page.dart';
+import 'package:detect_pd/utils/globals.dart' as globals;
+
 
 void main(){
   runApp(App());

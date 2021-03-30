@@ -1,9 +1,9 @@
-import 'package:detect_pd/settings-page.dart';
-import 'package:detect_pd/widgets/navbar.dart';
+import 'package:detect_pd/views/ui/settings-page.dart';
+import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'widgets/home-Foreground.dart';
-import 'widgets/home-background.dart';
+import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/views/widgets/home-Foreground.dart';
+import 'package:detect_pd/views/widgets/home-background.dart';
 
 // void main() {
 //   runApp(MaterialApp(

@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:detect_pd/main.dart';
+import 'package:detect_pd/views/ui/main.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MaterialApp(
