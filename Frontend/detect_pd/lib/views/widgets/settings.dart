@@ -99,7 +99,6 @@ class SettingsButton extends StatelessWidget{
         elevation: elevation,
         // after pressing the button
         onPressed: (){
-          // ignore: unnecessary_statements
           link;
         },
       ),
