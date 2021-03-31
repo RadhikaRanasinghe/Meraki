@@ -55,9 +55,11 @@ class LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    // setting the animation speed
     controller =
         AnimationController(vsync: this, duration: Duration(seconds: 5));
 
+    // setting the rotation radius for loading animation
     animationRotation = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -86,11 +88,13 @@ class LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
         }
       });
     });
+    // looping the loading animation
     controller.repeat();
   }
 
   @override
   Widget build(BuildContext context) {
+    // creating multiple circles for animation
     return Container(
         width: 100.0,
         height: 100.0,
@@ -158,7 +162,7 @@ class LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
 class Dot extends StatelessWidget {
   final double radius;
   final Color color;
-
+// circle template
   Dot({this.radius, this.color});
 
   @override

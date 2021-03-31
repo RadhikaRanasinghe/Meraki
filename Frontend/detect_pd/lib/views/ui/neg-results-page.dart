@@ -10,6 +10,7 @@ class NegativeResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // building the negative result page body
       body: ResultsForeground(
           mainBackgroundColor: Colors.greenAccent,
           fillColor: Colors.cyan.shade800,

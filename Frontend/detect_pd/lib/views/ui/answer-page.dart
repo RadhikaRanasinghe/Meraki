@@ -29,7 +29,7 @@ class answerForeground extends StatelessWidget {
   final answer;
 
   answerForeground({this.question, this.answer});
-
+// building the page foreground
   @override
   Widget build(BuildContext context) {
     return Container(

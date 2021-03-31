@@ -40,6 +40,7 @@ Future download2(Dio dio, String url, String savePath) async {
   }
 }
 
+// method to display toast message
 void showDownloadProgress(received, total) {
   double value = received / total * 100;
   if (total != -1) {

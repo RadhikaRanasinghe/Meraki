@@ -10,6 +10,7 @@ class PositiveResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // building the positive result page body
       body: ResultsForeground(mainBackgroundColor: Colors.grey[400],
           fillColor: Colors.cyan.shade800,
           resultImage: ResultBackground(
