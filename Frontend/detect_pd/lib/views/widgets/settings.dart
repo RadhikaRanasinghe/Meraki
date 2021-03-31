@@ -6,8 +6,10 @@ class Settings extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Color.fromRGBO(5, 88, 115, 100),
+        //center the widgets in the body
         child: Center(
           child: Column(
+            // creating the setting buttons
             children: <Widget>[
               SettingsButton(buttonName:"Settings 1", width: 260.0,
                   height: 50.0,
@@ -61,6 +63,7 @@ class Settings extends StatelessWidget {
 
 class SettingsButton extends StatelessWidget{
 
+  // creating the variables
   String buttonName;
   final width;
   final height;
@@ -69,6 +72,7 @@ class SettingsButton extends StatelessWidget{
   final elevation;
   final link;
 
+  // creating the constructor
   SettingsButton({this.buttonName, this.width, this.height, this.bodyMargin, this.padding, this.elevation, this.link});
 
   @override
@@ -78,6 +82,7 @@ class SettingsButton extends StatelessWidget{
       width: width,
       height: height,
       margin: bodyMargin,
+      // using the raised button widget with an icon
       child: RaisedButton.icon(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
@@ -92,6 +97,7 @@ class SettingsButton extends StatelessWidget{
         ),
         padding: padding,
         elevation: elevation,
+        // after pressing the button
         onPressed: (){
           // ignore: unnecessary_statements
           link;
