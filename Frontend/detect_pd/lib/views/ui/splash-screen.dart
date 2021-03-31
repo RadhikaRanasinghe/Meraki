@@ -12,6 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    // Setting the time duration for the splash screen
     Timer(
         Duration(seconds: 4),
         () => Navigator.pushReplacement(
@@ -21,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // allowing widget to overflow to another widget
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -37,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
+                        // assigning the image logo
                         'assets/pd_log_bg_small.png',
                         height: 150.0,
                         width: 150.0,
@@ -48,6 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Expanded(
                 flex: 1,
                 child: Column(
+                  // makes widget into the center of the body
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // CircularProgressIndicator(),

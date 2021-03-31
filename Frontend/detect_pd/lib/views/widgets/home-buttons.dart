@@ -114,6 +114,7 @@ class _NewSqaureState extends State<NewSqaure> {
 
 class DropdownButton extends StatelessWidget{
 
+  // creating the variables
   final String buttonName;
   final width;
   final height;
@@ -124,6 +125,7 @@ class DropdownButton extends StatelessWidget{
   final icon;
   final fontSize;
 
+  // creating the constructor
   DropdownButton({this.buttonName, this.width, this.height, this.bodyMargin, this.padding, this.elevation, this.link, this.icon, this.fontSize});
 
   @override
@@ -133,6 +135,7 @@ class DropdownButton extends StatelessWidget{
       width: width,
       height: height,
       margin: bodyMargin,
+      // using the raised button widget with an icon
       child: RaisedButton.icon(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
@@ -166,12 +169,15 @@ class SquareButtons extends StatefulWidget {
 }
 
 class _SquareButtonsState extends State<SquareButtons> {
+
+  // creating the variables
   final padding;
   final bodyMargin;
   final buttonMargin;
   final iconSize;
   final fontSize;
 
+  // creating the constructor
   _SquareButtonsState(this.padding, this.bodyMargin, this.buttonMargin, this.iconSize, this.fontSize);
 
   @override
@@ -181,6 +187,7 @@ class _SquareButtonsState extends State<SquareButtons> {
       padding: padding,
       margin: bodyMargin,
       child: GridView.count(
+        // disable the scrolling in grid view
         physics: NeverScrollableScrollPhysics(),
         crossAxisCount: 2,
         children: <Widget>[

@@ -53,11 +53,14 @@ class HelpPage extends StatelessWidget {
 }
 
 class AboutPD extends StatelessWidget {
+
+  // creating the variables
   final description;
   final fontSize;
   final alignment;
   final textColor;
 
+  // creating the constructor
   const AboutPD({this.description, this.fontSize, this.alignment, this.textColor});
 
   @override
