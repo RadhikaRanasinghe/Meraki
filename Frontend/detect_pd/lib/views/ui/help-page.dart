@@ -19,7 +19,7 @@ class HelpPage extends StatelessWidget {
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
           backgroundColor: Color.fromRGBO(94, 163, 184, 100),
           titleColor: Colors.white,
-        ),
+        ),  //HomeBackground
         appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
         fillChild: AboutPD(
           description: "Step 1 : Dummy Text\n\n\n "
@@ -30,10 +30,10 @@ class HelpPage extends StatelessWidget {
           fontSize: 20.0,
           alignment: Alignment.topCenter,
           textColor: Colors.white,
-        ),
+        ),  //AboutPD
         // fillColor:  Color.fromRGBO(240, 241, 226, 100),
         fillColor:  Color(0xff033e6b),
-      ),
+      ),  // HomeForeground
       bottomNavigationBar: NavBar(
         link1: null,
         link2: (){
@@ -47,8 +47,8 @@ class HelpPage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
         backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
-      ),
-    );
+      ),  // NavBar
+    );  // Scaffold
   }
 }
 
@@ -71,12 +71,12 @@ class AboutPD extends StatelessWidget {
           style: TextStyle(
             color: textColor,
             fontSize: fontSize,
-          ),
-        ),
+          ),  // TextStyle
+        ),  // Text
         margin: EdgeInsets.all(30.0),
         padding: EdgeInsets.all(10.0),
         alignment: alignment,
-      ),
-    );
+      ),  // Container
+    );  // Center
   }
 }
