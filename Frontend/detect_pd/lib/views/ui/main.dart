@@ -31,11 +31,11 @@ class HomePage extends StatelessWidget {
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
           backgroundColor: Color.fromRGBO(94, 163, 184, 100),
           titleColor: Colors.white,
-        ),
+        ), // HomeBackground
         appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
         fillChild: ShowCaseWidget(builder: Builder(builder: (_) => NewSqaure())),
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
-      ),
+      ), // HomeForeground
       bottomNavigationBar: NavBar(
         link1: null,
         link2: null,
@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
         backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
-      ),
-    );
+      ), // NavBar
+    ); // Scaffold
   }
 }
