@@ -15,8 +15,8 @@ class ResultBackground extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage(resultBackgroundImage),
               fit: BoxFit.cover
-          )
-      ),
-    );
+          ) // DecorationImage
+      ), // BoxDecoration
+    ); // Container
   }
 }
