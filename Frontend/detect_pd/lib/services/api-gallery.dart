@@ -30,10 +30,10 @@ class GalleryAccessState extends State<GalleryAccess> {
   List handednessList = ["Right-handed", "Left-handed"];
 
   Future<dynamic> pickImageFromGallery(ImageSource source) async {
-    /// This method will select image from device storage using ImagePicker()
+    /// This method will select image from given source using ImagePicker()
     final image = await picker.getImage(source: source);
 
-    // set image uploaded from storage as image variable declared at class level
+    // set image uploaded as image variable declared at class level
     setState(() {
       this.image = File(image.path);
     });
