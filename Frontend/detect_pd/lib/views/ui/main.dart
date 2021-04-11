@@ -13,9 +13,8 @@ void main() {
       routes:{
       'load':(context) =>SplashScreen(),
       },
-      // home: HomePage(),
     debugShowCheckedModeBanner: false,
-  ));
+  )); // MaterialApp
 }
 
 class HomePage extends StatelessWidget {
