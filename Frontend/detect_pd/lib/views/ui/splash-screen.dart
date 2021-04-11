@@ -10,13 +10,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // Setting the time duration for the splash screen
     Timer(
         Duration(seconds: 4),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage())));
+            context, MaterialPageRoute(builder: (context) => HomePage()))); // Timer
   }
 
   @override
@@ -28,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Container(
             decoration: BoxDecoration(color: Color(0xFF0B9FB3)),
-          ),
+          ),  // Container
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -43,42 +42,42 @@ class _SplashScreenState extends State<SplashScreen> {
                         'assets/pd_log_bg_small.png',
                         height: 150.0,
                         width: 150.0,
-                      )
+                      ) // Image.asset
                     ],
-                  ),
-                ),
-              ),
+                  ),  // Column
+                ),  // Container
+              ),  // Expanded
               Expanded(
                 flex: 1,
                 child: Column(
                   // makes widget into the center of the body
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // CircularProgressIndicator(),
+                      // CircularProgressIndicator() // CircularProgressIndicator(),
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
-                    ),
+                    ),  // Padding
                     Text(
                       "from",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
-                    ),
+                          fontWeight: FontWeight.bold), // TextStyle
+                    ),  // Text
                     Text(
                       "Meraki",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
-                    )
+                          fontWeight: FontWeight.bold), // TextStyle
+                    ) // Text
                   ],
-                ),
-              )
+                ),  // Column
+              ) // Expanded
             ],
-          )
+          ) // Column
         ],
-      ),
-    );
+      ),  // Stack
+    );  // Scaffold
   }
 }

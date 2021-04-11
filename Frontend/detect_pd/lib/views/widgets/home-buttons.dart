@@ -51,20 +51,20 @@ class _NewSqaureState extends State<NewSqaure> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
                     side: BorderSide(color: Colors.grey, width: 1)
-                ),
+                ),  // RoundedRectangleBorder
                 color: Colors.grey,
                 icon: Icon(Icons.search_sharp, color: Colors.black),
                 label: Text("START TEST",
                   style: TextStyle(
                       color: Colors.white70, fontSize: 25.0
-                  ),
-                ),
+                  ),  // TextStyle
+                ),  // Text
                 padding: EdgeInsets.all(5.0),
                 splashColor: null,
                 elevation: 6.0,
                 onPressed: null,
-              ),
-            ),
+              ),  // RaisedButton.icon
+            ),  // Container
             Icon(Icons.arrow_drop_down, color: Colors.black, size: 30.0,),
             CustomShowcaseWidget(
               globalKey: globals.keyOne,
@@ -77,8 +77,8 @@ class _NewSqaureState extends State<NewSqaure> {
                   link: (){
                     Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => GalleryFormPage()));
                   },
-                  icon: Icons.upload_outlined),
-            ),
+                  icon: Icons.upload_outlined), // DropdownButton
+            ),  // CustomShowcaseWidget
             CustomShowcaseWidget(
               globalKey: globals.keyTwo,
               description: 'Take test by taking photo with Camera',
@@ -90,15 +90,15 @@ class _NewSqaureState extends State<NewSqaure> {
                   link: (){
                     Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => CameraFormPage()));
                   },
-                  icon: Icons.camera_alt_outlined),
-            ),
+                  icon: Icons.camera_alt_outlined), // Dropdown
+            ),  // CustomShowcaseWidget
             Flexible(
               child: SquareButtons(),
-            ),
-          ],
-        ),
-      ),
-    );
+            ),  // Flexible
+          ],  // <Widget>[]
+        ),  // Column
+      ),  // Center
+    );  // Container
   }
 
   Future<bool> _isFirstLaunch() async{
@@ -140,20 +140,20 @@ class DropdownButton extends StatelessWidget{
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
             side: BorderSide(color: Colors.grey, width: 1)
-        ),
+        ),  // RoundedRectangleBorder
         color: Colors.grey,
         icon: Icon(icon, color: Colors.black),
         label: Text(buttonName,
           style: TextStyle(
               color: Colors.white70, fontSize: fontSize
-          ),
-        ),
+          ),  // TextStyle
+        ),  // Text
         padding: padding,
         splashColor: null,
         elevation: elevation,
         onPressed: link,
-      ),
-    );
+      ),  // RaisedButton.icon
+    );  // Container
   }
 }
 
@@ -165,7 +165,7 @@ class SquareButtons extends StatefulWidget {
       EdgeInsets.all(8.0),
       60.0,
       14.0
-  );
+  );  // _SquareButtonsState
 }
 
 class _SquareButtonsState extends State<SquareButtons> {
@@ -195,7 +195,7 @@ class _SquareButtonsState extends State<SquareButtons> {
             shape: RoundedRectangleBorder(
               side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
-            ),
+            ),  // RoundedRectangleBorder
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
@@ -218,16 +218,16 @@ class _SquareButtonsState extends State<SquareButtons> {
                         globalKey: globals.keyThree,
                         child: Icon(Icons.file_download, size: iconSize,)),
                     Text("Download \nTemplate", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
-                  ],
-                ),
-              ),
-            ),
-          ),
+                  ],  // <Widget>[]
+                ),  // Column
+              ),  // Center
+            ),  // Inkwell
+          ),  // Card
           Card(
             shape: RoundedRectangleBorder(
               side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
-            ),
+            ),  // RoundedRectangleBorder
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
@@ -241,16 +241,16 @@ class _SquareButtonsState extends State<SquareButtons> {
                   children: <Widget>[
                     Icon(Icons.menu_book_sharp, size: iconSize,),
                     Text("About PD", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
-                  ],
-                ),
-              ),
-            ),
-          ),
+                  ],  // <Widget>[]
+                ),  // Column
+              ),  // Center
+            ),  // Inkwell
+          ),  // Card
           Card(
             shape: RoundedRectangleBorder(
               side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
-            ),
+            ),  // RoundedRectangleBorder
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
@@ -264,16 +264,16 @@ class _SquareButtonsState extends State<SquareButtons> {
                   children: <Widget>[
                     Icon(Icons.find_in_page_rounded, size: iconSize,),
                     Text("User Guide", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
-                  ],
-                ),
-              ),
-            ),
-          ),
+                  ],  // <Widget>[]
+                ),  // Column
+              ),  // Center
+            ),  // Inkwell
+          ),  // Card
           Card(
             shape: RoundedRectangleBorder(
               side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
-            ),
+            ),  // RoundedRectangleBorder
             color: Colors.grey,
             margin: buttonMargin,
             child: InkWell(
@@ -287,14 +287,14 @@ class _SquareButtonsState extends State<SquareButtons> {
                   children: <Widget>[
                     Icon(Icons.headset_mic_rounded, size: iconSize,),
                     Text("FAQ", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+                  ],  // <Widget>[]
+                ),  // Column
+              ),  // Center
+            ),  // InkWell
+          ),  // Card
+        ],  // <Widget>[]
+      ),  // GridView.count
+    );  // Container
   }
 }
 
