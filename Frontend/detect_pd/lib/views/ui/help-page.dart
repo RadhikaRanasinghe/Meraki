@@ -31,7 +31,6 @@ class HelpPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           textColor: Colors.white,
         ),  //AboutPD
-        // fillColor:  Color.fromRGBO(240, 241, 226, 100),
         fillColor:  Color(0xff033e6b),
       ),  // HomeForeground
       bottomNavigationBar: NavBar(
