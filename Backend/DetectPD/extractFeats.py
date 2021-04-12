@@ -381,6 +381,7 @@ def extractFeats(img, img1):
     tremor = []
     ra = RadiusAngle()
     raorigin = RadiusAngle()
+    vert = Vertices()
 
     # Gray scale
     img_ = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

@@ -1,3 +1,5 @@
+import cv2
+import numpy as np
 from flask import Flask, request, jsonify
 
 import mysql_connection as conn
@@ -30,6 +32,11 @@ def create_user():
             handedness = int(handedness)
 
             image = file.read()
+
+            nparr = np.fromstring(image, np.uint8)
+            img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+            cv2.imshow('output', img)
+            cv2.waitKey(0)
 
             user_id = conn.insert_values_test(age, gender, handedness, image)
 
