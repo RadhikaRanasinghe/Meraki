@@ -38,8 +38,8 @@ def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
             return added_id
 
         else:
-            print(
-                f"ERROR(Insert Values test) - Invalid argument type. (age={type(age)}, gender={type(gender)}, handedness={type(handedness)}, image={type(image)}")
+            print(f"ERROR(Insert Values test) - Invalid argument type, expected Integer and Bytes. "
+                  f"(age={type(age)}, gender={type(gender)}, handedness={type(handedness)}, image={type(image)}")
             return 0
 
     except mysql.connector.Error as error:
@@ -65,20 +65,31 @@ def select_record_test(user_id: int):
 
         my_cursor = my_db.cursor()
 
-        sql_insert_query = "SELECT * FROM test WHERE id=%s" % user_id
+        if isinstance(user_id, int):
 
-        my_cursor.execute(sql_insert_query)
+            sql_insert_query = "SELECT * FROM test WHERE id=%s" % user_id
 
-        my_result = my_cursor.fetchone()
+            my_cursor.execute(sql_insert_query)
 
-        if my_result:
-            test_image_id = my_result[5]
-            if test_image_id is None:
-                test_image_id = 0
+            my_result = my_cursor.fetchone()
 
-            user_model = UserModel(my_result[0], my_result[1], my_result[2], my_result[3], my_result[4], test_image_id)
-            return user_model
+            if my_result:
+                test_image_id = my_result[5]
+                if test_image_id is None:
+                    test_image_id = 0
+
+                user_model = UserModel(user_id=my_result[0],
+                                       age=my_result[1],
+                                       gender=my_result[2],
+                                       handedness=my_result[3],
+                                       test_image=my_result[4],
+                                       test_image_id=test_image_id)
+                return user_model
+            else:
+                print(f"ERROR(Select Record test) - No Record with id={user_id}")
+                return 0
         else:
+            print(f"ERROR(Select Record test) - Invalid argument type, expected Integer. (user_id={type(user_id)}")
             return 0
 
     except mysql.connector.Error as error:
@@ -104,7 +115,7 @@ def insert_values_test_image(test_image: TestImage, image_no: int, result: bool)
 
         my_cursor = my_db.cursor()
 
-        if isinstance(test_image, TestImage) and isinstance(image_no, int):
+        if isinstance(test_image, TestImage) and isinstance(image_no, int) and isinstance(result, bool):
 
             sql_insert_query_test_image = """INSERT INTO test_image 
                                     (result, rms, max_between_st_ht, min_between_st_ht, std_deviation_st_ht, mrt, 
@@ -143,8 +154,8 @@ def insert_values_test_image(test_image: TestImage, image_no: int, result: bool)
             return added_id
 
         else:
-            print(
-                f"ERROR(Insert Values test_image) - Invalid argument type. (test_image={type(test_image)}, image_no={type(image_no)})")
+            print(f"ERROR(Insert Values test_image) - Invalid argument type, expected TestImage, Integer, Boolean. "
+                  f"(test_image={type(test_image)}, image_no={type(image_no)}, result={type(result)})")
             return 0
 
     except mysql.connector.Error as error:
@@ -170,15 +181,22 @@ def select_test_image_result(test_image_id: int):
 
         my_cursor = my_db.cursor()
 
-        sql_select_query = "SELECT result FROM test_image WHERE id=%s" % test_image_id
+        if isinstance(test_image_id, int):
 
-        my_cursor.execute(sql_select_query)
+            sql_select_query = "SELECT result FROM test_image WHERE id=%s" % test_image_id
 
-        my_result = my_cursor.fetchone()
+            my_cursor.execute(sql_select_query)
 
-        if my_result:
-            return bool(my_result)
+            my_result = my_cursor.fetchone()
+
+            if my_result:
+                return bool(my_result)
+            else:
+                print(f"ERROR(Select Record test_image_result) - No Record with id={test_image_id}")
+                return 0
         else:
+            print(f"ERROR(Select Record test_image_result) - Invalid argument type, expected Integer. "
+                  f"(test_image_id={type(test_image_id)})")
             return 0
 
     except mysql.connector.Error as error:
