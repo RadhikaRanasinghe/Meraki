@@ -2,9 +2,11 @@ from extractPen import extractPen
 from extractTemplate import extractTemplate
 from extractFeats import extractFeats
 
-# extractPen('Resources/exam_1')
-# print("Pen Complete")
-# extractTemplate('Resources/exam_1')
-# print("Template Complete")
+filePath = "Resources/mea1-P1"
 
-extractFeats(['Resources/exam_1.jpg', 'Resources/exam_1_pen.jpg'])
+extractPen(filePath)
+print("Pen Complete")
+extractTemplate(filePath)
+print("Template Complete")
+
+extractFeats([filePath + '.jpg', filePath + '_pen.jpg'])

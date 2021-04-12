@@ -1,3 +1,4 @@
+import math
 from math import cos, sin, sqrt, atan
 
 import cv2
@@ -12,6 +13,9 @@ class cpoint:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+    def __str__(self):
+        return "x: " + str(self.x) + ",y: " + str(self.y)
 
 
 # Functions to recovery the Neighboors as follow:
@@ -68,8 +72,6 @@ def Zhang_Suen(dest):
         for col in range(width):
             dest[line][col] = 0 if dest[line][col] == 255 else 1
 
-    print("Zhang_Suen - while started")
-
     while ThiningContinue:
         ThiningContinue = False
 
@@ -123,6 +125,9 @@ def Zhang_Suen(dest):
                 Neighboors = 0
                 Conectivity = 0
                 # Pixel must be black
+                if (P1(dest, line, col) == 0):
+                    continue
+
                 # Connectivity number must be 1;
                 Conectivity = 1 if (P2(dest, line, col) == 0 and P3(dest, line, col) == 1) else 0
                 Conectivity += 1 if (P3(dest, line, col) == 0 and P4(dest, line, col) == 1) else 0
@@ -158,14 +163,13 @@ def Zhang_Suen(dest):
             dest[it.x][it.y] = 0
         RemPoints.clear()
 
-    print("Zhang_Suen - while ended")
-
     for line in range(height):
         for col in range(width):
             if P1(dest, line, col) == 0:
                 dest[line][col] = 255
             else:
                 dest[line][col] = 0
+    return dest
 
 
 class Vertices:
@@ -216,11 +220,11 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
     finished = False
     walk = 1000  # clean more pixels.
     while q <= quant and q <= walk:  # While have points to plot
-        print(y, x, type(y), type(x))
+        # print(y, x, type(y), type(x))
 
         if x >= 0 and y >= 0 and x < img_.shape[1] and y < img_.shape[0]:
-            print('breaking if', x, y)
-            if not entered and img_[y][x] == 0:  # Find a espiral
+            # print("condition one satisfied")
+            if not entered and img_[math.floor(y)][math.floor(x)] == 0:  # Find a espiral
 
                 entered = True
                 if (get_point):  # get the first point.
@@ -228,29 +232,30 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                     vert.x = x
                     vert.y = y
                     v.append(vert)
-                img_[y][x] = 255  # Set the color white to avoid reprocessing
+                img_[math.floor(y)][math.floor(x)] = 255  # Set the color white to avoid reprocessing
 
         if entered:
+            # print("has entered")
             walk -= 1
             if x >= 0 and y >= 0 and x < img_.shape[1] and y < img_.shape[0]:
-                img_[y][x] = 255  # Set the color white to avoid reprocessing
+                img_[math.floor(y)][math.floor(x)] = 255  # Set the color white to avoid reprocessing
 
         if (deltax >= 0) and (deltay >= 0) and (deltax >= deltay):  # 1 0ct
-            print(' 1 0ct', x, y)
+            # print(' 1 0ct', x, y)
             if (erro < 0) or (deltay == 0):
-                print('if true:')
+                # print('if true:')
                 x += 1
                 erro = erro + deltay
             else:
-                print('else:')
+                # print('else:')
                 x += 1
                 y += 1
                 erro = erro + deltay - deltax
-            print(' 1 0ct - DONE', x, y)
+            # print(' 1 0ct - DONE', x, y)
 
 
         elif (deltax >= 0) and (deltay >= 0) and (deltay > deltax):  # 2 oct
-            print(' 2 0ct')
+            # print(' 2 0ct')
             if erro < 0:
                 x += 1
                 y += 1
@@ -260,7 +265,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro - deltax
 
         elif (deltay >= 0) and (deltax < 0) and (-deltax >= deltay):  # 4 oct
-            print(' 4 0ct')
+            # print(' 4 0ct')
             if (erro < 0) or (deltay == 0):
                 x -= 1
                 erro = erro + deltay
@@ -270,7 +275,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax + deltay
 
         elif (deltay > 0) and (deltax < 0) and (deltay > -deltax):  # 3 oct
-            print(' 3 0ct')
+            # print(' 3 0ct')
             if erro < 0:
                 x -= 1
                 y += 1
@@ -280,7 +285,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax
 
         elif (deltax >= 0) and (deltay < 0) and (deltax >= -deltay):  # 8 oct
-            print(' 8 0ct')
+            # print(' 8 0ct')
             if erro < 0:
                 x += 1
                 erro = erro - deltay
@@ -290,7 +295,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + abs(deltay) - deltax
 
         elif (deltax >= 0) and (deltay < 0) and (-deltay > deltax):  # 7 oct
-            print(' 7 0ct')
+            # print(' 7 0ct')
             if erro < 0:
                 x += 1
                 y -= 1
@@ -300,7 +305,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro - deltax
 
         elif (deltay < 0) and (deltax < 0) and (-deltay > -deltax):  # 3 oct
-            print(' 3 0ct - 2')
+            # print(' 3 0ct - 2')
             if erro < 0:
                 x -= 1
                 y -= 1
@@ -310,7 +315,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax
 
         elif (deltay < 0) and (deltax < 0) and (-deltax >= -deltay):  # 4 oct
-            print(' 4 0ct - 2')
+            # print(' 4 0ct - 2')
             if erro < 0:
                 x -= 1
                 erro = erro - deltay
@@ -319,10 +324,10 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 y -= 1
                 erro = erro + deltax - deltay
 
-        print('end if:', y, x)
+        # print('end if:', y, x)
 
         q += 1  # number of plotted point
-        print('end while:', y, x)
+        # print('end while:', y, x)
 
     return v
 
@@ -382,7 +387,7 @@ def extractFeats(argv):
     # Gray scale
     img_ = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, img_ = cv2.threshold(img_, 220, 255, 0)
-    Zhang_Suen(img_)
+    img_ = Zhang_Suen(img_)
 
     # Spiral pen
     nx = img.shape[0]  # number of columns
@@ -390,15 +395,14 @@ def extractFeats(argv):
 
     img1_ = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
     ret, img1_ = cv2.threshold(img_, 220, 255, 0)
-    Zhang_Suen(img1_)
+    img1_ = Zhang_Suen(img1_)
 
     yc = img_.shape[1] / 2  # 370;
     xc = img_.shape[0] / 2  # 350;
     # Find the spiral origin.
     yc, xc = origem(img1_, yc, xc)
 
-    print("Line - 379")
-
+    print("Get points from spiral")
     """/////////////////////////////////////////////////////////////////////////"""
     # Get points from spiral
     for j in range(0, 3):  # 3 turns in the spiral.
@@ -415,8 +419,7 @@ def extractFeats(argv):
     yc = img_.shape[1] / 2  # 370;
     xc = img_.shape[0] / 2  # 350;
 
-    print("Line - 397")
-
+    print("Transformation to polar coordinates")
     """/////////////////////////////////////////////////////////////////////////"""
     # Transformation to polar coordinates
     for i in range(0, len(ptosoriginal)):
@@ -436,7 +439,7 @@ def extractFeats(argv):
         radiusangle.append(ra)
         i += 1
 
-    print("Line - 418")
+    print("Calculate the difference between the template and drawed spiral")
 
     """/////////////////////////////////////////////////////////////////////////"""
     # Calculate the difference between the template and drawed spiral
@@ -457,6 +460,7 @@ def extractFeats(argv):
         prev_rad = dif_rad
         i += 1
 
+    print("computating the Relative Tremor")
     """/////////////////////////////////////////////////////////////////////////"""
     # computating the Relative Tremor
     i = 0
@@ -497,6 +501,7 @@ def extractFeats(argv):
         dif = abs(tremor[i] - tremor[i - DISPLACEMENT])
         std_tremor += pow(dif - mean_tremor, 2.0) / (len(tremor) - DISPLACEMENT)
 
+    print("computating the RMS (Root Mean Square)")
     """	///////// Extracting features from Tremor //////////"""
     # computating the RMS (Root Mean Square)
     RMS = 0.0
@@ -521,11 +526,13 @@ def extractFeats(argv):
     i = 0
     while i < len(ptosdesenhada) and i < len(ptosoriginal):
         std += pow(difradial[i].radius * difradial[i].radius - RMS, 2.0) / len(ptosoriginal)
-        i += 0
+        i += 1
 
     std = sqrt(std)
 
+    print("Writing RMS.txt")
     f = open("RMS.txt", "w")
-    f.write(
-        f"1:{RMS} 2:{std} 3:{maxRMS} 4:{minRMS} 5:{mean_tremor} 6:{max_tremor} 7:{min_tremor} 8:{std_tremor} 9:{count_cross / count}")
+    text = f"1:{RMS} 2:{std} 3:{maxRMS} 4:{minRMS} 5:{mean_tremor} 6:{max_tremor} 7:{min_tremor} 8:{std_tremor} 9:{count_cross / count}"
+    f.write(text)
+    print(text)
     f.close()
