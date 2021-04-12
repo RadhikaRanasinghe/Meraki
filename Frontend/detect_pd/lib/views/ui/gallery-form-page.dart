@@ -20,9 +20,8 @@ class _GalleryFormPageState extends State<GalleryFormPage> {
         appBarChild: Text('home Background'),
         appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
         fillChild: GalleryAccess(),
-        // fillColor:  Color.fromRGBO(240, 241, 226, 100),
         fillColor:  Color(0xfff9fbe7),
-      ),
+      ), // HomeForeground
       bottomNavigationBar: NavBar(
         link1: null,
         link2: (){
@@ -35,7 +34,7 @@ class _GalleryFormPageState extends State<GalleryFormPage> {
               context,
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
-      ),
-    );
+      ), // NavBar
+    ); // Scaffold
   }
 }
