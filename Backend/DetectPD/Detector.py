@@ -24,8 +24,6 @@ class Detector:
 
         nparr = np.fromstring(image_no.get_test_image(), np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-        cv2.imshow('output', img)
-        cv2.waitKey(0)
 
         img_pen = extractPen(img)
         test_image = extractFeats(img, img_pen)
