@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
+  // Initializing the variables
   final backgroundColor;
   final link1;
   final link2;
@@ -12,11 +13,15 @@ class NavBar extends StatelessWidget {
   NavBar({this.link1, this.link2, this.link3, this.backgroundColor});
 
   @override
+  // Building the main background of the nav-bar
   Widget build(BuildContext context) {
     return Container(
       color: backgroundColor,
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         height: height,
         decoration: BoxDecoration(
           // borderRadius: BorderRadius.only(
@@ -32,9 +37,11 @@ class NavBar extends StatelessWidget {
             ),
           ],
         ),
+        // Building a row for the child nodes, FlatButtons
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // FlatButton for the help button
             FlatButton(
               onPressed: link1,
               child: Icon(
@@ -43,6 +50,7 @@ class NavBar extends StatelessWidget {
                 size: iconSize,
               ),
             ),
+            // FlatButton for the home button
             FlatButton(
               onPressed: link2,
               child: Icon(
@@ -51,6 +59,7 @@ class NavBar extends StatelessWidget {
                 size: iconSize,
               ),
             ),
+            // FlatButton for the settings button
             FlatButton(
               onPressed: link3,
               child: Icon(
