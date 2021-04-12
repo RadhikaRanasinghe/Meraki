@@ -15,10 +15,9 @@ class Detector:
 
     def load_features(self, image_no: UserModel):
         """The function to load the features from the image and stores them in a TestImage object. Thius object is
-        stored in a User object.
+            stored in a User object.
 
-        Args:
-            image_no (UserModel): the details of the user
+        :param image_no: the details of the user
         """
         img = Image.open(io.BytesIO(image_no.get_test_image()))  # byte is converted to image
         img.save('images/image' + str(image_no.get_id()) + '.jpg')  # the image file is stored as a .jpg file
