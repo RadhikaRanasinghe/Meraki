@@ -39,7 +39,6 @@ class _NewSqaureState extends State<NewSqaure> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.cyan,
       child: Center(
         child: Column(
           children: <Widget>[
