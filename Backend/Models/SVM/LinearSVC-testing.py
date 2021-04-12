@@ -4,9 +4,8 @@ import sklearn
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn import svm, metrics
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import pickle
+from sklearn import metrics
+from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.svm import LinearSVC
 import matplotlib.pyplot as plt
 from sklearn.metrics import plot_confusion_matrix
@@ -46,42 +45,22 @@ lowModel = 0
 highModel = 0
 highCount = 0
 
-for x in range(100):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
-    clf = LinearSVC(penalty='l2', C=1.0, random_state=None, dual=False, max_iter=10000)
-    clf.fit(X_train, y_train)  # fitting  the training data into the model
-    y_predict = clf.predict(X_test)
-    accuracy = accuracy_score(y_test, y_predict) * 100  # getting accuracy as percentage
-    if x == 0:  # first iteration
-        lowModel = clf
-        highModel = clf
-        lowestAccuracy = accuracy
-        highestAccuracy = accuracy
-    else:
-        # Creating a low model
-        if accuracy < lowestAccuracy:
-            lowestAccuracy = accuracy
-            lowModel = clf
-            print("low model")
-            print(metrics.classification_report(y_test, y_predict))
+# Divide data into test data and training data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
 
-        # Creating a high model
-        elif accuracy > highestAccuracy:
-            highCount = highCount + 1
-            highestAccuracy = accuracy
-            highModel = clf
-            print("high model", highCount)
-            print(metrics.classification_report(y_test, y_predict))
-            # writing the high model into the pickle file
-            with open('SVM_BestModel_%s.pickle' % highCount, 'wb') as high:
-                pickle.dump(highModel, high, protocol=pickle.HIGHEST_PROTOCOL)
+# Collection of stock data for classification
+clf = LinearSVC(penalty='l2', C=1.0, random_state=None, dual=False, max_iter=10000)
 
-# writing the lowest model into the pickle file
-with open('SVM_WorstModel.pickle', 'wb') as low:
-    pickle.dump(lowModel, low, protocol=pickle.HIGHEST_PROTOCOL)
-    print('success')
+# fitting  the training data into the model
+clf.fit(X_train, y_train)
+y_predict = clf.predict(X_test)
 
-# Creating the labels
+# getting accuracy as percentage
+accuracy = accuracy_score(y_test, y_predict) * 100
+print(metrics.classification_report(y_test, y_predict))
+print(accuracy)
+
+# Creating the labels for confusion matrix
 labels = ['negative', 'positive']
 
 confusion_matrix(y_test, y_predict)
@@ -98,4 +77,6 @@ for title, normalize in titles_options:
     print(title)
     print(disp.confusion_matrix)
 
+# plotting ROC curve
+metrics.plot_roc_curve(clf, X_test, y_test)
 plt.show()
