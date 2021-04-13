@@ -28,6 +28,7 @@ class CameraAccessState extends State<CameraAccess> {
   List genders = ["Male", "Female"];
   String handedness;
   List handednessList = ["Right-handed", "Left-handed"];
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   Future<dynamic> pickImageFromGallery(ImageSource source) async {
     /// This method will select image from given source using ImagePicker()
@@ -41,83 +42,88 @@ class CameraAccessState extends State<CameraAccess> {
 
   Future doUpload() async {
     /// This method will send requests to API at specified host address
-    var request = http.MultipartRequest('POST', Uri.parse("http://detectpd.us-east-2.elasticbeanstalk.com/create_user"));
-    // var request = http.MultipartRequest('POST', Uri.parse("http://10.0.2.2:5000/create_user"));
+    try {
+      // request uri (uniform resource identifier)
+      var request = http.MultipartRequest('POST', Uri.parse("http://detectpd.us-east-2.elasticbeanstalk.com/create_user"));
 
-    // creating request.fields
-    request.fields['age'] = ageController.text;
+      // creating request.fields
+      request.fields['age'] = ageController.text;
 
-    // conditional block to check if user entered gender is male or female
-    // if male then assign request field as 1, else as 2
-    if (gender == "Male"){
-      request.fields['gender'] = "1";
-    } else {
-      request.fields['gender'] = "2";
-    }
+      // conditional block to check if user entered gender is male or female
+      // if male then assign request field as 1, else as 2
+      if (gender == "Male"){
+        request.fields['gender'] = "1";
+      } else {
+        request.fields['gender'] = "2";
+      }
 
-    if (handedness == "Right-handed"){
-      request.fields['handedness'] = "1";
-    } else {
-      request.fields['handedness'] = "2";
-    }
+      if (handedness == "Right-handed"){
+        request.fields['handedness'] = "1";
+      } else {
+        request.fields['handedness'] = "2";
+      }
 
-    // Map data structure used for to create request headers
-    Map<String, String> headers = {"Content-type": "multipart/form-data", 'connection': 'keep-alive'};
+      // Map data structure used for to create request headers
+      Map<String, String> headers = {"Content-type": "multipart/form-data", 'connection': 'keep-alive'};
 
-    // MultipartFile : define media type as image(jpg)
-    request.files.add(
-      http.MultipartFile(
-        'image',
-        image.readAsBytes().asStream(),
-        image.lengthSync(),
-        filename: "filename",
-        contentType: MediaType('image', 'jpg'),
-      ), // http.MultipartFile
-    );
+      // MultipartFile : define media type as image(jpg)
+      request.files.add(
+        http.MultipartFile(
+          'image',
+          image.readAsBytes().asStream(),
+          image.lengthSync(),
+          filename: "filename",
+          contentType: MediaType('image', 'jpg'),
+        ), // http.MultipartFile
+      );
 
-    // adding request headers
-    request.headers.addAll(headers);
-    print("request: " + request.toString());
+      // adding request headers
+      request.headers.addAll(headers);
+      print("request: " + request.toString());
 
-    // mount loading screen using Navigator class
-    Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => (LoadingPage()))
-    );
-
-    // send http POST request
-    final resp = await request.send();
-    print(resp.statusCode);
-    String respStr = await resp.stream.bytesToString();
-    print(respStr);
-
-    // decode backend response from POST request
-    final decodeRespStr = json.decode(respStr) as Map<String, dynamic>;
-    int imageNo = decodeRespStr['image_no'];
-
-    //async function to perform http GET
-    final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
-    // final response = await http.get('http://10.0.2.2:5000/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
-
-    final decoded = json.decode(response.body) as Map<String, dynamic>; //converting it from json to key value pair
-
-    if (decoded['result'] == false) {
-      // display positive results page
-      Navigator.pushReplacement(
+      // mount loading screen using Navigator class
+      Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PositiveResultsPage()));
-    } else {
-      // display negative results page
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => NegativeResultsPage()));
+          MaterialPageRoute(builder: (context) => (LoadingPage()))
+      );
+
+      // send http POST request
+      final resp = await request.send();
+      print(resp.statusCode);
+      String respStr = await resp.stream.bytesToString();
+      print(respStr);
+
+      // decode backend response from POST request
+      final decodeRespStr = json.decode(respStr) as Map<String, dynamic>;
+      int imageNo = decodeRespStr['image_no'];
+
+      //async function to perform http GET
+      final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
+
+      final decoded = json.decode(response.body) as Map<String, dynamic>; //converting it from json to key value pair
+
+      if (decoded['result'] == false) {
+        // display positive results page
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => PositiveResultsPage()));
+      } else {
+        // display negative results page
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => NegativeResultsPage()));
+      }
+
+    } catch (exception) {
+        print("ERROR OCCURRED");
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return Form(
+      key: _formKey,
+      child: Container(
         padding: EdgeInsets.all(32),
         child: SingleChildScrollView(
           child: Column(
@@ -142,7 +148,7 @@ class CameraAccessState extends State<CameraAccess> {
                   color: Color.fromRGBO(118, 176, 195, 100),
                   borderRadius: BorderRadius.circular(10),
                 ), // BoxDecoration
-                child: TextField(
+                child: TextFormField(
                   controller: ageController,
                   keyboardType: TextInputType.number,
                   decoration: new InputDecoration(
@@ -153,6 +159,14 @@ class CameraAccessState extends State<CameraAccess> {
                     labelStyle: TextStyle(color: const Color(0xFF033E6B), fontSize: 18),
                     icon: Icon(Icons.add),
                   ), // InputDecoration
+                  autovalidateMode: AutovalidateMode.always,
+                  // validator function
+                  validator: (value) {
+                    if(value.isEmpty){
+                      return 'Age Required';
+                    }
+                    return null;
+                  },
                 ), // TextField
               ), // Container
               Container(
@@ -239,7 +253,7 @@ class CameraAccessState extends State<CameraAccess> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
-                  child: new Text('Take photo from Camera'),
+                  child: new Text('Take photo from camera'),
                   color: Colors.grey[400],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
@@ -247,20 +261,34 @@ class CameraAccessState extends State<CameraAccess> {
                   onPressed: () => pickImageFromGallery(ImageSource.camera),
                 ), // RaisedButton
               ), // Padding
-              SizedBox(
-                child: image == null
-                    ? Center(child: new Text(''))
-                    : Center(child: new Image.file(image)),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  child: image == null
+                      ? Center(child: new Text('Image Required', style: TextStyle(color: Colors.red[400]),))
+                      : Center(child: new Image.file(image)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: FloatingActionButton(
+                  onPressed: () {
+                    if(!_formKey.currentState.validate()){
+                      print("Invalid Submission");
+                      _formKey.currentState.reset();
+                    } else {
+                      _formKey.currentState.save();
+                      doUpload();
+                    }
+                  },
+                  child: Icon(Icons.add),
+                  backgroundColor: Colors.teal,
+                ),
               ), // SizedBox
             ], // <Widget>[]
           ), // Column
         ), // SingleChildScrollView
       ), // Container
-      floatingActionButton: FloatingActionButton(
-        onPressed: doUpload,
-        child: Icon(Icons.add),
-        backgroundColor: Colors.teal,
-      ), // FloatingActionButton
     ); // Scaffold
   }
 }
