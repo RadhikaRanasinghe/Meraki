@@ -463,10 +463,10 @@ int main(int argc,char* argv[])
         printf("\n*** Incorrect number of input parameters!\n");
         return -1;
     }
-    img = imread(R"(C:\Users\ASUS\CLionProjects\DetectTest\exam_1.jpg)", IMREAD_COLOR);
+    img = imread(R"(C:\Users\chari\Documents\GitHub\Meraki\Backend\cpp to python conversion\DetectTest\Resources\exam_1.jpg)", IMREAD_COLOR);
 //    cv::imshow("output", img);
 //    waitKey(0);
-    Mat img1 = imread(R"(C:\Users\ASUS\CLionProjects\DetectTest\exam_1_pen.jpg)", IMREAD_COLOR);
+    Mat img1 = imread(R"(C:\Users\chari\Documents\GitHub\Meraki\Backend\cpp to python conversion\DetectTest\Resources\exam_1_pen.jpg)", IMREAD_COLOR);
 //    cv::imshow("output", img1);
 //    waitKey(0);
 
@@ -634,7 +634,7 @@ int main(int argc,char* argv[])
 
 
     fprintf(stderr,"\n[%s : %s] RMS: %lf (+/- %lf) \t maxRMS: %lf \t minRMS: %lf Npoints: %d: %d \nMT:%lf Max:%lf Min: %lf Std:%lf Cross:%lf ",argv[1], argv[2], RMS, std, maxRMS, minRMS, (int)ptosdesenhada.size(), (int)ptosoriginal.size(), mean_tremor, max_tremor, min_tremor, std_tremor, ((double)count_cross)/(double)count);
-    FILE *f = fopen("C:\\Users\\ASUS\\CLionProjects\\DetectTest\\RMS.txt","a");
+    FILE *f = fopen("C:\\Users\\chari\\Documents\\GitHub\\Meraki\\Backend\\cpp to python conversion\\DetectTest\\RMS.txt","a");
     int class_img;
     if(argv[3][0] == 'c') class_img = 1;
     else

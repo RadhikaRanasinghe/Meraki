@@ -17,5 +17,5 @@ file(GLOB srcs *.cpp *.c)
 file(GLOB hdrs *.hpp *.h)
 
 # linking
-add_executable(DetectTest  extractPen.cpp)
+add_executable(DetectTest  extractFeats.cpp)
 target_link_libraries(DetectTest ${OpenCV_LIBS})
