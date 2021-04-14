@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 # add libs you need
-set(OpenCV_DIR "C:/opencv/build/x64/vc15/lib")
+set(OpenCV_DIR "C:/src/opencv/build/x64/vc15/lib")
 find_package( OpenCV REQUIRED )
 message(STATUS "OpenCV library status:")
 message(STATUS "    config: ${OpenCV_DIR}")
@@ -17,5 +17,5 @@ file(GLOB srcs *.cpp *.c)
 file(GLOB hdrs *.hpp *.h)
 
 # linking
-add_executable(DetectTest  extractPen.cpp)
+add_executable(DetectTest  extractFeats.cpp)
 target_link_libraries(DetectTest ${OpenCV_LIBS})
