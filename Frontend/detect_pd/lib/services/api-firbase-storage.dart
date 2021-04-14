@@ -1,12 +1,11 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:ext_storage/ext_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-final imgUrl = "https://firebasestorage.googleapis.com/v0/b/meraki-94486.appspot.com/o/MeanderTemplate.pdf?alt=media&token=fa5d2dd9-af5c-48e4-8aeb-45387b30b695";
+final imgUrl =
+    "https://firebasestorage.googleapis.com/v0/b/meraki-94486.appspot.com/o/MeanderTemplate.pdf?alt=media&token=fa5d2dd9-af5c-48e4-8aeb-45387b30b695";
 var dio = Dio();
 
 void getPermission() async {
@@ -54,4 +53,3 @@ void showDownloadProgress(received, total) {
         fontSize: 16.0);
   }
 }
-
