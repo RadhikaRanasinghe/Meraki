@@ -51,9 +51,9 @@ def create_user():
             # Returning the primary key of the RDS database record.
             return jsonify({"image_no": user_id}), 201
         else:
-            return jsonify({"image_no": 0}), 415
+            return jsonify({"error": "Invalid input type"}), 415
     else:
-        return jsonify({"image_no": 0}), 400
+        return jsonify({"error": "Missing input"}), 400
 
 
 @application.route('/retrieve_result', methods=['GET'])
@@ -100,11 +100,11 @@ def retrieve_result():
                     # Return the test result.
                     return jsonify({"result": result}), 200
             else:
-                return jsonify({"result": 0}), 416
+                return jsonify({"error": "No such id exists in the database"}), 416
         else:
-            return jsonify({"result": 0}), 415
+            return jsonify({"error": "Invalid input type"}), 415
     else:
-        return jsonify({"result": 0}), 400
+        return jsonify({"error": "Missing input"}), 400
 
 
 if __name__ == '__main__':
