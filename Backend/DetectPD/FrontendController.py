@@ -100,7 +100,7 @@ def retrieve_result():
                     # Return the test result.
                     return jsonify({"result": result}), 200
             else:
-                return jsonify({"result": 0}), 404
+                return jsonify({"result": 0}), 416
         else:
             return jsonify({"result": 0}), 415
     else:
