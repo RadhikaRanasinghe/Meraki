@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 # add libs you need
-set(OpenCV_DIR "C:/src/opencv/build/x64/vc15/lib")
+set(OpenCV_DIR "C:/opencv/build/x64/vc15/lib")
 find_package( OpenCV REQUIRED )
 message(STATUS "OpenCV library status:")
 message(STATUS "    config: ${OpenCV_DIR}")
