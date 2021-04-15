@@ -239,7 +239,7 @@ class _SquareButtonsState extends State<SquareButtons> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.menu_book_sharp, size: iconSize,),
-                    Text("About PD", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
+                    Text("About Us", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
                   ],  // <Widget>[]
                 ),  // Column
               ),  // Center
