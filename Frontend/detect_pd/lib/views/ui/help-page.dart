@@ -22,12 +22,12 @@ class HelpPage extends StatelessWidget {
         ),  //HomeBackground
         appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
         fillChild: AboutPD(
-          description: "Step 1 : Dummy Text\n\n\n "
-              "Step 2: Dummy Text\n\n\n "
-              "Step 3: Dummy Text\n\n\n"
-              "Step 4: Dummy Text\n\n\n"
-              "Step 5: Dummy Text\n\n\n",
-          fontSize: 20.0,
+          description: "Step 1 : Download the template from Home page\n\n\n"
+              "Step 2 : Print and trace on the template\n\n\n"
+              "Step 3 : Fill out form details\n\n\n"
+              "Step 4 : Upload photo of the traced template\n\n\n"
+              "Step 5 : Check the result\n\n\n",
+          fontSize: 17.0,
           alignment: Alignment.topCenter,
           textColor: Colors.white,
         ),  //AboutPD
