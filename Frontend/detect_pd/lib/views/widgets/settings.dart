@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -11,48 +12,13 @@ class Settings extends StatelessWidget {
           child: Column(
             // creating the setting buttons
             children: <Widget>[
-              SettingsButton(buttonName:"Settings 1", width: 260.0,
+              SettingsButton(buttonName:"Guide me", width: 260.0,
                   height: 50.0,
                   bodyMargin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
                   padding: EdgeInsets.all(5.0),
                   elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 2", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 3", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 4", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 5", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(10.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 6", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
-              SettingsButton(buttonName:"Settings 7", width: 260.0,
-                  height: 50.0,
-                  bodyMargin: const EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
-                  elevation: 6.0,
-                  link: null),  // SettingsButton
+                  link: null
+              ),  // SettingsButton
             ],  // <Widget>[]
           ),  // Column
         ),  // Center
@@ -64,7 +30,7 @@ class Settings extends StatelessWidget {
 class SettingsButton extends StatelessWidget{
 
   // creating the variables
-  String buttonName;
+  final String buttonName;
   final width;
   final height;
   final bodyMargin;
@@ -86,7 +52,7 @@ class SettingsButton extends StatelessWidget{
       child: RaisedButton.icon(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
-            side: BorderSide(color: Colors.grey, width: 1)
+            // side: BorderSide(color: Colors.grey, width: 1)
         ),  // RoundedRectangleBorder
         color: Colors.grey,
         icon: Icon(Icons.settings, color: Colors.white70,),
@@ -97,14 +63,16 @@ class SettingsButton extends StatelessWidget{
         ),  // Text
         padding: padding,
         elevation: elevation,
-        // after pressing the button
-        onPressed: (){
-          link;
+        // function after pressing the button
+        onPressed: () async {
+          // clear shared preferences
+          final sharedPreferences = await SharedPreferences.getInstance();
+          await sharedPreferences.clear();
+          print("Shared preferences cleared");
         },
       ),  // RaisedButton.icon
     );  // Container
   }
-
 }
 
 
