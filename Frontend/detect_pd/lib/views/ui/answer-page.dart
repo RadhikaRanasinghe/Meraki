@@ -16,11 +16,11 @@ class Home extends StatelessWidget {
             bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
             smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
             backgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          ),
+          ),//HomeBackground
           appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
           fillChild: answerForeground(question:'question 1', answer:'test'),
           fillColor: Color.fromRGBO(240, 241, 226, 100),
-        ));
+        ));//HomeBackground,Scaffold
   }
 }
 
@@ -29,7 +29,7 @@ class answerForeground extends StatelessWidget {
   final answer;
 
   answerForeground({this.question, this.answer});
-
+// building the page foreground
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +42,7 @@ class answerForeground extends StatelessWidget {
                   child: Text(
                     question,
                     style: TextStyle(color: Colors.white),
-                  )),
+                  )),//Text,Center
               width: 270.0,
               height: 46.0,
               decoration: BoxDecoration(
@@ -53,10 +53,10 @@ class answerForeground extends StatelessWidget {
                     color: const Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 10,
-                  ),
+                  ),//BoxShadow
                 ],
-              ),
-            ),
+              ),//BoxDecoration
+            ),//Container
             SizedBox(height: 30),
             Container(
               child: Padding(
@@ -64,8 +64,8 @@ class answerForeground extends StatelessWidget {
                 child: Text(
                   answer,
                   style: TextStyle(color: Colors.white),
-                ),
-              ),
+                ), // Text
+              ),// Padding
               width: 270.0,
               height: 369.0,
               decoration: BoxDecoration(
@@ -76,13 +76,13 @@ class answerForeground extends StatelessWidget {
                     color: const Color(0x29000000),
                     offset: Offset(0, 3),
                     blurRadius: 10,
-                  ),
+                  ),//BoxShadow
                 ],
-              ),
-            ),
+              ),//BoxDecoration
+            ),//Container
           ],
-        ),
-      ),
+        ),//Column
+      ),//Center
       width: 314.0,
       height: 541.0,
       decoration: BoxDecoration(
@@ -93,9 +93,9 @@ class answerForeground extends StatelessWidget {
             color: const Color(0x29000000),
             offset: Offset(0, 3),
             blurRadius: 10,
-          ),
+          ),//BoxShadow
         ],
-      ),
-    );
+      ),//BoxDecoration
+    );//Container
   }
 }

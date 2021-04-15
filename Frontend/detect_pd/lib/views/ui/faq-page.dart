@@ -2,7 +2,7 @@ import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/widgets/navbar.dart';
-import 'package:detect_pd/views/widgets/home-buttons.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/main.dart';
@@ -10,6 +10,7 @@ import 'package:detect_pd/views/ui/main.dart';
 class FaqPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // building the main interface of the page
     return Scaffold(
       body: HomeForeground(
         expandedHeight: 153.0,
@@ -22,86 +23,76 @@ class FaqPage extends StatelessWidget {
           backgroundColor: Color.fromRGBO(94, 163, 184, 100),
           titleColor: Colors.white,
         ),
+        //HomeBackground
         appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-        // fillChild: Buttons(),
-        // fillChild: Settings(),
-        fillChild: FaqForground(spacing:40.0),
-        fillColor:  Color.fromRGBO(240, 241, 226, 100),
-      ),
+
+        fillChild: FaqForground(spacing: 40.0),
+        fillColor: Color.fromRGBO(240, 241, 226, 100),
+      ), //HomeBackground
       bottomNavigationBar: NavBar(
         link1: null,
-        link2: (){
+        link2: () {
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()));
+              context, MaterialPageRoute(builder: (context) => HomePage()));
         },
-        link3: (){
+        link3: () {
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsPage()));
+              context, MaterialPageRoute(builder: (context) => SettingsPage()));
         },
-        backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
-      ),
-    );
+        backgroundColor: Color.fromRGBO(240, 241, 226, 100),
+      ), //NavBar
+    ); //Scaffold
   }
 }
 
 class FaqForground extends StatelessWidget {
-
   final spacing;
 
   FaqForground({this.spacing});
+
   @override
   Widget build(BuildContext context) {
-  return Container(
-
-    child: new Center(
-
-      child:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        children:<Widget>[
-
-          GreyButtons(buttonText:'Question 1'),
+    return Container(
+        child: new Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+          GreyButtons(buttonText: 'Question 1'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'Question 2'),
+          GreyButtons(buttonText: 'Question 2'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'Question 3'),
+          GreyButtons(buttonText: 'Question 3'),
           SizedBox(height: spacing),
-          GreyButtons(buttonText:'Question 4'),
-          // GreyButtons()
-        ]
-      )
-    )
-  );
-
-
+          GreyButtons(buttonText: 'Question 4')
+        ] //<widget>[]
+                ) //Column
+            ) //Center
+        ); //Container
   }
-
-
 }
-class GreyButtons extends StatelessWidget {
 
+class GreyButtons extends StatelessWidget {
   final buttonText;
   final function;
 
-  GreyButtons({this.buttonText,this.function });
+  GreyButtons({this.buttonText, this.function});
 
-
+  // template for FAQ button
   @override
   Widget build(BuildContext context) {
     return Container(
       child: new Center(
         child: InkWell(
-          onTap:function,
-        child: Container(
-       child: new Text(buttonText,
-    style: TextStyle(
-      color: Colors.white,
-    )
-       ),
-                )
-      ),
-      ),
+            onTap: function,
+            child: Container(
+              child: new Text(buttonText,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ) //TextStyle
+                  ), //Text
+            ) //Container
+            ), //Inkwell
+      ), //Center
       width: 270.0,
       height: 46.0,
       decoration: BoxDecoration(
@@ -112,11 +103,9 @@ class GreyButtons extends StatelessWidget {
             color: const Color(0x29000000),
             offset: Offset(0, 3),
             blurRadius: 6,
-          ),
+          ), //BoxShadow
         ],
-      ),
-    );
-
+      ), //BoxDecoration
+    ); //Container
   }
-
-  }
+}
