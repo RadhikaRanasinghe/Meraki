@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatelessWidget {
@@ -17,7 +18,6 @@ class Settings extends StatelessWidget {
                   bodyMargin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
                   padding: EdgeInsets.all(5.0),
                   elevation: 6.0,
-                  link: null
               ),  // SettingsButton
             ],  // <Widget>[]
           ),  // Column
@@ -36,10 +36,9 @@ class SettingsButton extends StatelessWidget{
   final bodyMargin;
   final padding;
   final elevation;
-  final link;
 
   // creating the constructor
-  SettingsButton({this.buttonName, this.width, this.height, this.bodyMargin, this.padding, this.elevation, this.link});
+  SettingsButton({this.buttonName, this.width, this.height, this.bodyMargin, this.padding, this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +68,12 @@ class SettingsButton extends StatelessWidget{
           final sharedPreferences = await SharedPreferences.getInstance();
           await sharedPreferences.clear();
           print("Shared preferences cleared");
+
+          Fluttertoast.showToast(
+              msg: "Guide turned on for Home screen",
+              backgroundColor: Colors.teal,
+              textColor: Colors.white,
+              fontSize: 16.0);
         },
       ),  // RaisedButton.icon
     );  // Container
