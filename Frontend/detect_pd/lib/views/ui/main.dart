@@ -7,11 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:showcaseview/showcase_widget.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 
+import 'answer-page.dart';
+
 void main() {
   runApp(MaterialApp(
+
     initialRoute:'load' ,
       routes:{
       'load':(context) =>SplashScreen(),
+        '/answers-page':(context) => AnswerPage(),
       },
     debugShowCheckedModeBanner: false,
   )); // MaterialApp

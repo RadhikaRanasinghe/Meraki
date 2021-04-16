@@ -2,7 +2,7 @@ import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/widgets/navbar.dart';
-
+import 'package:detect_pd/views/ui/answer-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/main.dart';
@@ -48,6 +48,7 @@ class FaqPage extends StatelessWidget {
 class FaqForground extends StatelessWidget {
   final spacing;
 
+
   FaqForground({this.spacing});
 
   @override
@@ -57,13 +58,25 @@ class FaqForground extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-          GreyButtons(buttonText: 'Question 1'),
+          GreyButtons(buttonText: 'Question 1',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:1 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 2'),
+          GreyButtons(buttonText: 'Question 2',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:2 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 3'),
+          GreyButtons(buttonText: 'Question 3',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:3 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 4')
+          GreyButtons(buttonText: 'Question 4',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:4 );
+          })
         ] //<widget>[]
                 ) //Column
             ) //Center

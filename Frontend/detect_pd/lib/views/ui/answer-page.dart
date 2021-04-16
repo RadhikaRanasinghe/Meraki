@@ -3,9 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 
-class Home extends StatelessWidget {
+class AnswerPage extends StatelessWidget {
+  int quesNum;
+  String question;
+  String answer;
   @override
   Widget build(BuildContext context) {
+
+    quesNum =ModalRoute.of(context).settings.arguments;
+    if(quesNum == 1){
+      question='Question 1';
+      answer='answer for Q1';
+    }else if (quesNum == 2){
+      question='Question 2';
+      answer='answer for Q2';
+    }else if (quesNum == 3){
+      question='Question 3';
+      answer='answer for Q3';
+    }else if (quesNum == 4){
+      question='Question 4';
+      answer='answer for Q4';
+    }
+
+
     return Scaffold(
         body: HomeForeground(
           expandedHeight: 153.0,
@@ -18,7 +38,7 @@ class Home extends StatelessWidget {
             backgroundColor: Color.fromRGBO(94, 163, 184, 100),
           ),//HomeBackground
           appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          fillChild: answerForeground(question:'question 1', answer:'test'),
+          fillChild: answerForeground(question:question, answer:answer),
           fillColor: Color.fromRGBO(240, 241, 226, 100),
         ));//HomeBackground,Scaffold
   }
