@@ -53,11 +53,51 @@ predictions = logModel.predict(X_test)
 # Getting the confusion matrix
 con_matrix = confusion_matrix(y_test, predictions)
 
-# Plotting the confusion matrix
-plot_confusion_matrix(logModel, X_test, y_test)
+y_true = []
+for _ in range(len(y_test)):
+    if _ == 1:
+        y_true.append(0)
+    else:
+        y_true.append(1)
 
-# Plotting hte roc curve
-metrics.plot_roc_curve(logModel, X_test, y_test)
+# generate a no skill prediction (majority class)
+ns_probs = [0 for _ in range(len(y_test))]
+
+# ROC curve
+# keep probabilities for the positive outcome only
+lr_probs = logModel.predict_proba(X_test)
+lr_probs = lr_probs[:, 1]
+
+# calculate scores
+ns_auc = roc_auc_score(y_true, ns_probs)
+lr_auc = roc_auc_score(y_true, lr_probs)
+
+# summarize scores
+print('0: ROC AUC=%.3f' % ns_auc)
+print('1: ROC AUC=%.3f' % lr_auc)
+
+# calculate roc curves
+ns_fpr, ns_tpr, _ = roc_curve(y_true, ns_probs)
+lr_fpr, lr_tpr, _ = roc_curve(y_true, lr_probs)
+
+# plot the roc curve for the model
+plt.plot(ns_fpr, ns_tpr, linestyle='--', label='0')
+plt.plot(lr_fpr, lr_tpr, marker='.', label='1')
+
+# axis labels
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+
+# show the legend
+plt.legend()
+
+# plot non-normalized confusion matrix and normalized confusion matrix
+options = [("Confusion matrix, without normalization", None),
+           ("Normalized confusion matrix", 'true')]
+for title, normalize in options:
+    disp = plot_confusion_matrix(logModel, X_test, y_test, cmap=plt.cm.Blues, normalize=normalize)
+    disp.ax_.set_title(title)
+    print(disp.confusion_matrix)
 
 # printing hte classification report
 print(classification_report(y_test, predictions))
