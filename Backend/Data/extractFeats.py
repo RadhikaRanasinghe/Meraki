@@ -3,6 +3,8 @@ from math import cos, sin, sqrt, atan
 
 import cv2
 
+from TestImageBuilder import TestImageBuilder
+
 DISPLACEMENT = 10
 
 
@@ -157,7 +159,7 @@ def Zhang_Suen(dest):
                     continue
                 # At least one of P2, P6 and P8 are background
                 Neighboors = 0
-                Neighboors = P4(dest, line, col) * P6(dest, line, col) * P8(dest, line, col);
+                Neighboors = P4(dest, line, col) * P6(dest, line, col) * P8(dest, line, col)
                 # ======================= CHANGES WERE MADE HERE IN LINE 162========================
                 if (Neighboors != 0).any():
                     continue
@@ -386,12 +388,11 @@ def extractFeats(img, img1):
     xc = img_.shape[0] / 2  # 350;
     # Find the spiral origin.
     yc, xc = origem(img1_, yc, xc)
-    cv2.imshow("img1_", img1_)
-    cv2.waitKey(0)
-    cv2.imshow("img_", img_)
-    cv2.waitKey(0)
+    # cv2.imshow("img1_", img1_)
+    # cv2.waitKey(0)
+    # cv2.imshow("img_", img_)
+    # cv2.waitKey(0)
 
-    print("Get points from spiral")
     """/////////////////////////////////////////////////////////////////////////"""
     # Get points from spiral
     for j in range(0, 3):  # 3 turns in the spiral.
@@ -408,7 +409,6 @@ def extractFeats(img, img1):
     yc = img_.shape[1] / 2  # 370;
     xc = img_.shape[0] / 2  # 350;
 
-    print("Transformation to polar coordinates")
     """/////////////////////////////////////////////////////////////////////////"""
     # Transformation to polar coordinates
     for i in range(0, len(ptosoriginal)):
@@ -433,7 +433,6 @@ def extractFeats(img, img1):
         radiusangle.append(ra)
         i += 1
 
-    print("Calculate the difference between the template and drawed spiral")
 
     """/////////////////////////////////////////////////////////////////////////"""
     # Calculate the difference between the template and drawed spiral
@@ -458,7 +457,6 @@ def extractFeats(img, img1):
         prev_rad = dif_rad
         i += 1
 
-    print("computating the Relative Tremor")
     """/////////////////////////////////////////////////////////////////////////"""
     # computating the Relative Tremor
     i = 0
@@ -499,7 +497,6 @@ def extractFeats(img, img1):
         dif = abs(tremor[i] - tremor[i - DISPLACEMENT])
         std_tremor += pow(dif - mean_tremor, 2.0) / (len(tremor) - DISPLACEMENT)
 
-    print("computating the RMS (Root Mean Square)")
     """	///////// Extracting features from Tremor //////////"""
     # computating the RMS (Root Mean Square)
     RMS = 0.0
@@ -509,7 +506,6 @@ def extractFeats(img, img1):
     min_p = len(ptosdesenhada)
     if min_p > len(ptosoriginal):
         min_p = len(ptosoriginal)
-
 
     i = 0
     while i < len(ptosdesenhada) and i < len(ptosoriginal):
@@ -529,9 +525,16 @@ def extractFeats(img, img1):
 
     std = sqrt(std)
 
-    print("Writing RMS.txt")
-    f = open("RMS.txt", "w")
-    text = f"1:{RMS} 2:{std} 3:{maxRMS} 4:{minRMS} 5:{mean_tremor} 6:{max_tremor} 7:{min_tremor} 8:{std_tremor} 9:{count_cross / count}"
-    f.write(text)
-    print(text)
-    f.close()
+    test_image = TestImageBuilder() \
+        .set_rms(RMS) \
+        .set_std_deviation_st_ht(std) \
+        .set_max_between_st_ht(maxRMS) \
+        .set_min_between_st_ht(minRMS) \
+        .set_mrt(mean_tremor) \
+        .set_max_ht(max_tremor) \
+        .set_min_ht(min_tremor) \
+        .set_std_ht(std_tremor) \
+        .set_changes_from_negative_to_positive_between_st_ht(count_cross / count) \
+        .build()
+
+    return test_image

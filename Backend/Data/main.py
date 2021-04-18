@@ -1,18 +1,11 @@
-import writing
-import cv2
+import image_to_csv
+from writing import combine_personal_datasets, create_oversampling
 
-from extractPen import extractPen
-from extractTemplate import extractTemplate
-
-img = cv2.imread("handpd_images/HealthyMeander/mea1-H1.jpg")
-
-img_pen = extractPen(img)
-img_template = extractTemplate(img)
-
-cv2.imshow('pen', img_pen)
-cv2.waitKey(0)
-cv2.imshow('template', img_template)
-cv2.waitKey(0)
+# Change to uer name to before running. (AMIRU/BAWANTHA/CHANAKA/CHARINDU/MALITH/RADHIKA)
+user = image_to_csv.MALITH
+image_to_csv.convert(user)
 
 
-# writing.create_oversampling("detectpd_csv/DetectPD.csv")
+# combine_personal_datasets()
+
+# create_oversampling("detectpd_csv/DetectPD.csv")
