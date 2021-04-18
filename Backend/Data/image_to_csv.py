@@ -16,7 +16,6 @@ RADHIKA = 'radhika'
 
 
 def convert(user):
-
     isUserCorrect = True
 
     gender = []

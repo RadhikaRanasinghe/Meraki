@@ -3,7 +3,6 @@ from collections import Counter
 
 import pandas as pd
 from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN
-from sklearn.svm import LinearSVC
 
 
 def combine_personal_datasets():

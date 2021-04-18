@@ -433,7 +433,6 @@ def extractFeats(img, img1):
         radiusangle.append(ra)
         i += 1
 
-
     """/////////////////////////////////////////////////////////////////////////"""
     # Calculate the difference between the template and drawed spiral
     dif_rad = 0.0
