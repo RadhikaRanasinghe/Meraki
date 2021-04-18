@@ -13,6 +13,8 @@ import 'package:detect_pd/views/ui/main.dart';
 import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
+import 'package:image_cropper/image_cropper.dart';
+
 
 class CameraAccess extends StatefulWidget {
   @override
@@ -32,7 +34,12 @@ class CameraAccessState extends State<CameraAccess> {
 
   Future<dynamic> pickImageFromGallery(ImageSource source) async {
     /// This method will select image from given source using ImagePicker()
-    final image = await picker.getImage(source: source);
+    final preCroppedImage = await picker.getImage(source: source);
+    if (preCroppedImage !=null) {
+      image =await ImageCropper.cropImage(sourcePath: preCroppedImage.path,
+          aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+      compressQuality: 100,compressFormat: ImageCompressFormat.jpg);
+    }
 
     // set image uploaded as image variable declared at class level
     setState(() {
