@@ -10,7 +10,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="detect_pd"
+        android:label="Detect PD"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
 
