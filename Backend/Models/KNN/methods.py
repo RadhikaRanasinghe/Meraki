@@ -1,7 +1,6 @@
 import pickle
 
 import pandas as pd
-
 import sklearn
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -181,9 +180,8 @@ def preprocessing_columns(path, dataset_type):
     data = pd.read_csv(f"{path}data/DetectPD{dataset_type}.csv")
 
     # Preprocessing.
-    le = sklearn.preprocessing.LabelEncoder()
-    gender = le.fit_transform(list(data['GENDER']))
-    handedness = le.fit_transform(list(data['RIGH/LEFT-HANDED']))
+    gender = list(data['GENDER'])
+    handedness = list(data['RIGH/LEFT-HANDED'])
     age = list(data['AGE'])
     rms = list(data['RMS'])
     max_st_ht = list(data['MAX_BETWEEN_ST_HT'])
