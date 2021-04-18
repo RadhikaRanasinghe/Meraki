@@ -92,18 +92,12 @@ def create_oversampling(source_path):
     ros = RandomOverSampler()
     X_resampled, y_resampled = ros.fit_resample(x, y)
     print(sorted(Counter(y_resampled).items()))
-
     writing(X_resampled, y_resampled, "_RandomOverSampler", False)
 
     X_resampled, y_resampled = SMOTE().fit_resample(x, y)
     print(sorted(Counter(y_resampled).items()))
-
     writing(X_resampled, y_resampled, "_SMOTE", False)
 
-    clf_smote = LinearSVC().fit(X_resampled, y_resampled)
     X_resampled, y_resampled = ADASYN().fit_resample(x, y)
     print(sorted(Counter(y_resampled).items()))
-
     writing(X_resampled, y_resampled, "_ADASYN", False)
-
-    # clf_adasyn = LinearSVC().fit(X_resampled, y_resampled)
