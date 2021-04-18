@@ -5,6 +5,7 @@ import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:dropdownfield/dropdownfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -22,6 +23,7 @@ class GalleryAccess extends StatefulWidget {
 class GalleryAccessState extends State<GalleryAccess> {
   File galleryFile;
   File image;
+  // File preCroppedImage;
   final picker = ImagePicker();
   final TextEditingController ageController = TextEditingController();
   String gender;
@@ -32,7 +34,12 @@ class GalleryAccessState extends State<GalleryAccess> {
 
   Future<dynamic> pickImageFromGallery(ImageSource source) async {
     /// This method will select image from given source using ImagePicker()
-    final image = await picker.getImage(source: source);
+    final preCroppedImage = await picker.getImage(source: source);
+    if (preCroppedImage !=null) {
+      image =await ImageCropper.cropImage(sourcePath: preCroppedImage.path,
+          aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+          compressQuality: 100,compressFormat: ImageCompressFormat.jpg);
+    }
 
     // set image uploaded as image variable declared at class level
     setState(() {
