@@ -4,7 +4,6 @@ BLUR_RADIUS = 5
 
 
 def extractTemplate(img):
-
     img = cv2.blur(img, (BLUR_RADIUS, BLUR_RADIUS))
     img = cv2.medianBlur(img, 11)
 

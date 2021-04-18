@@ -1,67 +1,29 @@
-import io
-import os
 import pickle
 
 import cv2
 import numpy as np
-from PIL import Image, ImageFile
 
-from TestImageBuilder import TestImageBuilder
 from User import User
 from UserModel import UserModel
 from extractFeats import extractFeats
 from extractPen import extractPen
-
-ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 class Detector:
     __user: User = None
 
     def load_features(self, image_no: UserModel):
-        # img = Image.open(io.BytesIO(image_no.get_test_image()))
-        # img.save('images/image' + str(image_no.get_id()) + '.jpg')
-
         nparr = np.fromstring(image_no.get_test_image(), np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
         img_pen = extractPen(img)
         test_image = extractFeats(img, img_pen)
 
-        # # TODO: Run the C++ file.
-        #
-        # # temp testing
-        # img.save('images/image' + str(image_no.get_id()) + '_pen.jpg')
-        # img.save('images/image' + str(image_no.get_id()) + '_template.jpg')
-        #
-        # img.close()
-        # os.remove('images/image' + str(image_no.get_id()) + '.jpg')
-        # os.remove('images/image' + str(image_no.get_id()) + '_pen.jpg')
-        # os.remove('images/image' + str(image_no.get_id()) + '_template.jpg')
-        #
-        # feature_file = open("results/RMS" + str(image_no.get_id()) + ".txt", "r")
-        # features = feature_file.read()
-        # feature_file.close()
-        # features = features.split(", ")
-        #
-        # test_image = TestImageBuilder() \
-        #     .set_rms(float(features[1])) \
-        #     .set_std_deviation_st_ht(float(features[2])) \
-        #     .set_max_between_st_ht(float(features[3])) \
-        #     .set_min_between_st_ht(features[4]) \
-        #     .set_mrt(float(features[5])) \
-        #     .set_max_ht(float(features[6])) \
-        #     .set_min_ht(features[7]) \
-        #     .set_std_ht(float(features[8])) \
-        #     .set_changes_from_negative_to_positive_between_st_ht(float(features[9])) \
-        #     .build()
-
         self.__user = User(
             test_image=test_image,
             age=image_no.get_age(),
             gender=image_no.get_gender(),
             handedness=image_no.get_handedness())
-        # os.remove("results/RMS" + str(image_no.get_id()) + ".txt")
 
     def process(self) -> bool:
         """

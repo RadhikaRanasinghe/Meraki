@@ -72,7 +72,7 @@ def Zhang_Suen(dest):
 
     for line in range(height):
         for col in range(width):
-            dest[line][col] = 0 if dest[line][col] == 255 else 1
+            dest[line][col] = (0 if (dest[line][col] == 255).any() else 1)
 
     while ThiningContinue:
         ThiningContinue = False
@@ -83,17 +83,18 @@ def Zhang_Suen(dest):
                 Conectivity = 0
 
                 # Pixel must be black
-                if P1(dest, line, col) == 0:
+                if (P1(dest, line, col) == 0).any():
                     continue
+                # ======================= CHANGES WERE MADE HERE FROM LINE 88 TO LINE 95 NOTE any() function ====
                 # Connectivity number must be 1;
-                Conectivity = 1 if (P2(dest, line, col) == 0 and P3(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P3(dest, line, col) == 0 and P4(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P4(dest, line, col) == 0 and P5(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P5(dest, line, col) == 0 and P6(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P6(dest, line, col) == 0 and P7(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P7(dest, line, col) == 0 and P8(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P8(dest, line, col) == 0 and P9(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P9(dest, line, col) == 0 and P2(dest, line, col) == 1) else 0
+                Conectivity = 1 if ((P2(dest, line, col) == 0).any() and (P3(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P3(dest, line, col) == 0).any() and (P4(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P4(dest, line, col) == 0).any() and (P5(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P5(dest, line, col) == 0).any() and (P6(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P6(dest, line, col) == 0).any() and (P7(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P7(dest, line, col) == 0).any() and (P8(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P8(dest, line, col) == 0).any() and (P9(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P9(dest, line, col) == 0).any() and (P2(dest, line, col) == 1).any()) else 0
                 if Conectivity != 1:
                     continue
                 # 2 <= BlackNeighboors <= 6
@@ -101,18 +102,21 @@ def Zhang_Suen(dest):
                              P4(dest, line, col) + P5(dest, line, col) + \
                              P6(dest, line, col) + P7(dest, line, col) + \
                              P8(dest, line, col) + P9(dest, line, col)
-                if Neighboors < 2 or Neighboors > 6:
+                # ======================= CHANGES WERE MADE HERE IN LINE 104========================
+                if (Neighboors < 2).any() or (Neighboors > 6).any():
                     continue
                 # At least one of P2, P4 and P8 are background
                 Neighboors = 0
                 Neighboors = P2(dest, line, col) * P4(dest, line, col) * P8(dest, line, col)
-                if Neighboors != 0:
+                # ======================= CHANGES WERE MADE HERE IN LINE 110========================
+                if (Neighboors != 0).any():
                     continue
 
                 # At least one of P2, P6 and P8 are background
                 Neighboors = 0
                 Neighboors = P2(dest, line, col) * P6(dest, line, col) * P8(dest, line, col)
-                if (Neighboors != 0):
+                # ======================= CHANGES WERE MADE HERE IN LINE 117========================
+                if (Neighboors != 0).any():
                     continue
                 # Actual Pixel was deleted
                 ThiningContinue = True
@@ -127,17 +131,17 @@ def Zhang_Suen(dest):
                 Neighboors = 0
                 Conectivity = 0
                 # Pixel must be black
-                if (P1(dest, line, col) == 0):
+                if (P1(dest, line, col) == 0).any():
                     continue
-
+                # ======================= CHANGES WERE MADE HERE IN LINE 136 TO LINE 142========================
                 # Connectivity number must be 1;
-                Conectivity = 1 if (P2(dest, line, col) == 0 and P3(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P3(dest, line, col) == 0 and P4(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P4(dest, line, col) == 0 and P5(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P5(dest, line, col) == 0 and P6(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P6(dest, line, col) == 0 and P7(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P7(dest, line, col) == 0 and P8(dest, line, col) == 1) else 0
-                Conectivity += 1 if (P8(dest, line, col) == 0 and P9(dest, line, col) == 1) else 0
+                Conectivity = 1 if ((P2(dest, line, col) == 0).any() and (P3(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P3(dest, line, col) == 0).any() and (P4(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P4(dest, line, col) == 0).any() and (P5(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P5(dest, line, col) == 0).any() and (P6(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P6(dest, line, col) == 0).any() and (P7(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P7(dest, line, col) == 0).any() and (P8(dest, line, col) == 1).any()) else 0
+                Conectivity += 1 if ((P8(dest, line, col) == 0).any() and (P9(dest, line, col) == 1).any()) else 0
                 if Conectivity != 1:
                     continue
                 # 2 <= BlackNeighboors <= 6
@@ -145,17 +149,19 @@ def Zhang_Suen(dest):
                              P4(dest, line, col) + P5(dest, line, col) + \
                              P6(dest, line, col) + P7(dest, line, col) + \
                              P8(dest, line, col) + P9(dest, line, col)
-                if Neighboors < 2 or Neighboors > 6:
+                # ======================= CHANGES WERE MADE HERE IN LINE 151========================
+                if (Neighboors < 2).any() or (Neighboors > 6).any():
                     continue
                 # At least one of P2, P4 and P6 are background
                 Neighboors = 0
                 Neighboors = P2(dest, line, col) * P4(dest, line, col) * P6(dest, line, col)
-                if Neighboors != 0:
+                if (Neighboors != 0).any():
                     continue
                 # At least one of P2, P6 and P8 are background
                 Neighboors = 0
-                Neighboors = P4(dest, line, col) * P6(dest, line, col) * P8(dest, line, col);
-                if Neighboors != 0:
+                Neighboors = P4(dest, line, col) * P6(dest, line, col) * P8(dest, line, col)
+                # ======================= CHANGES WERE MADE HERE IN LINE 162========================
+                if (Neighboors != 0).any():
                     continue
                 # Actual Pixel was deleted
                 ThiningContinue = True
@@ -167,7 +173,7 @@ def Zhang_Suen(dest):
 
     for line in range(height):
         for col in range(width):
-            if P1(dest, line, col) == 0:
+            if (P1(dest, line, col) == 0).any():
                 dest[line][col] = 255
             else:
                 dest[line][col] = 0
@@ -222,11 +228,10 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
     finished = False
     walk = 1000  # clean more pixels.
     while q <= quant and q <= walk:  # While have points to plot
-        # print(y, x, type(y), type(x))
 
         if x >= 0 and y >= 0 and x < img_.shape[1] and y < img_.shape[0]:
-            # print("condition one satisfied")
-            if not entered and img_[math.floor(y)][math.floor(x)] == 0:  # Find a espiral
+            # ======================= CHANGES WERE MADE HERE IN LINE 234========================
+            if not entered and (img_[math.floor(y)][math.floor(x)] == 0).any():  # Find a espiral
 
                 entered = True
                 if (get_point):  # get the first point.
@@ -237,27 +242,20 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 img_[math.floor(y)][math.floor(x)] = 255  # Set the color white to avoid reprocessing
 
         if entered:
-            # print("has entered")
             walk -= 1
             if x >= 0 and y >= 0 and x < img_.shape[1] and y < img_.shape[0]:
                 img_[math.floor(y)][math.floor(x)] = 255  # Set the color white to avoid reprocessing
 
         if (deltax >= 0) and (deltay >= 0) and (deltax >= deltay):  # 1 0ct
-            # print(' 1 0ct', x, y)
             if (erro < 0) or (deltay == 0):
-                # print('if true:')
                 x += 1
                 erro = erro + deltay
             else:
-                # print('else:')
                 x += 1
                 y += 1
                 erro = erro + deltay - deltax
-            # print(' 1 0ct - DONE', x, y)
-
 
         elif (deltax >= 0) and (deltay >= 0) and (deltay > deltax):  # 2 oct
-            # print(' 2 0ct')
             if erro < 0:
                 x += 1
                 y += 1
@@ -267,7 +265,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro - deltax
 
         elif (deltay >= 0) and (deltax < 0) and (-deltax >= deltay):  # 4 oct
-            # print(' 4 0ct')
             if (erro < 0) or (deltay == 0):
                 x -= 1
                 erro = erro + deltay
@@ -277,7 +274,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax + deltay
 
         elif (deltay > 0) and (deltax < 0) and (deltay > -deltax):  # 3 oct
-            # print(' 3 0ct')
             if erro < 0:
                 x -= 1
                 y += 1
@@ -287,7 +283,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax
 
         elif (deltax >= 0) and (deltay < 0) and (deltax >= -deltay):  # 8 oct
-            # print(' 8 0ct')
             if erro < 0:
                 x += 1
                 erro = erro - deltay
@@ -297,7 +292,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + abs(deltay) - deltax
 
         elif (deltax >= 0) and (deltay < 0) and (-deltay > deltax):  # 7 oct
-            # print(' 7 0ct')
             if erro < 0:
                 x += 1
                 y -= 1
@@ -307,7 +301,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro - deltax
 
         elif (deltay < 0) and (deltax < 0) and (-deltay > -deltax):  # 3 oct
-            # print(' 3 0ct - 2')
             if erro < 0:
                 x -= 1
                 y -= 1
@@ -317,7 +310,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 erro = erro + deltax
 
         elif (deltay < 0) and (deltax < 0) and (-deltax >= -deltay):  # 4 oct
-            # print(' 4 0ct - 2')
             if erro < 0:
                 x -= 1
                 erro = erro - deltay
@@ -326,10 +318,7 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
                 y -= 1
                 erro = erro + deltax - deltay
 
-        # print('end if:', y, x)
-
         q += 1  # number of plotted point
-        # print('end while:', y, x)
 
     return v
 
@@ -350,9 +339,9 @@ def verify(img_, y, x):
     cont = 0
     for i in range(y - 1, y + 2):
         for j in range(x - 1, x + 2):
-            if img_[i][j] == 0:
+            if (img_[i][j]).any() == 0:
                 cont += 1
-    return cont
+    return cont == 2
 
 
 # FIND THE SPIRAL ORIGEN
@@ -364,7 +353,7 @@ def origem(img_, oy, ox):
 
     for i in range(com_line, lines):
         for j in range(com_col, cols):
-            if img_[i][j] == 0:
+            if (img_[i][j]).any() == 0:
                 if verify(img_, i, j):
                     ox = j
                     oy = i
@@ -379,8 +368,7 @@ def extractFeats(img, img1):
     ptosdesenhada = []
     tremor_relativo = []
     tremor = []
-    ra = RadiusAngle()
-    raorigin = RadiusAngle()
+    # ra = RadiusAngle()
     vert = Vertices()
 
     # Gray scale
@@ -392,16 +380,19 @@ def extractFeats(img, img1):
     nx = img.shape[0]  # number of columns
     ny = img.shape[1]  # number of lines/rows
 
-    img1_ = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
-    ret, img1_ = cv2.threshold(img_, 220, 255, 0)
+    img1_ = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
+    ret, img1_ = cv2.threshold(img1_, 220, 255, 0)
     img1_ = Zhang_Suen(img1_)
 
     yc = img_.shape[1] / 2  # 370;
     xc = img_.shape[0] / 2  # 350;
     # Find the spiral origin.
     yc, xc = origem(img1_, yc, xc)
+    # cv2.imshow("img1_", img1_)
+    # cv2.waitKey(0)
+    # cv2.imshow("img_", img_)
+    # cv2.waitKey(0)
 
-    print("Get points from spiral")
     """/////////////////////////////////////////////////////////////////////////"""
     # Get points from spiral
     for j in range(0, 3):  # 3 turns in the spiral.
@@ -418,27 +409,29 @@ def extractFeats(img, img1):
     yc = img_.shape[1] / 2  # 370;
     xc = img_.shape[0] / 2  # 350;
 
-    print("Transformation to polar coordinates")
     """/////////////////////////////////////////////////////////////////////////"""
     # Transformation to polar coordinates
     for i in range(0, len(ptosoriginal)):
+        raorigin = RadiusAngle()
         raiz = (ptosoriginal[i].x - xc) * (ptosoriginal[i].x - xc) + (ptosoriginal[i].y - yc) * (ptosoriginal[i].y - yc)
         raorigin.radius = sqrt(raiz)  # computating the radius.
-        atangente = (ptosoriginal[i].y - yc) / (ptosoriginal[i].x - xc)
+        atangente = (ptosoriginal[i].y - yc) / (ptosoriginal[i].x - xc + 0.00000000001)
         raorigin.angle = atan(atangente)  # computating the angle. (Radianos)
         radiusrigin.append(raorigin)
 
+    ra_angle = 0
+
     i = 0
     while i < len(ptosdesenhada) and i < len(ptosoriginal):
+        ra = RadiusAngle()
         raiz = (ptosdesenhada[i].x - xc) * (ptosdesenhada[i].x - xc) + (ptosdesenhada[i].y - yc) * (
                 ptosdesenhada[i].y - yc)
         ra.radius = sqrt(raiz)
-        atangente = (ptosdesenhada[i].y - yc) / (ptosdesenhada[i].x - xc)
+        atangente = (ptosdesenhada[i].y - yc) / (ptosdesenhada[i].x - xc + 0.00000000001)
         ra.angle = atan(atangente)
+        ra_angle = ra.angle
         radiusangle.append(ra)
         i += 1
-
-    print("Calculate the difference between the template and drawed spiral")
 
     """/////////////////////////////////////////////////////////////////////////"""
     # Calculate the difference between the template and drawed spiral
@@ -446,11 +439,15 @@ def extractFeats(img, img1):
     prev_rad = radiusrigin[0].radius - radiusangle[0].radius
     count_cross = 0
 
+    ra = RadiusAngle()
+    ra.angle = ra_angle
     ra.radius = abs(prev_rad)
     difradial.append(ra)
 
     i = 1
     while i < len(ptosdesenhada) and i < len(ptosoriginal):
+        ra = RadiusAngle()
+        ra.angle = ra_angle
         dif_rad = radiusrigin[i].radius - radiusangle[i].radius
         ra.radius = abs(dif_rad)
         difradial.append(ra)
@@ -459,7 +456,6 @@ def extractFeats(img, img1):
         prev_rad = dif_rad
         i += 1
 
-    print("computating the Relative Tremor")
     """/////////////////////////////////////////////////////////////////////////"""
     # computating the Relative Tremor
     i = 0
@@ -500,7 +496,6 @@ def extractFeats(img, img1):
         dif = abs(tremor[i] - tremor[i - DISPLACEMENT])
         std_tremor += pow(dif - mean_tremor, 2.0) / (len(tremor) - DISPLACEMENT)
 
-    print("computating the RMS (Root Mean Square)")
     """	///////// Extracting features from Tremor //////////"""
     # computating the RMS (Root Mean Square)
     RMS = 0.0
