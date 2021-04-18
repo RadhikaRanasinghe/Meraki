@@ -58,22 +58,22 @@ class FaqForground extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-          GreyButtons(buttonText: 'Question 1',function:() {
+          GreyButtons(buttonText: 'What color pen should be used for the test?',function:() {
             Navigator.pushNamed(
                 context,'/answers-page',arguments:1 );
           }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 2',function:() {
+          GreyButtons(buttonText: 'If the test result is positive can patient know which stage Parkinsons is at?',function:() {
             Navigator.pushNamed(
                 context,'/answers-page',arguments:2 );
           }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 3',function:() {
+          GreyButtons(buttonText: 'What should I do if I get a positive result?',function:() {
             Navigator.pushNamed(
                 context,'/answers-page',arguments:3 );
           }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 4',function:() {
+          GreyButtons(buttonText: 'How accurate is the test result?',function:() {
             Navigator.pushNamed(
                 context,'/answers-page',arguments:4 );
           })
@@ -98,7 +98,7 @@ class GreyButtons extends StatelessWidget {
         child: InkWell(
             onTap: function,
             child: Container(
-              child: new Text(buttonText,
+              child: new Text(buttonText, textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                   ) //TextStyle
@@ -106,7 +106,7 @@ class GreyButtons extends StatelessWidget {
             ) //Container
             ), //Inkwell
       ), //Center
-      width: 270.0,
+      width: 300.0,
       height: 46.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),

@@ -12,17 +12,17 @@ class AnswerPage extends StatelessWidget {
 
     quesNum =ModalRoute.of(context).settings.arguments;
     if(quesNum == 1){
-      question='Question 1';
-      answer='answer for Q1';
+      question='What color pen should be used for the test?';
+      answer='•	The recommendation is to do the test with a blue color pen';
     }else if (quesNum == 2){
-      question='Question 2';
-      answer='answer for Q2';
+      question='If the test result is positive can patient know which stage Parkinsons is at?';
+      answer='•	No. You can only know whether it is positive or negative.';
     }else if (quesNum == 3){
-      question='Question 3';
-      answer='answer for Q3';
+      question='What should I do if I get a positive result?';
+      answer='•	If so, you should consult a Healthcare Professional and start the treatments.';
     }else if (quesNum == 4){
-      question='Question 4';
-      answer='answer for Q4';
+      question='How accurate is the test result?';
+      answer='The results are relatively accurate , but it is always advised to meet with a medical professional ';
     }
 
 
@@ -60,10 +60,10 @@ class answerForeground extends StatelessWidget {
             Container(
               child: Center(
                   child: Text(
-                    question,
+                    question, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white),
                   )),//Text,Center
-              width: 270.0,
+              width: 310.0,
               height: 46.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
@@ -86,7 +86,7 @@ class answerForeground extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ), // Text
               ),// Padding
-              width: 270.0,
+              width: 290.0,
               height: 369.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
@@ -103,7 +103,7 @@ class answerForeground extends StatelessWidget {
           ],
         ),//Column
       ),//Center
-      width: 314.0,
+      width: 340.0,
       height: 541.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
