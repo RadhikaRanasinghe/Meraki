@@ -90,8 +90,10 @@ def convert(user):
                             print("\tImage Details found.")
                             break
                 except:
+                    print("ERROR - Occurred adding old values...")
                     for index, row in data.iterrows():
                         if row[1] == name:
+                            print("\tOld values found.")
                             if row['GENDER'] == "M":
                                 gender.append(1)
                             elif row['GENDER'] == "F":
@@ -120,6 +122,7 @@ def convert(user):
                             n_to_p_st_ht.append(row['CHANGES_FROM_NEGATIVE_TO_POSITIVE_BETWEEN_ET_HT'])
 
                             count += 1
+                            print("\tOld values added.")
 
     elif user == BAWANTHA or user == CHARINDU or user == MALITH or user == RADHIKA:
         data = pd.read_csv("handpd_csv/Meander_HandPD.csv")
