@@ -34,5 +34,5 @@
     201 - successfully created (POST)
     200 - successful diagnosis (GET)
     400 - missing input (GET/POST)
-    404 - not found content (GET)
+    416 - not found content (GET)
     415 - invalid input type (GET/POST)
