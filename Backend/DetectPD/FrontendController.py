@@ -1,5 +1,3 @@
-import cv2
-import numpy as np
 from flask import Flask, request, jsonify
 
 import mysql_connection as conn
@@ -111,4 +109,4 @@ def retrieve_result():
 
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(debug=False)
