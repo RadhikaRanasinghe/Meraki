@@ -42,8 +42,6 @@ def convert(user):
         data = pd.read_csv("handpd_csv/NewMeander.csv")
         for root, directories, files in os.walk(path, topdown=False):
             for name in files:
-                if count == 2:
-                    break
                 print(os.path.join(root, name))
                 image_name.append(name)
 
@@ -96,8 +94,6 @@ def convert(user):
         data = pd.read_csv("handpd_csv/Meander_HandPD.csv")
         for root, directories, files in os.walk(path, topdown=False):
             for name in files:
-                if count == 2:
-                    break
                 print(os.path.join(root, name))
                 image_name.append(name)
 
