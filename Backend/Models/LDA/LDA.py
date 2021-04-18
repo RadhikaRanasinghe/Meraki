@@ -9,12 +9,12 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pickle
 
 # Loading the dataset with Pandas
-pd_data = pd.read_csv('Data/DetectPD.csv')
+pd_data = pd.read_csv('Data/DetectPD_SMOTE.csv')
 
 # Preprocessing the dataset
 le = sklearn.preprocessing.LabelEncoder()
-gender = le.fit_transform(list(pd_data['GENDER']))
-handedness = le.fit_transform(list(pd_data['RIGH/LEFT-HANDED']))
+gender = list(pd_data['GENDER'])
+handedness = list(pd_data['RIGH/LEFT-HANDED'])
 age = list(pd_data['AGE'])
 rms = list(pd_data['RMS'])
 max_st_ht = list(pd_data['MAX_BETWEEN_ST_HT'])
@@ -31,7 +31,6 @@ class_type = list(pd_data['CLASS_TYPE'])
 X = list(zip(gender, handedness, age, rms, max_st_ht, min_st_ht, std_st_ht, mrt, max_ht, min_ht, std_ht,
              n_to_p_st_ht))
 y = list(class_type)
-
 
 # initialing variables for getting best models
 lowestAccuracy = 0
@@ -61,7 +60,7 @@ for x in range(10000):
     # getting accuracy as percentage
     accuracy = accuracy_score(y_test, predictions) * 100
 
-# saving the data into pickle files
+    # saving the data into pickle files
     if x == 0:
         lowModel = clf
         highModel = clf
@@ -89,4 +88,3 @@ for x in range(10000):
             with open('LDA_high_result' + str(accuracy) + '.pickle', 'wb') as handle:
                 pickle.dump(highModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
                 print('success')
-
