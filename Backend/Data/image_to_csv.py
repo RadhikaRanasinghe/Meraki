@@ -140,7 +140,6 @@ def convert(user):
 
                         count += 1
                         print("\tImage Details found.")
-                        print("IMAGE NO: " + str(count))
                         break
     else:
         isUserCorrect = False
