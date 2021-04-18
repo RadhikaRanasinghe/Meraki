@@ -5,10 +5,10 @@ import methods
 # path = "/content/drive/MyDrive/Colab Notebooks/detect_pd"
 path = ""
 
-dataset_type = ""
+# dataset_type = ""
 # dataset_type = "_SMOTE"
 # dataset_type = "_RandomOverSampler"
-# dataset_type = "_ADASYN"
+dataset_type = "_ADASYN"
 
 # preprocessing dataset
 x, y = methods.preprocessing_columns(path, dataset_type)
@@ -20,4 +20,4 @@ methods.initialise_save(path, x, y, dataset_type)
 # methods.building_models(path, x, y, dataset_type)
 
 # Print the results.
-# methods.print_results(path, dataset_type)
+methods.print_results(path, dataset_type)
