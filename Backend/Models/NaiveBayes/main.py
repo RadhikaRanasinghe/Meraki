@@ -15,10 +15,10 @@ def naive_bayes_classifier():
     This method utilizes four datasets to train the models."""
 
     # four datasets used to train the models
-    hand_pd = pd.read_csv("Datasets/DetectPD.csv")
-    # hand_pd = pd.read_csv("Datasets/DetectPD-ADASYN.csv")
-    # hand_pd = pd.read_csv("Datasets/DetectPD-RandomOverSampler.csv")
-    # hand_pd = pd.read_csv("Datasets/DetectPD-SMOTE.csv")
+    hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-ADASYN.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_RandomOverSampler.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-SMOTE.csv")
     hand_pd.head(10)
 
     # plot graph
@@ -115,10 +115,12 @@ def naive_bayes_classifier():
                 print(metrics.confusion_matrix(y_test, predicted))
 
                 # Saving models as pickle files
+                # Edit file name and save path accordingly
                 with open("GNB_BestModel_%s.pickle" % highCount, "wb") as bestModel:
                     pickle.dump(highestModel, bestModel)
 
     # Saving models as pickle files
+    # Edit file name and save path accordingly
     with open("GNB_WorstModel.pickle", "wb") as worstModel:
         pickle.dump(lowestModel, worstModel)
 
