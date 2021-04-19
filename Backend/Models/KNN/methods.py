@@ -5,6 +5,33 @@ import sklearn
 from sklearn.neighbors import KNeighborsClassifier
 
 
+def find_highest_accuracy_model(path, dataset_type):
+    highest_accuracy_model = None
+    highest_model_accuracy = 0
+
+    # Reading all the save pickle files to make result md files.
+    for neighbors in range(3, 10, 2):
+        for ts in range(1, 5, 1):
+            test_size = ts / 10
+
+            # Loading bestModel and bestData.
+            loaded_best_model = pickle.load(
+                open(
+                    f"{path}DetectPD{dataset_type}/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle",
+                    "rb"))
+            loaded_best_data = pickle.load(
+                open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle",
+                     "rb"))
+            best_model = loaded_best_model.fit(loaded_best_data['x_train'], loaded_best_data['y_train'])
+            best_acc = best_model.score(loaded_best_data['x_test'], loaded_best_data['y_test'])
+
+            # saving the highest best, lowest worst and lowest different accuracy model details.
+            if highest_model_accuracy < best_acc:
+                highest_accuracy_model = loaded_best_model
+
+    return highest_accuracy_model
+
+
 def print_results(path, dataset_type):
     """
     Method to Printing results.
