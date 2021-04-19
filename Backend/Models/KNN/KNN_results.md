@@ -27,97 +27,97 @@
 
 ### neighbors: 3, test size: 0.01
 
-	Best		: 8906.25
-	Worst		: 5156.25
+	Best		: 89.0625
+	Worst		: 51.5625
 	Deference	: 37.5
  
 ### neighbors: 3, test size: 0.02
 
-	Best		: 8267.716535433072
-	Worst		: 5669.291338582677
+	Best		: 82.67716535433071
+	Worst		: 56.69291338582677
 	Deference	: 25.98425196850394
  
 ### neighbors: 3, test size: 0.03
 
-	Best		: 8157.894736842106
-	Worst		: 5789.473684210527
+	Best		: 81.57894736842105
+	Worst		: 57.89473684210527
 	Deference	: 23.684210526315788
  
 ### neighbors: 3, test size: 0.04
 
-	Best		: 7865.612648221344
-	Worst		: 6047.430830039525
+	Best		: 78.65612648221344
+	Worst		: 60.47430830039525
 	Deference	: 18.181818181818187
  
 ### neighbors: 5, test size: 0.01
 
-	Best		: 9062.5
-	Worst		: 5156.25
+	Best		: 90.625
+	Worst		: 51.5625
 	Deference	: 39.0625
  
 ### neighbors: 5, test size: 0.02
 
-	Best		: 8425.1968503937
-	Worst		: 5905.511811023622
+	Best		: 84.25196850393701
+	Worst		: 59.055118110236215
 	Deference	: 25.196850393700792
  
 ### neighbors: 5, test size: 0.03
 
-	Best		: 8000.0
-	Worst		: 5894.736842105262
+	Best		: 80.0
+	Worst		: 58.94736842105262
 	Deference	: 21.052631578947377
  
 ### neighbors: 5, test size: 0.04
 
-	Best		: 7944.664031620553
-	Worst		: 6007.90513833992
+	Best		: 79.44664031620553
+	Worst		: 60.079051383399204
 	Deference	: 19.367588932806328
  
 ### neighbors: 7, test size: 0.01
 
-	Best		: 8906.25
-	Worst		: 4531.25
+	Best		: 89.0625
+	Worst		: 45.3125
 	Deference	: 43.75
  
 ### neighbors: 7, test size: 0.02
 
-	Best		: 8267.716535433072
-	Worst		: 5669.291338582677
+	Best		: 82.67716535433071
+	Worst		: 56.69291338582677
 	Deference	: 25.98425196850394
  
 ### neighbors: 7, test size: 0.03
 
-	Best		: 7947.368421052632
-	Worst		: 5842.105263157895
+	Best		: 79.47368421052632
+	Worst		: 58.42105263157895
 	Deference	: 21.052631578947363
  
 ### neighbors: 7, test size: 0.04
 
-	Best		: 7944.664031620553
-	Worst		: 6166.00790513834
+	Best		: 79.44664031620553
+	Worst		: 61.6600790513834
 	Deference	: 17.786561264822133
  
 ### neighbors: 9, test size: 0.01
 
-	Best		: 8750.0
-	Worst		: 4375.0
+	Best		: 87.5
+	Worst		: 43.75
 	Deference	: 43.75
  
 ### neighbors: 9, test size: 0.02
 
-	Best		: 8503.937007874016
-	Worst		: 5511.811023622047
+	Best		: 85.03937007874016
+	Worst		: 55.118110236220474
 	Deference	: 29.92125984251969
  
 ### neighbors: 9, test size: 0.03
 
-	Best		: 8000.0
-	Worst		: 5736.842105263158
+	Best		: 80.0
+	Worst		: 57.36842105263158
 	Deference	: 22.631578947368418
  
 ### neighbors: 9, test size: 0.04
 
-	Best		: 7905.138339920948
-	Worst		: 6166.00790513834
+	Best		: 79.05138339920948
+	Worst		: 61.6600790513834
 	Deference	: 17.391304347826086
  

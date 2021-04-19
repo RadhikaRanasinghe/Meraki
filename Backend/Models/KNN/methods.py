@@ -46,8 +46,8 @@ def print_results(path, dataset_type):
 
             name = "### neighbors: " + str(neighbors) + ", test size: " + str(test_size / 10)
 
-            msg = "\n" + name + "\n\n\tBest\t\t: " + str(best_acc * 100) + "\n\tWorst\t\t: " +\
-                  str(worst_acc * 100) + "\n\tDeference\t: " + str(deference) + "\n "
+            msg = "\n" + name + "\n\n\tBest\t\t: " + str(best_acc) + "\n\tWorst\t\t: " +\
+                  str(worst_acc) + "\n\tDeference\t: " + str(deference) + "\n "
 
             print(msg.replace('#', ""))
 
