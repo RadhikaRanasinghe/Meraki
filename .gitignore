@@ -5,3 +5,5 @@
 *.pyc
 *.pyc
 *.csv
+*.xml
+*.iml
