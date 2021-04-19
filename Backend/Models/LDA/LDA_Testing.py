@@ -61,10 +61,12 @@ titles_options = [("Confusion matrix, without normalization", None),
 for title, normalize in titles_options:
     disp = plot_confusion_matrix(clf, X_test, y_test, display_labels=labels, cmap=plt.cm.Blues, normalize=normalize)
     disp.ax_.set_title(title)
-
+    plt.savefig(f"DetectPD_SMOTE_Improved/Plots/{title}.png")
     print(title)
     print(disp.confusion_matrix)
 
 # plotting ROC curve
 metrics.plot_roc_curve(clf, X_test, y_test)
+plt.plot([0, 1], [0, 1], color='darkorange', lw=2, linestyle='--')
+plt.savefig("DetectPD_SMOTE_Improved/Plots/roc_curve.png")
 plt.show()
