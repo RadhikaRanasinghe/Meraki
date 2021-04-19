@@ -31,11 +31,12 @@ class AnswerPage extends StatelessWidget {
           expandedHeight: 153.0,
           appBarChild: HomeBackground(
             title: 'FAQ',
-            logoPath: 'assets/testImage.jpg',
+            logoPath: 'assets/pd_log_bg_small.png',
             height: 10.0,
             bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
             smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
             backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+            titleColor: Colors.white,
           ),//HomeBackground
           appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
           fillChild: answerForeground(question:question, answer:answer),
