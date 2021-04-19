@@ -49,7 +49,7 @@ def naive_bayes_cm():
 
 # ----------------------------------------------------------------------------------------------------------------- #
     # Loading models from pickle files
-    pickle_in = open("Backend/Models/NaiveBayes/DetectPD-RandomOverSampler/ROS_BestModel_5.pickle", "rb")
+    pickle_in = open("Backend/Models/NaiveBayes/DetectPD-RandomOverSampler/GNB_ROS_BestModel_1.pickle", "rb")
     loadedModel = pickle.load(pickle_in)
 
     # make prediction using loaded model

@@ -14,25 +14,21 @@ def naive_bayes_classifier():
     """ Method used to create and train Machine Learning model using Naive Bayes classifier.
     This method utilizes four datasets to train the models."""
 
-    # four datasets used to train the models
+    # five datasets used to train the models
     hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD.csv")
     # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-ADASYN.csv")
     # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_RandomOverSampler.csv")
-    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-SMOTE.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_SMOTE.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_SMOTE_improved.csv")
     hand_pd.head(10)
 
     # plot graph
     sns.countplot(x="CLASS_TYPE", data=hand_pd)
     plt.show()
 
-    # drop redundant column - ONLY FOR DetectPD.csv
-    hand_pd.drop("IMAGE_NAME", axis=1, inplace=True)
-    hand_pd.drop("_ID_EXAM", axis=1, inplace=True)
-
-    # preprocessing columns using label encoders
-    le = sklearn.preprocessing.LabelEncoder()
-    gender = le.fit_transform(list(hand_pd['GENDER']))
-    handedness = le.fit_transform(list(hand_pd['RIGH/LEFT-HANDED']))
+    # preprocessing columns
+    gender = list(hand_pd['GENDER'])
+    handedness = list(hand_pd['RIGH/LEFT-HANDED'])
     age = list(hand_pd['AGE'])
     rms = list(hand_pd['RMS'])
     max_st_ht = list(hand_pd['MAX_BETWEEN_ST_HT'])
