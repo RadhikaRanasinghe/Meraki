@@ -1,16 +1,9 @@
-# This is a sample Python script.
+from methods import train_voting_classifier
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+path = ""
+# path = "_ADASYN"
+# path = "_ROS"
+# path = "_SMOTE"
+# path = "_SMOTE_improved"
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+train_voting_classifier(path)

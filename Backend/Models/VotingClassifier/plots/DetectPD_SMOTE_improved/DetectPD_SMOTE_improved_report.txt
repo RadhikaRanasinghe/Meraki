@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+           1       0.93      0.82      0.87        34
+           2       0.89      0.96      0.92        50
+
+    accuracy                           0.90        84
+   macro avg       0.91      0.89      0.90        84
+weighted avg       0.91      0.90      0.90        84
+
+VotingClassifier accuracy: 0.9047619047619048
