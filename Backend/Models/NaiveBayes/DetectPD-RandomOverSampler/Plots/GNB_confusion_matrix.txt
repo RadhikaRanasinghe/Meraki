@@ -2,6 +2,6 @@ Non-normalized confusion matrix
 [[14 23]
  [ 0 47]]
 
- Normalized confusion matrix
+Normalized confusion matrix
 [[0.37837838 0.62162162]
  [0.         1.        ]]
