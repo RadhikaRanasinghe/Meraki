@@ -26,14 +26,9 @@ def naive_bayes_classifier():
     sns.countplot(x="CLASS_TYPE", data=hand_pd)
     plt.show()
 
-    # drop redundant column - ONLY FOR DetectPD.csv
-    hand_pd.drop("IMAGE_NAME", axis=1, inplace=True)
-    hand_pd.drop("_ID_EXAM", axis=1, inplace=True)
-
-    # preprocessing columns using label encoders
-    le = sklearn.preprocessing.LabelEncoder()
-    gender = le.fit_transform(list(hand_pd['GENDER']))
-    handedness = le.fit_transform(list(hand_pd['RIGH/LEFT-HANDED']))
+    # preprocessing columns
+    gender = (list(hand_pd['GENDER']))
+    handedness = (list(hand_pd['RIGH/LEFT-HANDED']))
     age = list(hand_pd['AGE'])
     rms = list(hand_pd['RMS'])
     max_st_ht = list(hand_pd['MAX_BETWEEN_ST_HT'])
