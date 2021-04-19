@@ -1,0 +1,24 @@
+Highest accuracy 1 : 85.9375
+ Highest accuracy 2 : 85.9375
+ Highest accuracy 3 : 85.9375
+ Lowest accuracy : 85.9375 
+ Lowest accuracy : 78.125 
+ Lowest accuracy : 75.0 
+ Lowest accuracy : 71.875 
+ Lowest accuracy : 70.3125
+ Highest 1 accuracy : 89.0625
+ Highest 2 accuracy : 89.0625 
+ Lowest accuracy : 68.75
+ Highest 3 accuracy : 89.0625
+ Highest 1 accuracy : 92.1875
+ Highest 2 accuracy : 92.1875 
+ Lowest accuracy : 62.5
+ Highest 3 accuracy : 90.625
+ Highest 1 accuracy : 93.75
+ Highest 2 accuracy : 93.75
+ Highest 3 accuracy : 92.1875 
+ Lowest accuracy : 60.9375 
+ Lowest accuracy : 59.375
+ Highest 3 accuracy : 93.75
+ Highest 1 accuracy : 95.3125
+ Highest 2 accuracy : 95.3125
