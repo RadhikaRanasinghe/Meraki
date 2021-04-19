@@ -1,54 +1,46 @@
-**********************************SVM_BestModel_1******************************************
-count:  14 accuracy:  92.85714285714286
-high model 
+high model 1
+Accuracy is: 86.90476190476191
               precision    recall  f1-score   support
 
-           1       1.00      0.84      0.91        37
-           2       0.89      1.00      0.94        47
+           1       0.85      0.83      0.84        35
+           2       0.88      0.90      0.89        49
 
-    accuracy                           0.93        84
-   macro avg       0.94      0.92      0.93        84
-weighted avg       0.94      0.93      0.93        84
+    accuracy                           0.87        84
+   macro avg       0.87      0.86      0.86        84
+weighted avg       0.87      0.87      0.87        84
 
 
-
-**********************************SVM_BestModel_2******************************************
-count:  407 accuracy:  94.04761904761905
-high model 
+high model 2
+Accuracy is: 88.09523809523809
               precision    recall  f1-score   support
 
-           1       0.93      0.95      0.94        39
-           2       0.95      0.93      0.94        45
+           1       0.90      0.86      0.88        44
+           2       0.86      0.90      0.88        40
 
-    accuracy                           0.94        84
-   macro avg       0.94      0.94      0.94        84
-weighted avg       0.94      0.94      0.94        84
+    accuracy                           0.88        84
+   macro avg       0.88      0.88      0.88        84
+weighted avg       0.88      0.88      0.88        84
 
 
-
-**********************************SVM_BestModel_3******************************************
-count:  587 accuracy:  95.23809523809523
-high model 6
+high model 3
+Accuracy is: 90.47619047619048
               precision    recall  f1-score   support
 
-           1       0.97      0.93      0.95        41
-           2       0.93      0.98      0.95        43
+           1       0.94      0.85      0.89        40
+           2       0.88      0.95      0.91        44
 
-    accuracy                           0.95        84
-   macro avg       0.95      0.95      0.95        84
-weighted avg       0.95      0.95      0.95        84
-
-
+    accuracy                           0.90        84
+   macro avg       0.91      0.90      0.90        84
+weighted avg       0.91      0.90      0.90        84
 
 
-**********************************SVM_WorstModel******************************************
-count:  1612 accuracy:  72.61904761904762
 low model
+Accuracy is: 55.952380952380956
               precision    recall  f1-score   support
 
-           1       0.81      0.64      0.72        45
-           2       0.67      0.82      0.74        39
+           1       0.58      0.49      0.53        43
+           2       0.54      0.63      0.58        41
 
-    accuracy                           0.73        84
-   macro avg       0.74      0.73      0.73        84
-weighted avg       0.74      0.73      0.73        84
+    accuracy                           0.56        84
+   macro avg       0.56      0.56      0.56        84
+weighted avg       0.56      0.56      0.56        84
