@@ -14,11 +14,12 @@ def naive_bayes_classifier():
     """ Method used to create and train Machine Learning model using Naive Bayes classifier.
     This method utilizes four datasets to train the models."""
 
-    # four datasets used to train the models
+    # five datasets used to train the models
     hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD.csv")
     # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-ADASYN.csv")
     # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_RandomOverSampler.csv")
-    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD-SMOTE.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_SMOTE.csv")
+    # hand_pd = pd.read_csv("Backend/Data/detectpd_csv/DetectPD_SMOTE_improved.csv")
     hand_pd.head(10)
 
     # plot graph
