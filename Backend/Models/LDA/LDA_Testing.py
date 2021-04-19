@@ -9,8 +9,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score, precision_score, f1_score, recall_score
 import sklearn.metrics as metrics
 
-pd_data = pd.read_csv('Data/DetectPD.csv')
-model = open("DetectPD/LDA_BestModel_1.pickle", "rb")
+pd_data = pd.read_csv('Data/DetectPD_SMOTE_improved.csv')
+model = open("DetectPD_SMOTE_Improved/LDA_BestModel_1.pickle", "rb")
 clf = pickle.load(model)
 
 # Preprocessing the dataset
