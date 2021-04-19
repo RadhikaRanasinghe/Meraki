@@ -9,12 +9,11 @@ import pickle
 from sklearn.metrics import accuracy_score, classification_report
 
 # Loading the dataset with a Pandas and the returned data frame is caught by data variable
-data = pd.read_csv("data/DetectPD-SMOTE.csv")
+data = pd.read_csv("data/DetectPD_SMOTE_improved.csv")
 
-# Preprocessing using the LabelEncoder
-le = sklearn.preprocessing.LabelEncoder()
-gender = le.fit_transform(list(data['GENDER']))
-handedness = le.fit_transform(list(data['RIGH/LEFT-HANDED']))
+# Preprocessing
+gender = list(data['GENDER'])
+handedness = list(data['RIGH/LEFT-HANDED'])
 age = list(data['AGE'])
 rms = list(data['RMS'])
 max_st_ht = list(data['MAX_BETWEEN_ST_HT'])
@@ -49,10 +48,10 @@ model.fit(x_train, y_train)
 print(model.score(x_test, y_test) * 100)
 
 # Initializing and assigning the variables for storing the best 3 and worst pickle file
-best_result1_file = "DetectPD_SMOTE/RF_BestModel1_SMOTE.pickle"
-best_result2_file = "DetectPD_SMOTE/RF_BestModel2_SMOTE.pickle"
-best_result3_file = "DetectPD_SMOTE/RF_BestModel3_SMOTE.pickle"
-worst_result_file = "DetectPD_SMOTE/RF_WorstModel_SMOTE.pickle"
+best_result1_file = "DetectPD_SMOTE_improved/RF_BestModel1_SMOTE_improved.pickle"
+best_result2_file = "DetectPD_SMOTE_improved/RF_BestModel2_SMOTE_improved.pickle"
+best_result3_file = "DetectPD_SMOTE_improved/RF_BestModel3_SMOTE_improved.pickle"
+worst_result_file = "DetectPD_SMOTE_improved/RF_WorstModel_SMOTE_improved.pickle"
 
 # Initializing and assigning the variables for storing the best 3 and worst accuracies
 best_result1 = 0
@@ -128,7 +127,7 @@ for i in range(10000):
         worst_model_report = sklearn.metrics.classification_report(y_test, predicted)
 
     # Opening the file to write into
-    file1 = open("DetectPD_SMOTE/RF_results_SMOTE.md", "w")  # write mode
+    file1 = open("DetectPD_SMOTE_improved/RF_results_SMOTE_improved.md", "w")  # write mode
 
     # Writing to a file accuracies and their classification reports
     file1.write("\n######**_The Best Model 1_**: \n\nAccuracy: " + str(best_result1) + "\n\n" + best_model1_report)
