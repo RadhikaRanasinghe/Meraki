@@ -63,7 +63,7 @@ class FaqForground extends StatelessWidget {
                 context,'/answers-page',arguments:1 );
           }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'If the test result is positive can patient know which stage Parkinsons is at?',function:() {
+          GreyButtons(buttonText: 'If the test result is positive can the patient know which stage they are at?',function:() {
             Navigator.pushNamed(
                 context,'/answers-page',arguments:2 );
           }),

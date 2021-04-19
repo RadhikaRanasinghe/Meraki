@@ -13,16 +13,16 @@ class AnswerPage extends StatelessWidget {
     quesNum =ModalRoute.of(context).settings.arguments;
     if(quesNum == 1){
       question='What color pen should be used for the test?';
-      answer='•	The recommendation is to do the test with a blue color pen';
+      answer='•	The recommendation is to do the test with a blue colored pen.';
     }else if (quesNum == 2){
-      question='If the test result is positive can patient know which stage Parkinsons is at?';
+      question='If the test result is positive can the patient know which stage they are at?';
       answer='•	No. You can only know whether it is positive or negative.';
     }else if (quesNum == 3){
       question='What should I do if I get a positive result?';
-      answer='•	If so, you should consult a Healthcare Professional and start the treatments.';
+      answer='•	If so, you should consult a health care professional as soon as possible and start treatment.';
     }else if (quesNum == 4){
       question='How accurate is the test result?';
-      answer='The results are relatively accurate , but it is always advised to meet with a medical professional ';
+      answer='The results are relatively accurate, but it is always advised to meet with a medical professional.';
     }
 
 
