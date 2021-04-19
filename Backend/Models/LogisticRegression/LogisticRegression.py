@@ -9,28 +9,9 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pickle
 
 # Loading the dataset with a Pandas and the returned data frame is caught by data variable
-pd_data = pd.read_csv('DetectPD_SMOTE.csv')
-
-# preprocessing the dataset using the LabelEncoder
-# le = sklearn.preprocessing.LabelEncoder()
-# gender = le.fit_transform(list(pd_data['GENDER']))
-# handedness = le.fit_transform(list(pd_data['RIGH/LEFT-HANDED']))
-# age = list(pd_data['AGE'])
-# rms = list(pd_data['RMS'])
-# max_st_ht = list(pd_data['MAX_BETWEEN_ST_HT'])
-# min_st_ht = list(pd_data['MIN_BETWEEN_ST_HT'])
-# std_st_ht = list(pd_data['STD_DEVIATION_ST_HT'])
-# mrt = list(pd_data['MRT'])
-# max_ht = list(pd_data['MAX_HT'])
-# min_ht = list(pd_data['MIN_HT'])
-# std_ht = list(pd_data['STD_HT'])
-# n_to_p_st_ht = list(pd_data['CHANGES_FROM_NEGATIVE_TO_POSITIVE_BETWEEN_ST_HT'])
-# class_type = list(pd_data['CLASS_TYPE'])
+pd_data = pd.read_csv('DetectPD_SMOTE_improved.csv')
 
 # Creating 'x' and 'y'
-# X = list(zip(gender, handedness, age, rms, max_st_ht, min_st_ht, std_st_ht, mrt, max_ht, min_ht, std_ht,
-#              n_to_p_st_ht))
-# y = list(class_type)
 X = pd_data.drop("CLASS_TYPE", axis=1)
 y = pd_data["CLASS_TYPE"]
 
