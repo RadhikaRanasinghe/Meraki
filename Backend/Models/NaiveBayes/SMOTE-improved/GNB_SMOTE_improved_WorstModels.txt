@@ -7,3 +7,5 @@
     accuracy                           0.44        84
    macro avg       0.61      0.56      0.42        84
 weighted avg       0.69      0.44      0.39        84
+
+Accuracy = 43.65847381236538
