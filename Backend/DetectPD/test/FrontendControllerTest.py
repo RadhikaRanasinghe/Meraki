@@ -30,7 +30,7 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(201, response.status_code, "Checking status code returned - 201 (Successfully Created)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
         self.assertTrue(b'image_no' in response.data, "Checking image_no returned.")
         image_no = json.loads(response.data.decode('utf-8'))['image_no']
         self.assertEqual(type(image_no), int, "Checking data type of image_no - int")
@@ -44,10 +44,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(415, response.status_code, "Checking status code returned - 415 (Invalid input type)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking image_no returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 415")
 
         data = {'age': 1, 'gender': 'a', 'handedness': 1}
         data = {key: str(value) for key, value in data.items()}
@@ -55,10 +56,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(415, response.status_code, "Checking status code returned - 415 (Invalid input type)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 415")
 
         data = {'age': 1, 'gender': 1, 'handedness': 'a'}
         data = {key: str(value) for key, value in data.items()}
@@ -66,10 +68,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(415, response.status_code, "Checking status code returned - 415 (Invalid input type)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 415")
 
         im = cv2.imread('sample_images/exam_1.png')
         is_success, im_buf_arr = cv2.imencode(".png", im)
@@ -81,10 +84,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(415, response.status_code, "Checking status code returned - 415 (Invalid input type)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 415")
 
         error_message = "Missing input. \n'age', 'gender', 'handedness', 'image' is required."
 
@@ -93,10 +97,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(400, response.status_code, "Checking status code returned - 400 (Missing input)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 400")
 
         im = cv2.imread('sample_images/exam_1.jpg')
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
@@ -108,10 +113,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(400, response.status_code, "Checking status code returned - 400 (Missing input)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 400")
 
         data = {'age': 1, 'handedness': 1}
         data = {key: str(value) for key, value in data.items()}
@@ -119,10 +125,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(400, response.status_code, "Checking status code returned - 400 (Missing input)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 400")
 
         data = {'age': 1, 'gender': 1}
         data = {key: str(value) for key, value in data.items()}
@@ -130,10 +137,11 @@ class FlaskTest(unittest.TestCase):
 
         response = tester.post('/create_user', data=data, content_type='multipart/form-data')
         self.assertEqual(400, response.status_code, "Checking status code returned - 400 (Missing input)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 400")
 
     def test_retrieve_result(self):
         """
@@ -144,37 +152,40 @@ class FlaskTest(unittest.TestCase):
         query_string = {'image_no': 1}
         response = tester.get('/retrieve_result', query_string=query_string)
         self.assertEqual(response.status_code, 200, "Checking status code returned - 200 (Successful diagnosis)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'result' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'result' in response.data, "Checking if the result is returned")
 
         error_message = "Invalid input type. \n'image_no' - Integer"
 
         query_string = {'image_no': 'a'}
         response = tester.get('/retrieve_result', query_string=query_string)
         self.assertEqual(response.status_code, 415, "Checking status code returned - 415 (Invalid input type)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 415")
 
         error_message = "Invalid image_no, No such id exists in the database."
 
         query_string = {'image_no': 0}
         response = tester.get('/retrieve_result', query_string=query_string)
         self.assertEqual(response.status_code, 416, "Checking status code returned - 416 (Not found content)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 416")
 
         error_message = "Missing input. \n'image_no' is required."
 
         response = tester.get('/retrieve_result')
         self.assertEqual(response.status_code, 400, "Checking status code returned - 400 (Missing input)")
-        self.assertEqual(response.content_type, "application/json", "Checking data type returned - application/json")
-        self.assertTrue(b'error' in response.data, "Checking if the correct message is returned")
+        self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
+        self.assertTrue(b'error' in response.data, "Checking if an error message is returned")
         error = json.loads(response.data.decode('utf-8'))['error']
-        self.assertEqual(error_message, error, "Checking the error message returned for status code")
+        self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
+                                               "status code 400")
 
     if __name__ == "__main__":
         unittest.main()
