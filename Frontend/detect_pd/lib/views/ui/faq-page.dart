@@ -2,7 +2,7 @@ import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/widgets/navbar.dart';
-
+import 'package:detect_pd/views/ui/answer-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/main.dart';
@@ -48,6 +48,7 @@ class FaqPage extends StatelessWidget {
 class FaqForground extends StatelessWidget {
   final spacing;
 
+
   FaqForground({this.spacing});
 
   @override
@@ -57,13 +58,25 @@ class FaqForground extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-          GreyButtons(buttonText: 'Question 1'),
+          GreyButtons(buttonText: 'What color pen should be used for the test?',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:1 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 2'),
+          GreyButtons(buttonText: 'If the test result is positive can patient know which stage Parkinsons is at?',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:2 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 3'),
+          GreyButtons(buttonText: 'What should I do if I get a positive result?',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:3 );
+          }),
           SizedBox(height: spacing),
-          GreyButtons(buttonText: 'Question 4')
+          GreyButtons(buttonText: 'How accurate is the test result?',function:() {
+            Navigator.pushNamed(
+                context,'/answers-page',arguments:4 );
+          })
         ] //<widget>[]
                 ) //Column
             ) //Center
@@ -85,7 +98,7 @@ class GreyButtons extends StatelessWidget {
         child: InkWell(
             onTap: function,
             child: Container(
-              child: new Text(buttonText,
+              child: new Text(buttonText, textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
                   ) //TextStyle
@@ -93,7 +106,7 @@ class GreyButtons extends StatelessWidget {
             ) //Container
             ), //Inkwell
       ), //Center
-      width: 270.0,
+      width: 300.0,
       height: 46.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),

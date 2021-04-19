@@ -3,9 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 
-class Home extends StatelessWidget {
+class AnswerPage extends StatelessWidget {
+  int quesNum;
+  String question;
+  String answer;
   @override
   Widget build(BuildContext context) {
+
+    quesNum =ModalRoute.of(context).settings.arguments;
+    if(quesNum == 1){
+      question='What color pen should be used for the test?';
+      answer='•	The recommendation is to do the test with a blue color pen';
+    }else if (quesNum == 2){
+      question='If the test result is positive can patient know which stage Parkinsons is at?';
+      answer='•	No. You can only know whether it is positive or negative.';
+    }else if (quesNum == 3){
+      question='What should I do if I get a positive result?';
+      answer='•	If so, you should consult a Healthcare Professional and start the treatments.';
+    }else if (quesNum == 4){
+      question='How accurate is the test result?';
+      answer='The results are relatively accurate , but it is always advised to meet with a medical professional ';
+    }
+
+
     return Scaffold(
         body: HomeForeground(
           expandedHeight: 153.0,
@@ -18,7 +38,7 @@ class Home extends StatelessWidget {
             backgroundColor: Color.fromRGBO(94, 163, 184, 100),
           ),//HomeBackground
           appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
-          fillChild: answerForeground(question:'question 1', answer:'test'),
+          fillChild: answerForeground(question:question, answer:answer),
           fillColor: Color.fromRGBO(240, 241, 226, 100),
         ));//HomeBackground,Scaffold
   }
@@ -40,10 +60,10 @@ class answerForeground extends StatelessWidget {
             Container(
               child: Center(
                   child: Text(
-                    question,
+                    question, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white),
                   )),//Text,Center
-              width: 270.0,
+              width: 310.0,
               height: 46.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
@@ -66,7 +86,7 @@ class answerForeground extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ), // Text
               ),// Padding
-              width: 270.0,
+              width: 290.0,
               height: 369.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
@@ -83,7 +103,7 @@ class answerForeground extends StatelessWidget {
           ],
         ),//Column
       ),//Center
-      width: 314.0,
+      width: 340.0,
       height: 541.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
