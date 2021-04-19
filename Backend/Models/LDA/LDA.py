@@ -9,7 +9,11 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import pickle
 
 # Loading the dataset with Pandas
+
 pd_data = pd.read_csv('Data/DetectPD_SMOTE.csv')
+
+pd_data = pd.read_csv('Data/DetectPD_SMOTE_improved.csv')
+
 
 # Preprocessing the dataset
 le = sklearn.preprocessing.LabelEncoder()
