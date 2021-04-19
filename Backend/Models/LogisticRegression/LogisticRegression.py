@@ -1,15 +1,13 @@
 # importing the libraries
 import pandas as pd
-import sklearn
-from sklearn.preprocessing import LabelEncoder
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score
 import pickle
 
 # Loading the dataset with a Pandas and the returned data frame is caught by data variable
-pd_data = pd.read_csv('DetectPD_SMOTE_improved.csv')
+pd_data = pd.read_csv('DetectPD_SMOTE_improved/DetectPD_SMOTE_improved.csv')
 
 # Creating 'x' and 'y'
 X = pd_data.drop("CLASS_TYPE", axis=1)
