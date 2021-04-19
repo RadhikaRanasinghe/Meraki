@@ -27,8 +27,8 @@ def naive_bayes_classifier():
     plt.show()
 
     # preprocessing columns
-    gender = (list(hand_pd['GENDER']))
-    handedness = (list(hand_pd['RIGH/LEFT-HANDED']))
+    gender = list(hand_pd['GENDER'])
+    handedness = list(hand_pd['RIGH/LEFT-HANDED'])
     age = list(hand_pd['AGE'])
     rms = list(hand_pd['RMS'])
     max_st_ht = list(hand_pd['MAX_BETWEEN_ST_HT'])
