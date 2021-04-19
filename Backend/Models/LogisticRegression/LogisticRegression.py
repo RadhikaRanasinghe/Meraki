@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 import pickle
 
 # Loading the dataset with a Pandas and the returned data frame is caught by data variable
-pd_data = pd.read_csv('DetectPD_SMOTE_improved/DetectPD_SMOTE_improved.csv')
+pd_data = pd.read_csv('Detect_PD/DetectPD.csv')
 
 # Creating 'x' and 'y'
 X = pd_data.drop("CLASS_TYPE", axis=1)
@@ -50,7 +50,7 @@ for x in range(10000):
         highestAccuracy2 = modelAccuracy
         highestAccuracy3 = modelAccuracy
         # creating and writing the accuracies to a log file
-        file = open("log.txt", "w")
+        file = open("Detect_PD/log.txt", "w")
         file.write("Highest accuracy 1 : " + str(highestAccuracy1) +
                    "\n Highest accuracy 2 : " + str(highestAccuracy2) +
                    "\n Highest accuracy 3 : " + str(highestAccuracy3) +
@@ -61,12 +61,12 @@ for x in range(10000):
         if modelAccuracy < lowestAccuracy:
             lowestAccuracy = modelAccuracy
             lowModel = logmodel
-            file = open("log.txt", "a")
+            file = open("Detect_PD/log.txt", "a")
             file.write(" \n Lowest accuracy : " + str(lowestAccuracy))
             file.close()
             # if the current model accuracy is higher than the 3rd highest accuracy
         elif modelAccuracy > highestAccuracy3:
-            file = open("log.txt", "a")
+            file = open("Detect_PD/log.txt", "a")
             # if the current model accuracy is higher than the 2nd highest accuracy
             if modelAccuracy > highestAccuracy2:
                 # if the current model accuracy is higher than the 1st highest accuracy
@@ -85,15 +85,15 @@ for x in range(10000):
             file.close()
 
 # saving the models as pickle files
-with open('LogR_BestModel_1.pickle', 'wb') as handle:
+with open('Detect_PD/LogR_BestModel_1.pickle', 'wb') as handle:
     pickle.dump(highModel1, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
-with open('LogR_BestModel_2.pickle', 'wb') as handle:
+with open('Detect_PD/LogR_BestModel_2.pickle', 'wb') as handle:
     pickle.dump(highModel2, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
-with open('LogR_BestModel_3.pickle', 'wb') as handle:
+with open('Detect_PD/LogR_BestModel_3.pickle', 'wb') as handle:
     pickle.dump(highModel3, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
-with open('LogR_WorstModel.pickle', 'wb') as handle:
+with open('Detect_PD/LogR_WorstModel.pickle', 'wb') as handle:
     pickle.dump(lowModel, handle, protocol=pickle.HIGHEST_PROTOCOL)
     print('success')
