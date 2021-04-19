@@ -2,7 +2,7 @@ import csv
 from collections import Counter
 
 import pandas as pd
-from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN
+from imblearn.over_sampling import RandomOverSampler, SMOTE, ADASYN, SMOTENC
 from sklearn.svm import LinearSVC
 
 
@@ -89,21 +89,22 @@ def create_oversampling(source_path):
     data = pd.read_csv(source_path)
     x, y = preprocessing_columns(data, False)
 
-    ros = RandomOverSampler()
-    X_resampled, y_resampled = ros.fit_resample(x, y)
+    # ros = RandomOverSampler()
+    # X_resampled, y_resampled = ros.fit_resample(x, y)
+    # print(sorted(Counter(y_resampled).items()))
+    #
+    # writing(X_resampled, y_resampled, "_RandomOverSampler", False)
+
+    smote_nc = SMOTENC(categorical_features=[0, 1], random_state=0)
+    X_resampled, y_resampled = smote_nc.fit_resample(x, y)
     print(sorted(Counter(y_resampled).items()))
 
-    writing(X_resampled, y_resampled, "_RandomOverSampler", False)
+    writing(X_resampled, y_resampled, "_SMOTE_improved", False)
 
-    X_resampled, y_resampled = SMOTE().fit_resample(x, y)
-    print(sorted(Counter(y_resampled).items()))
-
-    writing(X_resampled, y_resampled, "_SMOTE", False)
-
-    clf_smote = LinearSVC().fit(X_resampled, y_resampled)
-    X_resampled, y_resampled = ADASYN().fit_resample(x, y)
-    print(sorted(Counter(y_resampled).items()))
-
-    writing(X_resampled, y_resampled, "_ADASYN", False)
+    # clf_smote = LinearSVC().fit(X_resampled, y_resampled)
+    # X_resampled, y_resampled = ADASYN().fit_resample(x, y)
+    # print(sorted(Counter(y_resampled).items()))
+    #
+    # writing(X_resampled, y_resampled, "_ADASYN", False)
 
     # clf_adasyn = LinearSVC().fit(X_resampled, y_resampled)
