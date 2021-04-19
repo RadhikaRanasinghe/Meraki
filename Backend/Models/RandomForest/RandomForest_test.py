@@ -3,20 +3,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import sklearn
+import pickle
 import sklearn.metrics as metrics
-from sklearn import preprocessing
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.model_selection import train_test_split
 
 # Loading the dataset with a Pandas and the returned data frame is caught by data variable
-data = pd.read_csv("data/DetectPD-SMOTE.csv")
+data = pd.read_csv("data/DetectPD.csv")
 
-# Preprocessing using the LabelEncoder
-le = sklearn.preprocessing.LabelEncoder()
-gender = le.fit_transform(list(data['GENDER']))
-handedness = le.fit_transform(list(data['RIGH/LEFT-HANDED']))
+# Preprocessing
+gender = list(data['GENDER'])
+handedness = list(data['RIGH/LEFT-HANDED'])
 age = list(data['AGE'])
 rms = list(data['RMS'])
 max_st_ht = list(data['MAX_BETWEEN_ST_HT'])
@@ -41,8 +39,9 @@ y = np.array(y)
 # Splitting the data into testing data and training data with the testing size of 0.1
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
 
-# The Random Forest Classifier Model is assigned to the model variable
-model = RandomForestClassifier()
+# The Random Forest Classifier Model is assigned to the model variable loaded from the pickle
+pickle_in = open("DetectPD/RF_BestModel1.pickle", "rb")
+model = pickle.load(pickle_in)
 
 # The training data from the data split is taken for fitting into the model to train
 model.fit(x_train, y_train)
@@ -66,18 +65,19 @@ labels = ['negative', 'positive']
 confusion_matrix(y_test, predicted)
 
 # Printing the confusion matrix
-print(confusion_matrix);
+print(confusion_matrix)
 
-titles_options = [("Confusion matrix, without normalization", None),
+titles_options = [("Confusion matrix without normalization", None),
                   ("Normalized confusion matrix", 'true')]
 
 for title, normalize in titles_options:
     disp = plot_confusion_matrix(model, x_test, y_test, display_labels=labels, cmap=plt.cm.Blues, normalize=normalize)
     disp.ax_.set_title(title)
-
+    plt.savefig(f"DetectPD/Plots/{title}.png")
     print(title)
     print(disp.confusion_matrix)
 
 # Plotting ROC curve
 metrics.plot_roc_curve(model, x_test, y_test)
-plt.show()
+plt.plot([0, 1], [0, 1], color='darkorange', lw=2, linestyle='--')
+plt.savefig("DetectPD/Plots/roc_curve.png")
