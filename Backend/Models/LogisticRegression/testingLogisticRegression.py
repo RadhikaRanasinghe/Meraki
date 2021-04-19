@@ -16,8 +16,8 @@ from sklearn.metrics import accuracy_score, precision_score, f1_score, recall_sc
 import sklearn.metrics as metrics
 from sklearn.metrics import classification_report
 
-pd_data = pd.read_csv("DetectPD.csv")
-model = open("DetectPD/LogR_BestModel_1.pickle", "rb")
+pd_data = pd.read_csv("DetectPD_SMOTE_improved.csv")
+model = open("DetectPD_SMOTE_improved/LogR_BestModel_1.pickle", "rb")
 logModel = pickle.load(model)
 # preprocessing the dataset using the LabelEncoder
 le = sklearn.preprocessing.LabelEncoder()
