@@ -48,7 +48,7 @@ def train_voting_classifier(path):
     best_x_test = None
     best_y_test = None
 
-    for i in range(1):
+    for i in range(100):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
 
         model = VotingClassifier(estimators=estimators, voting='hard')
@@ -60,6 +60,7 @@ def train_voting_classifier(path):
         if best_accuracy < model_accuracy:
             best_model = model
             best_accuracy = model_accuracy
+            print(f"iteration {i+1}: {model_accuracy * 100}")
             best_x_test = x_test
             best_y_test = y_test
 
