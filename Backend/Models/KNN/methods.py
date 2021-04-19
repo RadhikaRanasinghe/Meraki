@@ -1,7 +1,6 @@
 import pickle
 
 import pandas as pd
-
 import sklearn
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -29,17 +28,17 @@ def print_results(path, dataset_type):
 
             # Loading bestModel and bestData.
             loaded_best_model = pickle.load(
-                open(f"{path}models/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                open(f"{path}DetectPD{dataset_type}/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
             loaded_best_data = pickle.load(
-                open(f"{path}models/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
             best_model = loaded_best_model.fit(loaded_best_data['x_train'], loaded_best_data['y_train'])
             best_acc = best_model.score(loaded_best_data['x_test'], loaded_best_data['y_test']) * 100
 
             # Loading worstModel and worstData.
             loaded_worst_model = pickle.load(
-                open(f"{path}models/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                open(f"{path}DetectPD{dataset_type}/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
             loaded_worst_data = pickle.load(
-                open(f"{path}models/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                open(f"{path}DetectPD{dataset_type}/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
             worst_model = loaded_worst_model.fit(loaded_worst_data['x_train'], loaded_worst_data['y_train'])
             worst_acc = worst_model.score(loaded_worst_data['x_test'], loaded_worst_data['y_test']) * 100
 
@@ -47,8 +46,8 @@ def print_results(path, dataset_type):
 
             name = "### neighbors: " + str(neighbors) + ", test size: " + str(test_size / 10)
 
-            msg = "\n" + name + "\n\n\tBest\t\t: " + str(best_acc * 100) + "\n\tWorst\t\t: " +\
-                  str(worst_acc * 100) + "\n\tDeference\t: " + str(deference) + "\n "
+            msg = "\n" + name + "\n\n\tBest\t\t: " + str(best_acc) + "\n\tWorst\t\t: " +\
+                  str(worst_acc) + "\n\tDeference\t: " + str(deference) + "\n "
 
             print(msg.replace('#', ""))
 
@@ -101,15 +100,15 @@ def initialise_save(path, x, y, dataset_type):
 
             # Saving BestData and BestModels
             pickle.dump(data,
-                        open(f"{path}models/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                        open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
             pickle.dump(model,
-                        open(f"{path}models/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                        open(f"{path}DetectPD{dataset_type}/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
 
             # Saving WorstData and WorstModels
             pickle.dump(data,
-                        open(f"{path}models/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                        open(f"{path}DetectPD{dataset_type}/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
             pickle.dump(model,
-                        open(f"{path}models/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                        open(f"{path}DetectPD{dataset_type}/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
 
 
 def building_models(path, x, y, dataset_type):
@@ -140,17 +139,17 @@ def building_models(path, x, y, dataset_type):
 
                 # Loading bestModel and bestData.
                 loaded_best_model = pickle.load(
-                    open(f"{path}models/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                    open(f"{path}DetectPD{dataset_type}/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
                 loaded_best_data = pickle.load(
-                    open(f"{path}models/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                    open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
                 best_model = loaded_best_model.fit(loaded_best_data['x_train'], loaded_best_data['y_train'])
                 best_acc = best_model.score(loaded_best_data['x_test'], loaded_best_data['y_test'])
 
                 # Loading worstModel and worstData.
                 loaded_worst_model = pickle.load(
-                    open(f"{path}models/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                    open(f"{path}DetectPD{dataset_type}/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
                 loaded_worst_data = pickle.load(
-                    open(f"{path}models/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
+                    open(f"{path}DetectPD{dataset_type}/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "rb"))
                 worst_model = loaded_worst_model.fit(loaded_worst_data['x_train'], loaded_worst_data['y_train'])
                 worst_acc = worst_model.score(loaded_worst_data['x_test'], loaded_worst_data['y_test'])
 
@@ -158,15 +157,15 @@ def building_models(path, x, y, dataset_type):
                 if acc > best_acc:
                     print("best saved", spec)
                     data = {'x_train': x_train, 'x_test': x_test, 'y_train': y_train, 'y_test': y_test}
-                    pickle.dump(data, open(f"{path}models/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
-                    pickle.dump(model, open(f"{path}models/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                    pickle.dump(data, open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                    pickle.dump(model, open(f"{path}DetectPD{dataset_type}/KNN_BestModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
 
                 # Updating worstData and worstModel if the new accuracy is worse.
                 if acc < worst_acc:
                     print("worst saved", spec)
                     data = {'x_train': x_train, 'x_test': x_test, 'y_train': y_train, 'y_test': y_test}
-                    pickle.dump(data, open(f"{path}models/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
-                    pickle.dump(model, open(f"{path}models/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                    pickle.dump(data, open(f"{path}DetectPD{dataset_type}/KNN_WorstData{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
+                    pickle.dump(model, open(f"{path}DetectPD{dataset_type}/KNN_WorstModel{dataset_type}_n({neighbors})_size({test_size}).pickle", "wb"))
 
 
 def preprocessing_columns(path, dataset_type):
@@ -181,9 +180,8 @@ def preprocessing_columns(path, dataset_type):
     data = pd.read_csv(f"{path}data/DetectPD{dataset_type}.csv")
 
     # Preprocessing.
-    le = sklearn.preprocessing.LabelEncoder()
-    gender = le.fit_transform(list(data['GENDER']))
-    handedness = le.fit_transform(list(data['RIGH/LEFT-HANDED']))
+    gender = list(data['GENDER'])
+    handedness = list(data['RIGH/LEFT-HANDED'])
     age = list(data['AGE'])
     rms = list(data['RMS'])
     max_st_ht = list(data['MAX_BETWEEN_ST_HT'])
