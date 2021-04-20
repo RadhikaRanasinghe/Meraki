@@ -103,7 +103,7 @@ class MysqlConnectionTest(unittest.TestCase):
         self.assertEqual(1, user.get_gender(), "Database retrieval value - gender.")
         self.assertEqual(1, user.get_handedness(), "Database retrieval value - handedness.")
         self.assertTrue(
-            original_image.shape == database_image.shape and not(np.bitwise_xor(original_image, database_image).any()),
+            original_image.shape == database_image.shape and not (np.bitwise_xor(original_image, database_image).any()),
             "Database retrieval value - test_image."
         )
         self.assertEqual(1, user.get_test_image_id(), "Database retrieval value - test_image_id.")

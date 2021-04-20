@@ -1,12 +1,11 @@
-#DetectPD by MERAKI
+# DetectPD by MERAKI
 
 ### General information
-    
+
     VirtualENV - python 3.8
     BASE URL - http://detectpd.us-east-2.elasticbeanstalk.com
 
-
-###POST request format
+### POST request format
 
     URL - '/create_user'
 
@@ -19,8 +18,7 @@
     OUTPUT
         image_no: int
 
-
-##GET request format
+## GET request format
 
     URL - '/retrieve_result'
 
@@ -29,7 +27,6 @@
 
     OUTPUT
         result: Boolean (PD detected: True, Healthy: False)
-
 
 ### Status Codes used
 
