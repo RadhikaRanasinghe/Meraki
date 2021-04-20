@@ -24,21 +24,25 @@ class MysqlConnectionTest(unittest.TestCase):
         byte_im = im_buf_arr.tobytes()
 
         # Testing Correct instance--------------------------------------------------------------------------------------
-        result = conn.insert_values_test(20, 1, 1, byte_im)
+        result = conn.insert_values_test(age=20, gender=1, handedness=1, image=byte_im)
         self.assertEqual(type(result), int, "Checking output type.")
         self.assertNotEqual(result, 0, "Incorrect database record id.")
 
-        # Testing error handling----------------------------------------------------------------------------------------
-        result = conn.insert_values_test("20", 1, 1, byte_im)
+        # Testing error handling - Incorrect data type------------------------------------------------------------------
+        # Incorrect data type for 'age'.
+        result = conn.insert_values_test(age="20", gender=1, handedness=1, image=byte_im)
         self.assertEqual(0, result, "Incorrect data type - age.")
 
-        result = conn.insert_values_test(20, "1", 1, byte_im)
+        # Incorrect data type for 'gender'.
+        result = conn.insert_values_test(age=20, gender="1", handedness=1, image=byte_im)
         self.assertEqual(0, result, "Incorrect data type - gender.")
 
-        result = conn.insert_values_test(20, 1, "1", byte_im)
+        # Incorrect data type for 'handedness'.
+        result = conn.insert_values_test(age=20, gender=1, handedness="1", image=byte_im)
         self.assertEqual(0, result, "Incorrect data type - handedness.")
 
-        result = conn.insert_values_test(20, 1, 1, "byte_im")
+        # Incorrect data type for 'image'.
+        result = conn.insert_values_test(age=20, gender=1, handedness=1, image="byte_im")
         self.assertEqual(0, result, "Incorrect data type - image.")
 
     def test_insert_values_test_image(self):
@@ -65,13 +69,16 @@ class MysqlConnectionTest(unittest.TestCase):
         self.assertNotEqual(0, result, "Incorrect database record id.")
         self.test_id = result
 
-        # Testing error handling----------------------------------------------------------------------------------------
+        # Testing error handling- Incorrect data type-------------------------------------------------------------------
+        # Incorrect data type for 'test_image'.
         result = conn.insert_values_test_image(test_image="test_image", image_no=2, result=True)
         self.assertEqual(0, result, "Incorrect data type - test_image.")
 
+        # Incorrect data type for 'image_no'.
         result = conn.insert_values_test_image(test_image=test_image, image_no="self.test_id", result=True)
         self.assertEqual(0, result, "Incorrect data type - image_no.")
 
+        # Incorrect data type for 'result'.
         result = conn.insert_values_test_image(test_image=test_image, image_no=2, result="True")
         self.assertEqual(0, result, "Incorrect data type - result.")
 
@@ -83,12 +90,13 @@ class MysqlConnectionTest(unittest.TestCase):
         # Loading the Original image from file storage.
         original_image = cv2.imread("sample_images/exam_1.jpg")
 
+        # Testing Correct instance--------------------------------------------------------------------------------------
+        user = conn.select_record_test(user_id=1)
+
         # Loading the image in the database.
-        user = conn.select_record_test(1)
         nparr = np.frombuffer(user.get_test_image(), np.uint8)
         database_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-        # Testing Correct instance--------------------------------------------------------------------------------------
         self.assertEqual(UserModel, type(user), "Database retrieval Data type.")
         self.assertEqual(1, user.get_id(), "Database retrieval value - id.")
         self.assertEqual(20, user.get_age(), "Database retrieval value - age.")
@@ -100,11 +108,14 @@ class MysqlConnectionTest(unittest.TestCase):
         )
         self.assertEqual(1, user.get_test_image_id(), "Database retrieval value - test_image_id.")
 
-        # Testing error handling----------------------------------------------------------------------------------------
-        user = conn.select_record_test("149")
+        # Testing error handling- Incorrect data type-------------------------------------------------------------------
+        # Incorrect data type for 'user_id'.
+        user = conn.select_record_test(user_id="149")
         self.assertEqual(0, user, "Incorrect data type - user_id.")
 
-        user = conn.select_record_test(0)
+        # Testing error handling - Incorrect database record id---------------------------------------------------------
+        # A record with a primary key 0 can not exist.
+        user = conn.select_record_test(user_id=0)
         self.assertEqual(0, user, "Incorrect database record id.")
 
     def test_select_test_image_result(self):
@@ -113,14 +124,17 @@ class MysqlConnectionTest(unittest.TestCase):
         """
 
         # Testing Correct instance--------------------------------------------------------------------------------------
-        result = conn.select_test_image_result(1)
+        result = conn.select_test_image_result(test_image_id=1)
         self.assertEqual(False, result, "Database retrieval value - result.")
 
-        # Testing error handling----------------------------------------------------------------------------------------
-        result = conn.select_test_image_result("self.test_image_id")
+        # Testing error handling - Incorrect data type------------------------------------------------------------------
+        # Incorrect data type for 'test_image_id'.
+        result = conn.select_test_image_result(test_image_id="self.test_image_id")
         self.assertEqual(0, result, "Incorrect data type - test_image_id.")
 
-        result = conn.select_test_image_result(0)
+        # Testing error handling - Incorrect database record id---------------------------------------------------------
+        # A record with a primary key 0 can not exist.
+        result = conn.select_test_image_result(test_image_id=0)
         self.assertEqual(0, result, "Incorrect database record id.")
 
 

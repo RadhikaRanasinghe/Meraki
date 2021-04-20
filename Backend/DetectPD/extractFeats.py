@@ -360,7 +360,6 @@ def extractFeats(img, img1):
     ptosdesenhada = []
     tremor_relativo = []
     tremor = []
-    # ra = RadiusAngle()
     vert = Vertices()
 
     # Gray scale
@@ -380,10 +379,6 @@ def extractFeats(img, img1):
     xc = img_.shape[0] / 2  # 350;
     # Find the spiral origin.
     yc, xc = origem(img1_, yc, xc)
-    # cv2.imshow("img1_", img1_)
-    # cv2.waitKey(0)
-    # cv2.imshow("img_", img_)
-    # cv2.waitKey(0)
 
     """/////////////////////////////////////////////////////////////////////////"""
     # Get points from spiral
@@ -454,9 +449,7 @@ def extractFeats(img, img1):
     while i < len(ptosdesenhada) and i < len(ptosoriginal):
         raiz = (ptosoriginal[i].x - xc) * (ptosoriginal[i].x - xc) + (ptosoriginal[i].y - yc) * (ptosoriginal[i].y - yc)
         vert.x = (1 - difradial[i].radius / sqrt(raiz)) * ptosdesenhada[i].x
-        # cout << vert.x << endl;
         vert.y = (1 - difradial[i].radius / sqrt(raiz)) * ptosdesenhada[i].y
-        # cout << vert.y << endl;
         tremor_relativo.append(vert)
         i += 1
 
