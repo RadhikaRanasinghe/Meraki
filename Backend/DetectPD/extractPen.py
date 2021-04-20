@@ -4,6 +4,11 @@ BLUR_RADIUS = 5
 
 
 def extractPen(img):
+    """
+    This function is used to extract the hand trace from the image provided by the user
+
+    :param img : the image provided by the user
+    """
     img = cv2.blur(img, (BLUR_RADIUS, BLUR_RADIUS))
     img = cv2.medianBlur(img, 11)
 
