@@ -78,7 +78,17 @@ class Detector:
         return result
 
     def get_user(self) -> User:
+        """
+        Getter of the user
+
+        :return : An User object
+        """
         return self.__user
 
     def set_user(self, user: User):
+        """
+        Setter of the user
+
+        :param user: An User object
+        """
         self.__user = user
