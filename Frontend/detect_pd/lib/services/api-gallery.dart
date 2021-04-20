@@ -13,6 +13,7 @@ import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/main.dart';
 import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
+import 'package:detect_pd/views/ui/error-page.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
 
 class GalleryAccess extends StatefulWidget {
@@ -110,16 +111,21 @@ class GalleryAccessState extends State<GalleryAccess> {
       // decode response body
       final decoded = json.decode(response.body) as Map<String, dynamic>; //converting it from json to key value pair
 
-      if (decoded['result'] == false) {
+      if (decoded['result'] == true) {
         // display positive results page
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => PositiveResultsPage()));
-      } else {
+      } else if (decoded['result'] == false) {
         // display negative results page
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => NegativeResultsPage()));
+      } else {
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
       }
 
     } catch(exception) {
