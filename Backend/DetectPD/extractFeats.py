@@ -10,7 +10,6 @@ DISPLACEMENT = 10
 
 
 class cpoint:
-
     x = None
     y = None
 
