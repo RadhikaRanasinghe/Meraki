@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 
 import mysql_connection as conn
 from Detector import Detector
@@ -7,12 +7,12 @@ application = Flask(__name__)
 
 
 @application.route('/')
-def hello_world():
+def about_pd():
     """
-    Method for the Root URL.
-    :return: String Containing 'Hello DetectPD'.
+    Method to preview user about Parkinson Decease.
+    :return: Redirect to website containing parkinson details.
     """
-    return "Hello DetectPD"
+    return redirect(location="https://www.parkinson.org/understanding-parkinsons/what-is-parkinsons", code=302)
 
 
 @application.route('/create_user', methods=['POST'])
