@@ -14,18 +14,11 @@ DATABASE = "DetectPD"
 def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
     """
     Method to insert a test to the "test" table in the database.
-
-    Parameters
-    ----------
-    age - age of testee
-    gender - gender of the testee
-    handedness - handedness of the testee
-    image - hand drawn test
-
-    Returns
-    -------
-    The primary key of the inserted row, if it is inserted properly,
-    0 is returned if an error occurs.
+    :param age: age of testee
+    :param gender: gender of the testee
+    :param handedness: handedness of the testee
+    :param image: hand drawn test
+    :return: The primary key of the inserted row, if it is inserted properly, 0 is returned if an error occurs.
     """
 
     # Handling mysql errors.
@@ -92,14 +85,8 @@ def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
 def select_record_test(user_id: int):
     """
     Method to select a record from the "test" table in the database.
-
-    Parameters
-    ----------
-    user_id - Primary key of the record.
-
-    Returns
-    -------
-    If there is no error, the record data in as a UserModel object, else 0.
+    :param user_id: Primary key of the record.
+    :return: If there is no error, the record data in as a UserModel object, else 0.
     """
 
     # Handling mysql errors.
@@ -180,16 +167,10 @@ def select_record_test(user_id: int):
 def insert_values_test_image(test_image: TestImage, image_no: int, result: bool):
     """
     Method to insert values to the "test_image" table in the database.
-
-    Parameters
-    ----------
-    test_image - A TestImage object containing values according to the users hand drawing.
-    image_no - The record primary key for the associated row in "test" table in database.
-    result - The result of the test.
-
-    Returns
-    -------
-    If there is no error, the primary key of the record added to the "test_image" table, else 0.
+    :param test_image: A TestImage object containing values according to the users hand drawing.
+    :param image_no: The record primary key for the associated row in "test" table in database.
+    :param result: The result of the test.
+    :return: If there is no error, the primary key of the record added to the "test_image" table, else 0.
     """
 
     # Handling mysql errors.
@@ -283,14 +264,8 @@ def insert_values_test_image(test_image: TestImage, image_no: int, result: bool)
 def select_test_image_result(test_image_id: int):
     """
     Method to select the 'result" column a record from "test_image" table in the database.
-
-    Parameters
-    ----------
-    test_image_id - Primary key of the record.
-
-    Returns
-    -------
-    if there is no error, the "result" of the record, else 0.
+    :param test_image_id: Primary key of the record.
+    :return: if there is no error, the "result" of the record, else 0.
     """
 
     # Handling mysql errors.
