@@ -5,10 +5,14 @@ import cv2
 
 from TestImageBuilder import TestImageBuilder
 
+
 DISPLACEMENT = 10
 
 
 class cpoint:
+    """
+    This class is used to compare the extracted images and give the features
+    """
     x = None
     y = None
 
@@ -85,7 +89,6 @@ def Zhang_Suen(dest):
                 # Pixel must be black
                 if (P1(dest, line, col) == 0).any():
                     continue
-                # ======================= CHANGES WERE MADE HERE FROM LINE 88 TO LINE 95 NOTE any() function ====
                 # Connectivity number must be 1;
                 Conectivity = 1 if ((P2(dest, line, col) == 0).any() and (P3(dest, line, col) == 1).any()) else 0
                 Conectivity += 1 if ((P3(dest, line, col) == 0).any() and (P4(dest, line, col) == 1).any()) else 0
@@ -102,20 +105,17 @@ def Zhang_Suen(dest):
                              P4(dest, line, col) + P5(dest, line, col) + \
                              P6(dest, line, col) + P7(dest, line, col) + \
                              P8(dest, line, col) + P9(dest, line, col)
-                # ======================= CHANGES WERE MADE HERE IN LINE 104========================
                 if (Neighboors < 2).any() or (Neighboors > 6).any():
                     continue
                 # At least one of P2, P4 and P8 are background
                 Neighboors = 0
                 Neighboors = P2(dest, line, col) * P4(dest, line, col) * P8(dest, line, col)
-                # ======================= CHANGES WERE MADE HERE IN LINE 110========================
                 if (Neighboors != 0).any():
                     continue
 
                 # At least one of P2, P6 and P8 are background
                 Neighboors = 0
                 Neighboors = P2(dest, line, col) * P6(dest, line, col) * P8(dest, line, col)
-                # ======================= CHANGES WERE MADE HERE IN LINE 117========================
                 if (Neighboors != 0).any():
                     continue
                 # Actual Pixel was deleted
@@ -133,7 +133,6 @@ def Zhang_Suen(dest):
                 # Pixel must be black
                 if (P1(dest, line, col) == 0).any():
                     continue
-                # ======================= CHANGES WERE MADE HERE IN LINE 136 TO LINE 142========================
                 # Connectivity number must be 1;
                 Conectivity = 1 if ((P2(dest, line, col) == 0).any() and (P3(dest, line, col) == 1).any()) else 0
                 Conectivity += 1 if ((P3(dest, line, col) == 0).any() and (P4(dest, line, col) == 1).any()) else 0
@@ -149,7 +148,6 @@ def Zhang_Suen(dest):
                              P4(dest, line, col) + P5(dest, line, col) + \
                              P6(dest, line, col) + P7(dest, line, col) + \
                              P8(dest, line, col) + P9(dest, line, col)
-                # ======================= CHANGES WERE MADE HERE IN LINE 151========================
                 if (Neighboors < 2).any() or (Neighboors > 6).any():
                     continue
                 # At least one of P2, P4 and P6 are background
@@ -160,7 +158,6 @@ def Zhang_Suen(dest):
                 # At least one of P2, P6 and P8 are background
                 Neighboors = 0
                 Neighboors = P4(dest, line, col) * P6(dest, line, col) * P8(dest, line, col)
-                # ======================= CHANGES WERE MADE HERE IN LINE 162========================
                 if (Neighboors != 0).any():
                     continue
                 # Actual Pixel was deleted
@@ -230,7 +227,6 @@ def lineIDDA(img_, yi, xi, yf, xf, v):
     while q <= quant and q <= walk:  # While have points to plot
 
         if x >= 0 and y >= 0 and x < img_.shape[1] and y < img_.shape[0]:
-            # ======================= CHANGES WERE MADE HERE IN LINE 234========================
             if not entered and (img_[math.floor(y)][math.floor(x)] == 0).any():  # Find a espiral
 
                 entered = True

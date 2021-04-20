@@ -10,15 +10,25 @@ from extractPen import extractPen
 
 
 class Detector:
+
     __user: User = None
 
     def load_features(self, image_no: UserModel):
+        """The function to load the features from the image and stores them in a TestImage object. Thius object is
+                    stored in a User object.
+
+        :param image_no: the details of the user
+        """
+
+        # Converting byte to Image and saving them in he RAM
         nparr = np.fromstring(image_no.get_test_image(), np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
+        # loading the feature of the image
         img_pen = extractPen(img)
         test_image = extractFeats(img, img_pen)
 
+        # User object is created
         self.__user = User(
             test_image=test_image,
             age=image_no.get_age(),
