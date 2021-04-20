@@ -26,7 +26,7 @@ class Detector:
         """
 
         # Converting byte to Image and saving them in he RAM
-        nparr = np.fromstring(image_no.get_test_image(), np.uint8)
+        nparr = np.frombuffer(image_no.get_test_image(), np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
         # loading the feature of the image
