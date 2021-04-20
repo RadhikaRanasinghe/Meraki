@@ -1,4 +1,7 @@
 class UserModel:
+    """
+    This class is used to create the UserModel object
+    """
     def __init__(self, user_id: int, age: int, gender: int, handedness: int, test_image: bytes, test_image_id: int):
         """
         This is the constructor
