@@ -1,6 +1,7 @@
 import io
 import json
 import unittest
+
 import cv2
 
 from FrontendController import application

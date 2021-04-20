@@ -56,7 +56,7 @@ class TestImageBuilder(object):
         """
         self.__rms = rms
         return self
-      
+
     def set_max_between_st_ht(self, max_between_st_ht: float):
         """
         Setter of the maximum difference between ST (Stencil Trace)
@@ -66,7 +66,7 @@ class TestImageBuilder(object):
         """
         self.__max_between_st_ht = max_between_st_ht
         return self
-      
+
     def set_min_between_st_ht(self, min_between_st_ht: float):
         """
          Setter of the minimum difference between ST (Stencil Trace) and
@@ -76,7 +76,7 @@ class TestImageBuilder(object):
          """
         self.__min_between_st_ht = min_between_st_ht
         return self
-      
+
     def set_std_deviation_st_ht(self, std_deviation_st_ht: float):
         """
         Setter of the standard deviation of the difference between ST (Stencil Trace) and
@@ -86,7 +86,7 @@ class TestImageBuilder(object):
         """
         self.__std_deviation_st_ht = std_deviation_st_ht
         return self
-      
+
     def set_mrt(self, mrt):
         """
         Setter of the Mean Relative Tremor of the TestImage.

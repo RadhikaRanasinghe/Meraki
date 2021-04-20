@@ -5,7 +5,6 @@ import cv2
 
 from TestImageBuilder import TestImageBuilder
 
-
 DISPLACEMENT = 10
 
 

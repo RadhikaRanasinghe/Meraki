@@ -1,9 +1,9 @@
-import cv2
 from unittest import TestCase
-from mysql_connection import select_record_test
+
+import cv2
+
 from Detector import Detector
 from UserModel import UserModel
-from User import User
 
 
 class TestDetector(TestCase):
@@ -12,7 +12,6 @@ class TestDetector(TestCase):
     # detector = Detector()
 
     def test_load_features(self):
-        
         detector = Detector()
         im = cv2.imread('images/exam_1_pen.jpg')
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
@@ -24,7 +23,7 @@ class TestDetector(TestCase):
         self.assertEqual(detector.get_user().get_gender(), 1)
         self.assertEqual(detector.get_user().get_age(), 31)
 
-    def test_process(self ):
+    def test_process(self):
         detector = Detector()
         detector.load_features()
         self.assertEqual(detector.process(), "True")

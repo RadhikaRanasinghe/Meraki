@@ -1,3 +1,5 @@
+#DetectPD by MERAKI
+
 ### General information
     
     VirtualENV - python 3.8
@@ -9,10 +11,10 @@
     URL - '/create_user'
 
     INPUT
-        image : binary file
-        age : int
-        gender : int
-        handedness : int
+        image : binary file (jpg or jpeg)
+        age : int 
+        gender : int (male: 1, female: 2)
+        handedness : int (right-handed: 1, left-handed: 2)
 
     OUTPUT
         image_no: int
@@ -23,10 +25,10 @@
     URL - '/retrieve_result'
 
     INPUT
-        image_no: int (as a parameter)
+        image_no: int (as query string)
 
     OUTPUT
-        result: Boolean (True if PD is detected)
+        result: Boolean (PD detected: True, Healthy: False)
 
 
 ### Status Codes used
