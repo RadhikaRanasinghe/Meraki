@@ -97,6 +97,14 @@ class GalleryAccessState extends State<GalleryAccess> {
       // send http POST request to API
       final resp = await request.send();
       print(resp.statusCode);
+
+      if(resp.statusCode != 201){
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
+      }
+
       String respStr = await resp.stream.bytesToString();
       print(respStr);
 
