@@ -48,7 +48,7 @@ def train_voting_classifier(path):
     best_x_test = None
     best_y_test = None
 
-    for i in range(100):
+    for i in range(10000):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
 
         model = VotingClassifier(estimators=estimators, voting='hard')
