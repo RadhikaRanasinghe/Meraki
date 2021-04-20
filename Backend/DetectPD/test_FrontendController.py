@@ -12,8 +12,6 @@ class FlaskTest(unittest.TestCase):
     This class performs the unit tests of the FrontendController.py
     """
 
-    image_no = None
-
     def test_create_user(self):
         """
         Unit test to check the POST request controller
@@ -173,7 +171,7 @@ class FlaskTest(unittest.TestCase):
         self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
         self.assertTrue(b'result' in response.data, "Checking if the result is returned")
 
-        # Testing error handling - invalid input type------------------------------------------------------------------------
+        # Testing error handling - invalid input type-------------------------------------------------------------------
         error_message = "Invalid input type. \n'image_no' - Integer"
 
         # Invalid input for 'image_no'.
@@ -186,7 +184,7 @@ class FlaskTest(unittest.TestCase):
         self.assertEqual(error_message, error, "Checking if the error message returned is the correct message for "
                                                "status code 415")
 
-        # Testing error handling - not found content------------------------------------------------------------------------
+        # Testing error handling - not found content--------------------------------------------------------------------
         error_message = "Invalid image_no, No such id exists in the database."
 
         query_string = {'image_no': 0}

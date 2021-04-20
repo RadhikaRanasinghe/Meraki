@@ -21,8 +21,10 @@ class TestDetector(TestCase):
         im = cv2.imread('sample_images/exam_1.jpg')
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
         byte_image = im_buf_arr.tobytes()
+
         # Creating the UserModel object
         user = UserModel(1, 31, 1, 0, byte_image, 10)
+
         # Calling the loadFeatures function
         detector.load_features(user)
 
@@ -41,11 +43,15 @@ class TestDetector(TestCase):
         im = cv2.imread('sample_images/exam_1.jpg')
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
         byte_image = im_buf_arr.tobytes()
+
         # Creating the UserModel object
         user = UserModel(1, 31, 1, 0, byte_image, 10)
+
         # Calling the loadFeatures function
         detector.load_features(user)
+
         # Getting the result
         result = detector.process()
+
         # Checking if the result is correct or not
         self.assertEqual(False, result, "Incorrect value - result")

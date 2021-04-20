@@ -28,10 +28,10 @@ class TestImageBuilder(object):
     __std_ht: float = None
     __changes_from_negative_to_positive_between_st_ht: float = None
 
-    def __init__(self):
-        pass
-
     def build(self) -> TestImage:
+        """
+        Method to build TestImage object.
+        """
         test_image = TestImage()
 
         test_image.set_rms(self.__rms)
