@@ -98,16 +98,19 @@ class GreyButtons extends StatelessWidget {
         child: InkWell(
             onTap: function,
             child: Container(
-              child: new Text(buttonText, textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ) //TextStyle
-                  ), //Text
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: new Text(buttonText, textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ) //TextStyle
+                    ),
+              ), //Text
             ) //Container
             ), //Inkwell
       ), //Center
-      width: 300.0,
-      height: 46.0,
+      width: 390.0,
+      height: 60.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),
         color: const Color(0xff687b8d),
