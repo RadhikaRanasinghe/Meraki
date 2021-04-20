@@ -15,6 +15,7 @@ class TestDetector(TestCase):
         """
         This function is used to test if the User object is updated properly
         """
+
         # Creating an Detector object
         detector = Detector()
         im = cv2.imread('sample_images/exam_1.jpg')
@@ -26,14 +27,15 @@ class TestDetector(TestCase):
         detector.load_features(user)
 
         # Checking if the User object has been updated properly
-        self.assertEqual(detector.get_user().get_handedness(), 0)
-        self.assertEqual(detector.get_user().get_gender(), 1)
-        self.assertEqual(detector.get_user().get_age(), 31)
+        self.assertEqual(0, detector.get_user().get_handedness(), "Incorrect value - handedness")
+        self.assertEqual(1, detector.get_user().get_gender(), "Incorrect value - gender")
+        self.assertEqual(31, detector.get_user().get_age(), "Incorrect value - age")
 
     def test_process(self):
         """
         This function is used to test if prediction returned is correct or not
         """
+
         # Creating an Detector object
         detector = Detector()
         im = cv2.imread('sample_images/exam_1.jpg')
@@ -46,4 +48,4 @@ class TestDetector(TestCase):
         # Getting the result
         result = detector.process()
         # Checking if the result is correct or not
-        self.assertEqual(result, False)
+        self.assertEqual(False, result, "Incorrect value - result")
