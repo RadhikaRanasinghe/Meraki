@@ -10,9 +10,7 @@ DISPLACEMENT = 10
 
 
 class cpoint:
-    """
-    This class is used to compare the extracted images and give the features
-    """
+
     x = None
     y = None
 

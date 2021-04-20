@@ -24,4 +24,7 @@ class TestDetector(TestCase):
         self.assertEqual(detector.get_user().get_gender(), 1)
         self.assertEqual(detector.get_user().get_age(), 31)
 
- 
+    def test_process(self ):
+        detector = Detector()
+        detector.load_features()
+        self.assertEqual(detector.process(), "True")
