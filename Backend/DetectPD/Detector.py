@@ -53,7 +53,7 @@ class Detector:
         result: bool = True
 
         # Opening the voting classifier pickle file and storing the model in the variable 'ensemble_classifier'
-        with open('models/ensemble_classifier.pickle', 'rb') as file:
+        with open('models/VotingClassifier.pickle', 'rb') as file:
             ensemble_classifier = pickle.load(file)
 
         # Loading the features into a list and assigning it as 'x'
