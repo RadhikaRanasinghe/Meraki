@@ -1,4 +1,5 @@
 # importing the libraries
+import pickle
 import pandas as pd
 import sklearn
 from sklearn.preprocessing import LabelEncoder
@@ -11,7 +12,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import plot_confusion_matrix
 
 # reading the csv file
-pd_data = pd.read_csv('DetectPD-SMOTE.csv')
+pd_data = pd.read_csv('Data/DetectPD_SMOTE_improved.csv')
+model = open("Results/DetectPD-SMOTE_improved.csv/SVM_BestModel_SMOTE_improved_3.pickle", "rb")
+clf = pickle.load(model)
 
 # pre processing using Label Encoder
 le = sklearn.preprocessing.LabelEncoder()
@@ -62,7 +65,6 @@ print(accuracy)
 
 # Creating the labels for confusion matrix
 labels = ['negative', 'positive']
-
 confusion_matrix(y_test, y_predict)
 print(confusion_matrix)
 
@@ -73,10 +75,12 @@ titles_options = [("Confusion matrix, without normalization", None),
 for title, normalize in titles_options:
     disp = plot_confusion_matrix(clf, X_test, y_test, display_labels=labels, cmap=plt.cm.Blues, normalize=normalize)
     disp.ax_.set_title(title)
-
+    # plt.savefig("Results/DetectPD.csv/Plots/{title}.png")
     print(title)
     print(disp.confusion_matrix)
 
 # plotting ROC curve
 metrics.plot_roc_curve(clf, X_test, y_test)
+plt.plot([0, 1], [0, 1], color='darkorange', lw=2, linestyle='--')
+# plt.savefig("Results/DetectPD-ADASYN.csv/Plots/roc_curve.png")
 plt.show()
