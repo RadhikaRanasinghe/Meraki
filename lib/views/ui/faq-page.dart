@@ -6,7 +6,7 @@ import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:detect_pd/views/ui/answer-page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 
 class FaqPage extends StatelessWidget {
   @override

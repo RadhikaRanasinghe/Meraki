@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
 import 'package:detect_pd/views/ui/error-page.dart';

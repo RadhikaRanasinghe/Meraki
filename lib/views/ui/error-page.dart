@@ -2,7 +2,7 @@ import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/gallery-form-page.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 
 void main() {
   runApp(MaterialApp(
