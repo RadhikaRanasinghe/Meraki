@@ -299,7 +299,8 @@ def select_test_image_result(test_image_id: int):
             # When a record is found.
             if my_result:
                 # Return the "result".
-                return bool(my_result)
+                return bool(my_result[0])
+
             # When a record is not found.
             else:
                 # Print the error message.
