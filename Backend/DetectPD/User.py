@@ -2,6 +2,9 @@ from TestImage import TestImage
 
 
 class User:
+    """
+    This class is used to make the User object
+    """
     def __init__(self, test_image: TestImage, age: int, gender: int, handedness: int):
         """This is the constructor
 
