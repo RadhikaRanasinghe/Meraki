@@ -25,5 +25,10 @@ class TestDetector(TestCase):
 
     def test_process(self):
         detector = Detector()
-        detector.load_features()
-        self.assertEqual(detector.process(), "True")
+        im = cv2.imread('images/exam_1_pen.jpg')
+        is_success, im_buf_arr = cv2.imencode(".jpg", im)
+        byte_image = im_buf_arr.tobytes()
+        user = UserModel(1, 31, 1, 0, byte_image, 10)
+        detector.load_features(user)
+        result = detector.process()
+        self.assertEqual(result, True)
