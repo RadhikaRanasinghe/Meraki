@@ -1,71 +1,62 @@
-import io
-import os
 import pickle
 
-from PIL import Image, ImageFile
+import cv2
+import numpy as np
 
-from TestImageBuilder import TestImageBuilder
 from User import User
 from UserModel import UserModel
-
-ImageFile.LOAD_TRUNCATED_IMAGES = True
+from extractFeats import extractFeats
+from extractPen import extractPen
 
 
 class Detector:
+    """
+    This class is used to get the user details from the database and then extracting the exam template and the
+    hand drawn image from image provided by the user. These two images are compared and the features are extracted. 
+    These features are used by the voting classifier to get the prediction. The prediction is returned.
+    """
+
     __user: User = None
 
     def load_features(self, image_no: UserModel):
-        img = Image.open(io.BytesIO(image_no.get_test_image()))
-        img.save('images/image' + str(image_no.get_id()) + '.jpg')
+        """The function to load the features from the image and stores them in a TestImage object. Thius object is
+                    stored in a User object.
 
-        # TODO: Run the C++ file.
+        :param image_no: the details of the user
+        """
 
-        # temp testing
-        img.save('images/image' + str(image_no.get_id()) + '_pen.jpg')
-        img.save('images/image' + str(image_no.get_id()) + '_template.jpg')
+        # Converting byte to Image and saving them in he RAM
+        nparr = np.frombuffer(image_no.get_test_image(), np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-        f = open(f"results/RMS{image_no.get_id()}.txt", "w")
-        if image_no.get_id() % 2 == 0:
-            f.write("1, 3176.216064, 0.000672, 7098.378906, 46569.03516, 21.280848, 224.197754, 0.156795, 802.821106, 0.216138")
-        else:
-            f.write("2, 4648.249512, 0.02644, 6156.082031, 32504.22266, 19.206491, 191.923462, 0, 678.250366, 0.144092")
-        f.close()
+        # loading the feature of the image
+        img_pen = extractPen(img)
+        test_image = extractFeats(img, img_pen)
 
-        img.close()
-        os.remove('images/image' + str(image_no.get_id()) + '.jpg')
-        os.remove('images/image' + str(image_no.get_id()) + '_pen.jpg')
-        os.remove('images/image' + str(image_no.get_id()) + '_template.jpg')
-
-        feature_file = open("results/RMS" + str(image_no.get_id()) + ".txt", "r")
-        features = feature_file.read()
-        feature_file.close()
-        features = features.split(", ")
-
-        test_image = TestImageBuilder() \
-            .set_rms(float(features[1])) \
-            .set_std_deviation_st_ht(float(features[2])) \
-            .set_max_between_st_ht(float(features[3])) \
-            .set_min_between_st_ht(features[4]) \
-            .set_mrt(float(features[5])) \
-            .set_max_ht(float(features[6])) \
-            .set_min_ht(features[7]) \
-            .set_std_ht(float(features[8])) \
-            .set_changes_from_negative_to_positive_between_st_ht(float(features[9]))\
-            .build()
-
+        # User object is created
         self.__user = User(
             test_image=test_image,
             age=image_no.get_age(),
             gender=image_no.get_gender(),
             handedness=image_no.get_handedness())
-        os.remove("results/RMS" + str(image_no.get_id()) + ".txt")
 
     def process(self) -> bool:
+        """
+        This function loads the pickle file of the voting classifier model and takes the features returned
+        by the function load features. The function then predicts the accordingly and returns the result.
+
+        :return:A variable called 'result' of type boolean containing the result predicted by the voting classifier
+
+        """
+
+        # Initializing and assigning the variable 'result' to True
         result: bool = True
 
-        with open('models/ensemble_classifier.pickle', 'rb') as file:
+        # Opening the voting classifier pickle file and storing the model in the variable 'ensemble_classifier'
+        with open('models/VotingClassifier.pickle', 'rb') as file:
             ensemble_classifier = pickle.load(file)
 
+        # Loading the features into a list and assigning it as 'x'
         x = [[self.__user.get_gender(), self.__user.get_handedness(), self.__user.get_age(),
               self.__user.get_test_image().get_rms(), self.__user.get_test_image().get_max_ht(),
               self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_deviation_st_ht(),
@@ -73,17 +64,31 @@ class Detector:
               self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_ht(),
               self.__user.get_test_image().get_changes_from_negative_to_positive_between_st_ht()]]
 
+        # Predicting the result using the loaded features of the user
         y_pred = ensemble_classifier.predict(x)
 
+        # If the predicted result returns '2', then assign result as True
         if y_pred == 2:
             result = True
+
+        # If the predicted result returns '1', then assign result as False
         elif y_pred == 1:
             result = False
 
         return result
 
     def get_user(self) -> User:
+        """
+        Getter of the user
+
+        :return : An User object
+        """
         return self.__user
 
     def set_user(self, user: User):
+        """
+        Setter of the user
+
+        :param user: An User object
+        """
         self.__user = user
