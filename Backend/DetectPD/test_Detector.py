@@ -7,23 +7,45 @@ from UserModel import UserModel
 
 
 class TestDetector(TestCase):
-    # __user = select_record_test(10)
-
-    # detector = Detector()
+    """
+    This class unit tests the Detector class
+    """
 
     def test_load_features(self):
+        """
+        This function is used to test if the User object is updated properly
+        """
+
+        # Creating an Detector object
         detector = Detector()
-        im = cv2.imread('images/exam_1_pen.jpg')
+        im = cv2.imread('sample_images/exam_1.jpg')
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
         byte_image = im_buf_arr.tobytes()
+        # Creating the UserModel object
         user = UserModel(1, 31, 1, 0, byte_image, 10)
+        # Calling the loadFeatures function
         detector.load_features(user)
 
-        self.assertEqual(detector.get_user().get_handedness(), 0)
-        self.assertEqual(detector.get_user().get_gender(), 1)
-        self.assertEqual(detector.get_user().get_age(), 31)
+        # Checking if the User object has been updated properly
+        self.assertEqual(0, detector.get_user().get_handedness(), "Incorrect value - handedness")
+        self.assertEqual(1, detector.get_user().get_gender(), "Incorrect value - gender")
+        self.assertEqual(31, detector.get_user().get_age(), "Incorrect value - age")
 
     def test_process(self):
+        """
+        This function is used to test if prediction returned is correct or not
+        """
+
+        # Creating an Detector object
         detector = Detector()
-        detector.load_features()
-        self.assertEqual(detector.process(), "True")
+        im = cv2.imread('sample_images/exam_1.jpg')
+        is_success, im_buf_arr = cv2.imencode(".jpg", im)
+        byte_image = im_buf_arr.tobytes()
+        # Creating the UserModel object
+        user = UserModel(1, 31, 1, 0, byte_image, 10)
+        # Calling the loadFeatures function
+        detector.load_features(user)
+        # Getting the result
+        result = detector.process()
+        # Checking if the result is correct or not
+        self.assertEqual(False, result, "Incorrect value - result")
