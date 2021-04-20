@@ -12,8 +12,8 @@ from extractPen import extractPen
 class Detector:
     """
     This class is used to get the user details from the database and then extracting the exam template and the
-    hand drawn image from image provided by the user. These two images are compared and the features are stored to a
-    text file. These features are then taken and used by the voting classifier to get the prediction.
+    hand drawn image from image provided by the user. These two images are compared and the features are extracted. 
+    These features are used by the voting classifier to get the prediction. The prediction is returned.
     """
 
     __user: User = None
@@ -45,7 +45,7 @@ class Detector:
         This function loads the pickle file of the voting classifier model and takes the features returned
         by the function load features. The function then predicts the accordingly and returns the result.
 
-        :return:A variable called 'result' containing a boolean containing the result predicted by the voting classifier
+        :return:A variable called 'result' of type boolean containing the result predicted by the voting classifier
 
         """
 
