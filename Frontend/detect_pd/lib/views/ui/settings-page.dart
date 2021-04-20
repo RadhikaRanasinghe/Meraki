@@ -1,3 +1,4 @@
+import 'package:detect_pd/utils/url-launcher.dart';
 import 'package:detect_pd/views/widgets/home-buttons.dart';
 import 'package:detect_pd/views/widgets/Settings.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
@@ -27,11 +28,7 @@ class SettingsPage extends StatelessWidget {
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ),
       bottomNavigationBar: NavBar(
-        link1: (){
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => AboutPDPage()));
-        },
+        link1: launcher,
         link2: (){
           Navigator.pushReplacement(
               context,
