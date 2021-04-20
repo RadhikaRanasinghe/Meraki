@@ -109,7 +109,7 @@ class GreyButtons extends StatelessWidget {
             ) //Container
             ), //Inkwell
       ), //Center
-      width: 390.0,
+      width: 350.0,
       height: 60.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),
