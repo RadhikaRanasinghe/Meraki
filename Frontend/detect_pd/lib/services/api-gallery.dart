@@ -39,7 +39,7 @@ class GalleryAccessState extends State<GalleryAccess> {
     if (preCroppedImage !=null) {
       image =await ImageCropper.cropImage(sourcePath: preCroppedImage.path,
           aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-          compressQuality: 100,compressFormat: ImageCompressFormat.jpg);
+          compressQuality: 50,compressFormat: ImageCompressFormat.jpg);
     }
 
     // set image uploaded as image variable declared at class level

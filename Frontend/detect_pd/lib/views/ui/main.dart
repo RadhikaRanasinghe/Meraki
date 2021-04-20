@@ -1,3 +1,4 @@
+import 'package:detect_pd/utils/url-launcher.dart';
 import 'package:detect_pd/views/ui/splash-screen.dart';
 import 'package:detect_pd/views/widgets/home-buttons.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
         fillColor:  Color.fromRGBO(240, 241, 226, 100),
       ), // HomeForeground
       bottomNavigationBar: NavBar(
-        link1: null,
+        link1: launcher,
         link2: null,
         link3: (){
           Navigator.pushReplacement(

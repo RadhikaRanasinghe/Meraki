@@ -1,3 +1,4 @@
+import 'package:detect_pd/utils/url-launcher.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:detect_pd/views/widgets/home-background.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
@@ -30,7 +31,7 @@ class FaqPage extends StatelessWidget {
         fillColor: Color.fromRGBO(240, 241, 226, 100),
       ), //HomeBackground
       bottomNavigationBar: NavBar(
-        link1: null,
+        link1: launcher,
         link2: () {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => HomePage()));

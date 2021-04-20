@@ -9,7 +9,7 @@ class PositiveResultsPage extends StatelessWidget {
       // building the positive result page body
       body: ResultsForeground(
           mainBackgroundColor: Colors.grey[400],
-          fillColor: Colors.cyan.shade800,
+          fillColor: Color(0xFF01227D),
           resultImage: ResultBackground(
             resultBackgroundHeight: 460.0,
             resultBackgroundImage: 'assets/negativeBackground.png',

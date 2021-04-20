@@ -64,7 +64,7 @@ class answerForeground extends StatelessWidget {
                     question, textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white),
                   )),//Text,Center
-              width: 310.0,
+              width: 330.0,
               height: 46.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),

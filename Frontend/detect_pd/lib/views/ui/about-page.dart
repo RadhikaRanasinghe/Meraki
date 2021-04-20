@@ -1,3 +1,4 @@
+import 'package:detect_pd/utils/url-launcher.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class AboutPDPage extends StatelessWidget {
         fillColor:  Color(0xff033e6b),
       ), // HomeForeground
       bottomNavigationBar: NavBar(
-        link1: null,
+        link1: launcher,
         link2: (){
           Navigator.pushReplacement(
               context,
