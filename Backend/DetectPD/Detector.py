@@ -11,7 +11,7 @@ from extractPen import extractPen
 
 class Detector:
     """
-    This class is used to get the user details form the database and then extracting the exam template and the
+    This class is used to get the user details from the database and then extracting the exam template and the
     hand drawn image from image provided by the user. These two images are compared and the features are stored to a
     text file. These features are then taken and used by the voting classifier to get the prediction.
     """
