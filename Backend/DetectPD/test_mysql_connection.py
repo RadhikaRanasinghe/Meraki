@@ -12,7 +12,7 @@ class MysqlConnectionTest(unittest.TestCase):
     test_image_id = None
 
     def test_insert_values_test(self):
-        im = cv2.imread('../images/exam_1_pen.jpg')
+        im = cv2.imread("sample_images/exam_1.jpg")
 
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
         byte_im = im_buf_arr.tobytes()
@@ -62,7 +62,7 @@ class MysqlConnectionTest(unittest.TestCase):
         self.assertEqual(0, result, "Incorrect data type - result.")
 
     def test_select_record_test(self):
-        im = cv2.imread('../images/exam_1_pen.jpg')
+        im = cv2.imread("sample_images/exam_1.jpg")
 
         is_success, im_buf_arr = cv2.imencode(".jpg", im)
         byte_im = im_buf_arr.tobytes()
