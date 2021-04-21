@@ -74,14 +74,14 @@ def convert(user):
                             elif row['GENDER'] == "F":
                                 gender.append(2)
                             else:
-                                print("ERROR - Unidentified Gender. Contact Charindu :(")
+                                print("ERROR - Unidentified Gender.")
 
                             if row['RIGH/LEFT-HANDED'] == "R":
                                 handedness.append(1)
                             elif row['RIGH/LEFT-HANDED'] == "L":
                                 handedness.append(2)
                             else:
-                                print("ERROR - Unidentified Handedness. Contact Charindu :(")
+                                print("ERROR - Unidentified Handedness.")
 
                             age.append(row['AGE'])
                             class_type.append(row['CLASS_TYPE'])
@@ -99,14 +99,14 @@ def convert(user):
                             elif row['GENDER'] == "F":
                                 gender.append(2)
                             else:
-                                print("ERROR - Unidentified Gender. Contact Charindu :(")
+                                print("ERROR - Unidentified Gender.")
 
                             if row['RIGH/LEFT-HANDED'] == "R":
                                 handedness.append(1)
                             elif row['RIGH/LEFT-HANDED'] == "L":
                                 handedness.append(2)
                             else:
-                                print("ERROR - Unidentified Handedness. Contact Charindu :(")
+                                print("ERROR - Unidentified Handedness.")
 
                             age.append(row['AGE'])
                             class_type.append(row['CLASS_TYPE'])
@@ -160,14 +160,14 @@ def convert(user):
                         elif row['GENDER'] == "F":
                             gender.append(2)
                         else:
-                            print("ERROR - Unidentified Gender. Contact Charindu :(")
+                            print("ERROR - Unidentified Gender.")
 
                         if row['RIGH/LEFT-HANDED'] == "R":
                             handedness.append(1)
                         elif row['RIGH/LEFT-HANDED'] == "L":
                             handedness.append(2)
                         else:
-                            print("ERROR - Unidentified Handedness. Contact Charindu :(")
+                            print("ERROR - Unidentified Handedness.")
 
                         age.append(row['AGE'])
                         class_type.append(row['CLASS_TYPE'])
@@ -177,7 +177,7 @@ def convert(user):
                         break
     else:
         isUserCorrect = False
-        print("Invalid User, Ask Charindu why he thinks your parents are blood related -_-")
+        print("Invalid User")
 
     if isUserCorrect:
         print("Combining the data...")
@@ -189,13 +189,13 @@ def convert(user):
             if count == len(x) == len(y) == 132:
                 print("Combined successful.")
             else:
-                print("ERROR - Expected 132 rows, " + str(count) + " found. Contact Charindu :(")
+                print("ERROR - Expected 132 rows, " + str(count) + " found.")
         else:
             if count == len(x) == len(y) == 92:
                 print("Combined successful.")
             else:
-                print("ERROR - Expected 92 rows, " + str(count) + " found. Contact Charindu :(")
+                print("ERROR - Expected 92 rows, " + str(count) + " found.")
 
         print("writing csv file...")
         writing.writing(x, y, "_" + user, True)
-        print("csv file complete. Contact Charindu :)")
+        print("csv file complete.")
