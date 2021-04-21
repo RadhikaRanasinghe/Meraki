@@ -7,7 +7,7 @@ launcher(){
 
 // async function to redirect user to web page
 launchURL() async {
-  const url = 'http://detectpd.us-east-2.elasticbeanstalk.com';
+  const url = 'https://bawanthaperera1999.wixsite.com/website';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
