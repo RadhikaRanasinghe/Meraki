@@ -9,12 +9,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
 import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:image_cropper/image_cropper.dart';
-
+import 'package:detect_pd/views/ui/error-page.dart';
 
 class CameraAccess extends StatefulWidget {
   @override
@@ -97,6 +97,14 @@ class CameraAccessState extends State<CameraAccess> {
       // send http POST request
       final resp = await request.send();
       print(resp.statusCode);
+
+      if(resp.statusCode != 201){
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
+      }
+
       String respStr = await resp.stream.bytesToString();
       print(respStr);
 
@@ -107,18 +115,24 @@ class CameraAccessState extends State<CameraAccess> {
       //async function to perform http GET
       final response = await http.get('http://detectpd.us-east-2.elasticbeanstalk.com/retrieve_result?image_no=$imageNo'); //getting the response from our backend server script
 
+      // decode response body
       final decoded = json.decode(response.body) as Map<String, dynamic>; //converting it from json to key value pair
 
-      if (decoded['result'] == false) {
+      if (decoded['result'] == true) {
         // display positive results page
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => PositiveResultsPage()));
-      } else {
+      } else if (decoded['result'] == false) {
         // display negative results page
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => NegativeResultsPage()));
+      } else {
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
       }
 
     } catch (exception) {

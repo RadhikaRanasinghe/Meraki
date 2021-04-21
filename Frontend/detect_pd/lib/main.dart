@@ -7,8 +7,7 @@ import 'package:detect_pd/views/ui/settings-page.dart';
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcase_widget.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-
-import 'answer-page.dart';
+import 'package:detect_pd/views/ui/answer-page.dart';
 
 void main() {
   runApp(MaterialApp(

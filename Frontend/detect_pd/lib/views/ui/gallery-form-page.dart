@@ -5,7 +5,7 @@ import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 
 class GalleryFormPage extends StatefulWidget {
   @override

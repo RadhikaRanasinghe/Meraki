@@ -6,7 +6,7 @@ import 'package:detect_pd/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:detect_pd/views/ui/about-page.dart';
 import 'package:detect_pd/views/widgets/home-Foreground.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 
 class SettingsPage extends StatelessWidget {
   @override

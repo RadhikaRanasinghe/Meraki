@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:detect_pd/views/widgets/home-foreground.dart';
-import 'package:detect_pd/views/ui/main.dart';
+import 'package:detect_pd/main.dart';
 import 'package:detect_pd/views/ui/neg-results-page.dart';
 import 'package:detect_pd/views/ui/pos-result-page.dart';
 import 'package:detect_pd/views/ui/error-page.dart';
@@ -24,7 +24,6 @@ class GalleryAccess extends StatefulWidget {
 class GalleryAccessState extends State<GalleryAccess> {
   File galleryFile;
   File image;
-  // File preCroppedImage;
   final picker = ImagePicker();
   final TextEditingController ageController = TextEditingController();
   String gender;
@@ -98,6 +97,14 @@ class GalleryAccessState extends State<GalleryAccess> {
       // send http POST request to API
       final resp = await request.send();
       print(resp.statusCode);
+
+      if(resp.statusCode != 201){
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
+      }
+
       String respStr = await resp.stream.bytesToString();
       print(respStr);
 
