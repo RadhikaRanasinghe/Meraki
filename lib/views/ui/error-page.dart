@@ -18,7 +18,7 @@ class ErrorPage extends StatelessWidget {
       body: HomeForeground(
         expandedHeight: 153.0,
         appBarChild: HomeBackground(
-          title: 'Home',
+          title: 'Error',
           logoPath: 'assets/pd_log_bg_small.png',
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
