@@ -12,7 +12,7 @@ def about_pd():
     Method to preview user about Parkinson Decease.
     :return: Redirect to website containing parkinson details.
     """
-    return "Hello Update"
+    return redirect(location="https://www.parkinson.org/understanding-parkinsons/what-is-parkinsons", code=302)
 
 
 @application.route('/create_user', methods=['POST'])
