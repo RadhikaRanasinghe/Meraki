@@ -2,19 +2,20 @@ import pickle
 import pickle
 
 import matplotlib.pyplot as plt
+import sklearn
 import sklearn.metrics as metrics
-from sklearn.metrics import plot_confusion_matrix
+from sklearn.metrics import plot_confusion_matrix, accuracy_score
 from sklearn.model_selection import train_test_split
 
 import methods
 
 path = ""
 
-dataset_type = ""
+# dataset_type = ""
 # dataset_type = "_SMOTE"
 # dataset_type = "_RandomOverSampler"
 # dataset_type = "_ADASYN"
-# dataset_type = "_SMOTE_improved"
+dataset_type = "_SMOTE_improved"
 
 # pd_data = pd.read_csv('Data/DetectPD.csv')
 clf = methods.find_highest_accuracy_model(path, dataset_type)
@@ -32,9 +33,12 @@ clf.fit(X_train, y_train)
 predictions = clf.predict(X_test)
 
 # getting accuracy as percentage
-# accuracy = accuracy_score(y_test, predictions) * 100
-# print(sklearn.metrics.classification_report(y_test, predictions))
-# print(accuracy)
+accuracy = accuracy_score(y_test, predictions) * 100
+message = sklearn.metrics.classification_report(y_test, predictions) + f"\nAccuracy: {accuracy}"
+
+file = open(f"diagrams/DetectPD{dataset_type}/DetectPD{dataset_type}_Results.txt", "w")
+file.write(message)
+file.close()
 
 # Creating confusion matrix
 labels = ['negative', 'positive']
