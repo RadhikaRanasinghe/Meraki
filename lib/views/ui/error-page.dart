@@ -4,12 +4,6 @@ import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/gallery-form-page.dart';
 import 'package:detect_pd/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: ErrorPage(),
-    debugShowCheckedModeBanner: false,
-  )); // MaterialApp
-}
 
 class ErrorPage extends StatelessWidget {
   @override
