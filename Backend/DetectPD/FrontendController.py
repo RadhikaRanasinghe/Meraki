@@ -12,7 +12,8 @@ def about_pd():
     Method to preview user about Parkinson Decease.
     :return: Redirect to website containing parkinson details.
     """
-    return redirect(location="https://www.parkinson.org/understanding-parkinsons/what-is-parkinsons", code=302)
+    print("Hello DetectPD")
+    return "Hello DetectPD"
 
 
 @application.route('/create_user', methods=['POST'])
@@ -49,11 +50,16 @@ def create_user():
             user_id = conn.insert_values_test(age, gender, handedness, image)
 
             # Returning the primary key of the RDS database record.
+            print(f"OK 200 - image_no: {user_id}")
             return jsonify({"image_no": user_id}), 201
         else:
             message = "Invalid input type. \n'age'/'gender'/'handedness' - Integer, \n'image' - jpg/jpeg image"
+            print(f"ERROR 415 - age: {age}, gender: {gender}, handedness: {handedness}, "
+                  f"image: {file.headers.get('Content-Type')}")
             return jsonify({"error": message}), 415
     else:
+        print(f"ERROR 400 - age: {'age' in payload.keys()}, gender: {'gender' in payload.keys()}, "
+              f"handedness: {'handedness' in payload.keys()}, image: {'image' in request.files}")
         return jsonify({"error": "Missing input. \n'age', 'gender', 'handedness', 'image' is required."}), 400
 
 
@@ -88,23 +94,30 @@ def retrieve_result():
                     detector.load_features(user_model)
                     result = detector.process()
 
-                    # Saving the test process details to RDS.
-                    test_image = detector.get_user().get_test_image()
-                    conn.insert_values_test_image(test_image, image_no, result)
+                    if result is None:
+                        return jsonify({"error": "Server could not determine a proper result."}), 510
+                    else:
+                        # Saving the test result to RDS.
+                        conn.insert_result_test_image(image_no, result)
 
-                    # Return the test result.
-                    return jsonify({"result": result}), 200
+                        # Return the test result.
+                        print(f"OK 200 - result: {result}")
+                        return jsonify({"result": result}), 200
                 # When reprocessed result is available.
                 else:
                     # Loading the preprocessed result.
                     result = conn.select_test_image_result(test_image_id)
                     # Return the test result.
+                    print(f"OK 200 - result: {result}")
                     return jsonify({"result": result}), 200
             else:
+                print(f"ERROR 416 - image_no: {image_no}")
                 return jsonify({"error": "Invalid image_no, No such id exists in the database."}), 416
         else:
+            print(f"ERROR 415 - image_no: {image_no}")
             return jsonify({"error": "Invalid input type. \n'image_no' - Integer"}), 415
     else:
+        print(f"ERROR 400 - image_no: {'image_no' in request.args}")
         return jsonify({"error": "Missing input. \n'image_no' is required."}), 400
 
 
