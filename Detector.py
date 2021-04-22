@@ -27,7 +27,7 @@ class Detector:
 
         # Requesting the image extraction details from lambda.
         test_image_dict = None
-        for i in range(20):
+        for i in range(5):
             print(f"Requesting OpenCV results {test.get_id()}, try {i}...")
             extract_feats = requests.get(self.__LAMBDA_ENDPOINT, params={"image_no": str(test.get_id())})
             print(extract_feats.status_code, extract_feats.json())
@@ -38,7 +38,7 @@ class Detector:
                     # When OpenCV lambda crashes.
                     if i == 0:
                         break
-                    time.sleep(15)
+                    time.sleep(60)
                     continue
                 # When the result is received.
                 else:
@@ -46,7 +46,7 @@ class Detector:
                     break
             # When a bad Gateway or other server errors happen.
             else:
-                time.sleep(15)
+                time.sleep(60)
 
         # When a result is not received.
         if test_image_dict is None:
