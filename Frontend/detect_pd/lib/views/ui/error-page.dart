@@ -4,12 +4,6 @@ import 'package:detect_pd/views/widgets/home-foreground.dart';
 import 'package:detect_pd/views/ui/gallery-form-page.dart';
 import 'package:detect_pd/main.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: ErrorPage(),
-    debugShowCheckedModeBanner: false,
-  )); // MaterialApp
-}
 
 class ErrorPage extends StatelessWidget {
   @override
@@ -18,7 +12,7 @@ class ErrorPage extends StatelessWidget {
       body: HomeForeground(
         expandedHeight: 153.0,
         appBarChild: HomeBackground(
-          title: 'Home',
+          title: 'Error',
           logoPath: 'assets/pd_log_bg_small.png',
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
