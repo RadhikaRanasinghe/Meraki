@@ -1,35 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: Stack(
-          children: [
-            Positioned(
-                bottom: 0,
-              left: 0,
-              child: NavBar(
-                link1: null,
-                link2: null,
-                link3: null,
-                backgroundColor: Colors.redAccent,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class NavBar extends StatelessWidget {
+  // Initializing the variables
   final backgroundColor;
   final link1;
   final link2;
@@ -41,16 +13,20 @@ class NavBar extends StatelessWidget {
   NavBar({this.link1, this.link2, this.link3, this.backgroundColor});
 
   @override
+  // Building the main background of the nav-bar
   Widget build(BuildContext context) {
     return Container(
       color: backgroundColor,
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(borderRadius),
-              topLeft: Radius.circular(borderRadius)),
+          // borderRadius: BorderRadius.only(
+          //     topRight: Radius.circular(borderRadius),
+          //     topLeft: Radius.circular(borderRadius)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -61,9 +37,11 @@ class NavBar extends StatelessWidget {
             ),
           ],
         ),
+        // Building a row for the child nodes, FlatButtons
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // FlatButton for the help button
             FlatButton(
               onPressed: link1,
               child: Icon(
@@ -72,6 +50,7 @@ class NavBar extends StatelessWidget {
                 size: iconSize,
               ),
             ),
+            // FlatButton for the home button
             FlatButton(
               onPressed: link2,
               child: Icon(
@@ -80,6 +59,7 @@ class NavBar extends StatelessWidget {
                 size: iconSize,
               ),
             ),
+            // FlatButton for the settings button
             FlatButton(
               onPressed: link3,
               child: Icon(

@@ -1,25 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-));
-
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body:HomeBackground(
-        title: 'Home',
-        logoPath: 'assets/testImage.jpg',
-        height: 153.0,
-        bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
-        smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-        backgroundColor: Color.fromRGBO(94, 163, 184, 100),
-      ),
-    );
-  }
-}
-
 class HomeBackground extends StatelessWidget {
   final title;
   final height;
@@ -27,8 +7,9 @@ class HomeBackground extends StatelessWidget {
   final smallSquareColor;
   final backgroundColor;
   final logoPath;
+  final titleColor;
 
-  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor, this.logoPath});
+  HomeBackground({this.title, this.height, this.bigSquareColor, this.backgroundColor, this.smallSquareColor, this.logoPath, this.titleColor});
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +26,8 @@ class HomeBackground extends StatelessWidget {
               color:  bigSquareColor,
               size: 142.0,
               borderRadius: 31.0,
-            ),
-          ),
+            ),  // Square
+          ),  // Positioned
           Positioned(
             top: -37,
             left: 58,
@@ -54,8 +35,8 @@ class HomeBackground extends StatelessWidget {
               color: smallSquareColor,
               size: 93.0,
               borderRadius: 18.0,
-            ),
-          ),
+            ),  // Square
+          ),  // Positioned
           Positioned(
             top: 102,
             left : 40,
@@ -63,11 +44,13 @@ class HomeBackground extends StatelessWidget {
               onPressed: () {},
               child: Text(title,
                 style: TextStyle(
-                    fontSize: 20
-                ),
-              ),
-            ),
-          ),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: titleColor
+                ),  // TextStyle
+              ),  // Text
+            ),  // FlatButton
+          ),  // Positioned
           Positioned(
             top: 65,
             left: 241,
@@ -75,15 +58,16 @@ class HomeBackground extends StatelessWidget {
               image: AssetImage(logoPath),
               width: 134,
               height: 88,
-            ),
-          ),
+            ),  // Image
+          ),  // Positioned
         ],
-      ),
-    );
+      ),  // Stack
+    );  // Container
   }
 }
 
 class Square extends StatelessWidget {
+  /// Creates the squares decoration for for the home background.
   final color;
   final size;
   final borderRadius;
@@ -98,7 +82,7 @@ class Square extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.all(Radius.circular(borderRadius))
-      ),
-    );
+      ),  // BoxDecoration
+    );  // Container
   }
 }
