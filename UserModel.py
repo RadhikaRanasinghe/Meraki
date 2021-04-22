@@ -26,7 +26,7 @@ class UserModel:
         This function returns the details of the user model object
         """
         return f"UserModel{{id={self.__id}, age={self.__age}, gender={self.__gender}, handedness={self.__handedness}," \
-               f" test_image={self.__test_image}}} "
+               f" test_image={type(self.__test_image)}}} "
 
     def get_id(self) -> int:
         """

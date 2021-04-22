@@ -1,12 +1,11 @@
 import pickle
+import time
 
-import cv2
-import numpy as np
-
+from TestImageBuilder import TestImageBuilder
 from User import User
 from UserModel import UserModel
-from extractFeats import extractFeats
-from extractPen import extractPen
+
+import requests
 
 
 class Detector:
@@ -17,30 +16,65 @@ class Detector:
     """
 
     __user: User = None
+    __LAMBDA_ENDPOINT = "https://cnv04ktxbj.execute-api.us-east-2.amazonaws.com/production/extractfeats"
 
-    def load_features(self, image_no: UserModel):
+    def load_features(self, test: UserModel):
         """The function to load the features from the image and stores them in a TestImage object. Thius object is
                     stored in a User object.
 
-        :param image_no: the details of the user
+        :param test: the details of the user
         """
 
-        # Converting byte to Image and saving them in he RAM
-        nparr = np.frombuffer(image_no.get_test_image(), np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        # Requesting the image extraction details from lambda.
+        test_image_dict = None
+        for i in range(20):
+            print(f"Requesting OpenCV results {test.get_id()}, try {i}...")
+            extract_feats = requests.get(self.__LAMBDA_ENDPOINT, params={"image_no": str(test.get_id())})
+            print(extract_feats.status_code, extract_feats.json())
+            # Checking if an OK result is coming.
+            if extract_feats.status_code == 200:
+                # Checking if the result is received.
+                if extract_feats.json()['test_image'] is None:
+                    # When OpenCV lambda crashes.
+                    if i == 0:
+                        break
+                    time.sleep(15)
+                    continue
+                # When the result is received.
+                else:
+                    test_image_dict = extract_feats.json()['test_image']
+                    break
+            # When a bad Gateway or other server errors happen.
+            else:
+                time.sleep(15)
 
-        # loading the feature of the image
-        img_pen = extractPen(img)
-        test_image = extractFeats(img, img_pen)
+        # When a result is not received.
+        if test_image_dict is None:
+            print(f"ERROR - OpenCV results {test.get_id()} didn't received")
+            test_image = None
+        # When a result is received.
+        else:
+            print(f"OpenCV results {test.get_id()} received")
+            test_image = TestImageBuilder() \
+                .set_rms(test_image_dict['rms']) \
+                .set_std_deviation_st_ht(test_image_dict['rms']) \
+                .set_max_between_st_ht(test_image_dict['rms']) \
+                .set_min_between_st_ht(test_image_dict['rms']) \
+                .set_mrt(test_image_dict['rms']) \
+                .set_max_ht(test_image_dict['rms']) \
+                .set_min_ht(test_image_dict['rms']) \
+                .set_std_ht(test_image_dict['rms']) \
+                .set_changes_from_negative_to_positive_between_st_ht(test_image_dict['rms']) \
+                .build()
 
         # User object is created
         self.__user = User(
             test_image=test_image,
-            age=image_no.get_age(),
-            gender=image_no.get_gender(),
-            handedness=image_no.get_handedness())
+            age=test.get_age(),
+            gender=test.get_gender(),
+            handedness=test.get_handedness())
 
-    def process(self) -> bool:
+    def process(self):
         """
         This function loads the pickle file of the voting classifier model and takes the features returned
         by the function load features. The function then predicts the accordingly and returns the result.
@@ -49,33 +83,36 @@ class Detector:
 
         """
 
-        # Initializing and assigning the variable 'result' to True
-        result: bool = True
+        if self.__user.get_test_image() is None:
+            return None
+        else:
+            # Initializing and assigning the variable 'result' to True
+            result = None
 
-        # Opening the voting classifier pickle file and storing the model in the variable 'ensemble_classifier'
-        with open('models/VotingClassifier.pickle', 'rb') as file:
-            ensemble_classifier = pickle.load(file)
+            # Loading the features into a list and assigning it as 'x'
+            x = [[self.__user.get_gender(), self.__user.get_handedness(), self.__user.get_age(),
+                  self.__user.get_test_image().get_rms(), self.__user.get_test_image().get_max_ht(),
+                  self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_deviation_st_ht(),
+                  self.__user.get_test_image().get_mrt(), self.__user.get_test_image().get_max_ht(),
+                  self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_ht(),
+                  self.__user.get_test_image().get_changes_from_negative_to_positive_between_st_ht()]]
 
-        # Loading the features into a list and assigning it as 'x'
-        x = [[self.__user.get_gender(), self.__user.get_handedness(), self.__user.get_age(),
-              self.__user.get_test_image().get_rms(), self.__user.get_test_image().get_max_ht(),
-              self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_deviation_st_ht(),
-              self.__user.get_test_image().get_mrt(), self.__user.get_test_image().get_max_ht(),
-              self.__user.get_test_image().get_min_ht(), self.__user.get_test_image().get_std_ht(),
-              self.__user.get_test_image().get_changes_from_negative_to_positive_between_st_ht()]]
+            # Opening the voting classifier pickle file and storing the model in the variable 'ensemble_classifier'
+            with open('models/VotingClassifier.pickle', 'rb') as file:
+                ensemble_classifier = pickle.load(file)
 
-        # Predicting the result using the loaded features of the user
-        y_pred = ensemble_classifier.predict(x)
+            # Predicting the result using the loaded features of the user
+            y_pred = ensemble_classifier.predict(x)
 
-        # If the predicted result returns '2', then assign result as True
-        if y_pred == 2:
-            result = True
+            # If the predicted result returns '2', then assign result as True
+            if y_pred == 2:
+                result = True
 
-        # If the predicted result returns '1', then assign result as False
-        elif y_pred == 1:
-            result = False
+            # If the predicted result returns '1', then assign result as False
+            elif y_pred == 1:
+                result = False
 
-        return result
+            return result
 
     def get_user(self) -> User:
         """
