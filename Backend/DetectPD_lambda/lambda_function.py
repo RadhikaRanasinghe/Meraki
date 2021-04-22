@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     image_no = event['queryStringParameters']['image_no']
 
     # Construct the body of the response object
-    transactionResponse = {'test_image': work(image_no)}
+    transactionResponse = {'queryStringParameters': image_no, 'test_image': work(image_no)}
 
     # Construct http resposnse object
     responseObject = {'statusCode': 200, 'headers': {'Content-Type': 'application/json'},
@@ -72,8 +72,9 @@ def work(image_no):
             else:
                 test_image = None
         else:
-            cursor.execute(f"SELECT rms, max_between_st_ht, min_between_st_ht, std_deviation_st_ht, mrt, max_ht, min_ht, "
-                           f"std_ht, changes_from_n_to_p_between_st_ht FROM test_image WHERE id={test_image_id}")
+            cursor.execute(
+                f"SELECT rms, max_between_st_ht, min_between_st_ht, std_deviation_st_ht, mrt, max_ht, min_ht, "
+                f"std_ht, changes_from_n_to_p_between_st_ht FROM test_image WHERE id={test_image_id}")
 
             test_image_result = cursor.fetchall()
 
