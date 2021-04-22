@@ -2,11 +2,13 @@ import pickle
 
 import pandas as pd
 import sklearn
+from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 
 
 def find_highest_accuracy_model(path, dataset_type):
     highest_accuracy_model = None
+    highest_accuracy_model_data = None
     highest_model_accuracy = 0
 
     # Reading all the save pickle files to make result md files.
@@ -23,13 +25,22 @@ def find_highest_accuracy_model(path, dataset_type):
                 open(f"{path}DetectPD{dataset_type}/KNN_BestData{dataset_type}_n({neighbors})_size({test_size}).pickle",
                      "rb"))
             best_model = loaded_best_model.fit(loaded_best_data['x_train'], loaded_best_data['y_train'])
-            best_acc = best_model.score(loaded_best_data['x_test'], loaded_best_data['y_test'])
+
+            # Running predictions using  test data
+            predictions = best_model.predict(loaded_best_data['x_test'])
+
+            # getting accuracy as percentage
+            best_acc = accuracy_score(loaded_best_data['y_test'], predictions) * 100
+
+            # best_acc = best_model.score(loaded_best_data['x_test'], loaded_best_data['y_test'])
 
             # saving the highest best, lowest worst and lowest different accuracy model details.
             if highest_model_accuracy < best_acc:
                 highest_accuracy_model = loaded_best_model
+                highest_accuracy_model_data = loaded_best_data
+                highest_model_accuracy = best_acc
 
-    return highest_accuracy_model
+    return highest_accuracy_model, highest_accuracy_model_data
 
 
 def print_results(path, dataset_type):
