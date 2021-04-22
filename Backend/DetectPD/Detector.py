@@ -16,6 +16,7 @@ class Detector:
     """
 
     __user: User = None
+    __LAMBDA_ENDPOINT = "https://cnv04ktxbj.execute-api.us-east-2.amazonaws.com/production/extractfeats"
 
     def load_features(self, test: UserModel):
         """The function to load the features from the image and stores them in a TestImage object. Thius object is
@@ -28,13 +29,12 @@ class Detector:
         test_image_dict = None
         for i in range(20):
             print(f"Requesting OpenCV results {test.get_id()}, try {i}...")
-            x = requests.get('https://9e98utlj5i.execute-api.us-east-2.amazonaws.com/test/transactions',
-                             params={"image_no": str(test.get_id())})
-            print(x.status_code, x.json())
+            extract_feats = requests.get(self.__LAMBDA_ENDPOINT, params={"image_no": str(test.get_id())})
+            print(extract_feats.status_code, extract_feats.json())
             # Checking if an OK result is coming.
-            if x.status_code == 200:
+            if extract_feats.status_code == 200:
                 # Checking if the result is received.
-                if x.json()['test_image'] is None:
+                if extract_feats.json()['test_image'] is None:
                     # When OpenCV lambda crashes.
                     if i == 0:
                         break
@@ -42,7 +42,7 @@ class Detector:
                     continue
                 # When the result is received.
                 else:
-                    test_image_dict = x.json()['test_image']
+                    test_image_dict = extract_feats.json()['test_image']
                     break
             # When a bad Gateway or other server errors happen.
             else:
