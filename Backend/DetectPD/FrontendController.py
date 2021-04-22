@@ -9,8 +9,8 @@ application = Flask(__name__)
 @application.route('/')
 def about_pd():
     """
-    Method to preview user about Parkinson Decease.
-    :return: Redirect to website containing parkinson details.
+    Method for the root URL of the API.
+    :return: A String containing 'Hello DetectPD'.
     """
     print("Hello DetectPD")
     return "Hello DetectPD"
