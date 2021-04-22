@@ -14,7 +14,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Detect PD"
+        android:label="DetectPD"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
         android:requestLegacyExternalStorage="true">

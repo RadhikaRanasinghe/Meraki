@@ -29,10 +29,10 @@ class LoadingPage extends StatelessWidget {
           ), //Center
           SizedBox(height: 50),
           Text(
-            "Processing",
+            "Processing... This may take up to 3 minutes.",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 16,
                 color: const Color(0xFF033E6B)),
           )
         ],
