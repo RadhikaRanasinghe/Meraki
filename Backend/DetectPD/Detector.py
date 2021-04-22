@@ -21,13 +21,12 @@ class Detector:
     def load_features(self, test: UserModel):
         """The function to load the features from the image and stores them in a TestImage object. Thius object is
                     stored in a User object.
-
         :param test: the details of the user
         """
 
         # Requesting the image extraction details from lambda.
         test_image_dict = None
-        for i in range(20):
+        for i in range(5):
             print(f"Requesting OpenCV results {test.get_id()}, try {i}...")
             extract_feats = requests.get(self.__LAMBDA_ENDPOINT, params={"image_no": str(test.get_id())})
             print(extract_feats.status_code, extract_feats.json())
@@ -38,7 +37,7 @@ class Detector:
                     # When OpenCV lambda crashes.
                     if i == 0:
                         break
-                    time.sleep(15)
+                    time.sleep(60)
                     continue
                 # When the result is received.
                 else:
@@ -46,7 +45,7 @@ class Detector:
                     break
             # When a bad Gateway or other server errors happen.
             else:
-                time.sleep(15)
+                time.sleep(60)
 
         # When a result is not received.
         if test_image_dict is None:
@@ -78,9 +77,7 @@ class Detector:
         """
         This function loads the pickle file of the voting classifier model and takes the features returned
         by the function load features. The function then predicts the accordingly and returns the result.
-
         :return:A variable called 'result' of type boolean containing the result predicted by the voting classifier
-
         """
 
         if self.__user.get_test_image() is None:
@@ -117,7 +114,6 @@ class Detector:
     def get_user(self) -> User:
         """
         Getter of the user
-
         :return : An User object
         """
         return self.__user
@@ -125,7 +121,6 @@ class Detector:
     def set_user(self, user: User):
         """
         Setter of the user
-
         :param user: An User object
         """
         self.__user = user
