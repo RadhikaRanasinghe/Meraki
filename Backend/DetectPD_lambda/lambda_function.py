@@ -648,6 +648,3 @@ def extractFeats(img, img1):
                   'changes_from_negative_to_positive_between_st_ht': (count_cross / count)}
 
     return test_image
-
-
-print(work(6))
