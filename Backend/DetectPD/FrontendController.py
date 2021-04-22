@@ -54,13 +54,15 @@ def create_user():
             return jsonify({"image_no": user_id}), 201
         else:
             message = "Invalid input type. \n'age'/'gender'/'handedness' - Integer, \n'image' - jpg/jpeg image"
-            print(f"ERROR 415 - age: {age}, gender: {gender}, handedness: {handedness}, "
-                  f"image: {file.headers.get('Content-Type')}")
-            return jsonify({"error": message}), 415
+            info = f"ERROR 415 - age: {age}, gender: {gender}, handedness: {handedness}, " \
+                   f"image: {file.headers.get('Content-Type')}"
+            print(info)
+            return jsonify({"error": message, 'info': info}), 415
     else:
-        print(f"ERROR 400 - age: {'age' in payload.keys()}, gender: {'gender' in payload.keys()}, "
-              f"handedness: {'handedness' in payload.keys()}, image: {'image' in request.files}")
-        return jsonify({"error": "Missing input. \n'age', 'gender', 'handedness', 'image' is required."}), 400
+        info = f"ERROR 400 - age: {'age' in payload.keys()}, gender: {'gender' in payload.keys()}, " \
+               f"handedness: {'handedness' in payload.keys()}, image: {'image' in request.files}"
+        print(info)
+        return jsonify({"error": "Missing input. \n'age', 'gender', 'handedness', 'image' is required.", 'info': info}), 400
 
 
 @application.route('/retrieve_result', methods=['GET'])
@@ -111,14 +113,17 @@ def retrieve_result():
                     print(f"OK 200 - result: {result}")
                     return jsonify({"result": result}), 200
             else:
-                print(f"ERROR 416 - image_no: {image_no}")
-                return jsonify({"error": "Invalid image_no, No such id exists in the database."}), 416
+                info = f"ERROR 416 - image_no: {image_no}"
+                print(info)
+                return jsonify({"error": "Invalid image_no, No such id exists in the database.", 'info': info}), 416
         else:
-            print(f"ERROR 415 - image_no: {image_no}")
-            return jsonify({"error": "Invalid input type. \n'image_no' - Integer"}), 415
+            info = f"ERROR 415 - image_no: {image_no}"
+            print(info)
+            return jsonify({"error": "Invalid input type. \n'image_no' - Integer", 'info': info}), 415
     else:
-        print(f"ERROR 400 - image_no: {'image_no' in request.args}")
-        return jsonify({"error": "Missing input. \n'image_no' is required."}), 400
+        info = f"ERROR 400 - image_no: {'image_no' in request.args}"
+        print(info)
+        return jsonify({"error": "Missing input. \n'image_no' is required.", 'info': info}), 400
 
 
 if __name__ == '__main__':
