@@ -1,10 +1,8 @@
 import unittest
 
 import cv2
-import numpy as np
 
 import mysql_connection as conn
-from TestImageBuilder import TestImageBuilder
 from UserModel import UserModel
 
 
@@ -45,41 +43,26 @@ class MysqlConnectionTest(unittest.TestCase):
         result = conn.insert_values_test(age=20, gender=1, handedness=1, image="byte_im")
         self.assertEqual(0, result, "Incorrect data type - image.")
 
-    def test_insert_values_test_image(self):
+    def test_insert_result_test_image(self):
         """
         Method to test insert_values_test_image method in mysql_connection.
         """
 
-        # Initialising a TestImage object.
-        test_image = TestImageBuilder() \
-            .set_rms(13350.62519480) \
-            .set_std_deviation_st_ht(16574.07305706) \
-            .set_max_between_st_ht(72295.95503130) \
-            .set_min_between_st_ht(0.01570581) \
-            .set_mrt(61.45050234) \
-            .set_max_ht(263.39086953) \
-            .set_min_ht(0.34922811) \
-            .set_std_ht(4177.51818530) \
-            .set_changes_from_negative_to_positive_between_st_ht(0.20512821) \
-            .build()
-
         # Testing Correct instance--------------------------------------------------------------------------------------
-        result = conn.insert_values_test_image(test_image=test_image, image_no=2, result=True)
-        self.assertEqual(int, type(result), "Checking output type.")
-        self.assertNotEqual(0, result, "Incorrect database record id.")
-        self.test_id = result
+        result = conn.insert_result_test_image(image_no=1, result=True)
+        self.assertEqual(bool, type(result), "Checking output type.")
 
         # Testing error handling- Incorrect data type-------------------------------------------------------------------
         # Incorrect data type for 'test_image'.
-        result = conn.insert_values_test_image(test_image="test_image", image_no=2, result=True)
+        result = conn.insert_result_test_image(image_no=1, result=True)
         self.assertEqual(0, result, "Incorrect data type - test_image.")
 
         # Incorrect data type for 'image_no'.
-        result = conn.insert_values_test_image(test_image=test_image, image_no="self.test_id", result=True)
+        result = conn.insert_result_test_image(image_no="1", result=True)
         self.assertEqual(0, result, "Incorrect data type - image_no.")
 
         # Incorrect data type for 'result'.
-        result = conn.insert_values_test_image(test_image=test_image, image_no=2, result="True")
+        result = conn.insert_result_test_image(image_no=1, result="True")
         self.assertEqual(0, result, "Incorrect data type - result.")
 
     def test_select_record_test(self):
@@ -87,26 +70,14 @@ class MysqlConnectionTest(unittest.TestCase):
         Method to test select_record_test in mysql_connection.
         """
 
-        # Loading the Original image from file storage.
-        original_image = cv2.imread("sample_images/exam_1.jpg")
-
         # Testing Correct instance--------------------------------------------------------------------------------------
         user = conn.select_record_test(user_id=1)
-
-        # Loading the image in the database.
-        nparr = np.frombuffer(user.get_test_image(), np.uint8)
-        database_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
         self.assertEqual(UserModel, type(user), "Database retrieval Data type.")
         self.assertEqual(1, user.get_id(), "Database retrieval value - id.")
         self.assertEqual(20, user.get_age(), "Database retrieval value - age.")
         self.assertEqual(1, user.get_gender(), "Database retrieval value - gender.")
         self.assertEqual(1, user.get_handedness(), "Database retrieval value - handedness.")
-        self.assertTrue(
-            original_image.shape == database_image.shape and not (np.bitwise_xor(original_image, database_image).any()),
-            "Database retrieval value - test_image."
-        )
-        self.assertEqual(1, user.get_test_image_id(), "Database retrieval value - test_image_id.")
 
         # Testing error handling- Incorrect data type-------------------------------------------------------------------
         # Incorrect data type for 'user_id'.

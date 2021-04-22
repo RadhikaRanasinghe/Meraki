@@ -165,7 +165,7 @@ class FlaskTest(unittest.TestCase):
         tester = application.test_client(self)
 
         # Testing Correct instance--------------------------------------------------------------------------------------
-        query_string = {'image_no': 1}
+        query_string = {'image_no': 5}
         response = tester.get('/retrieve_result', query_string=query_string)
         self.assertEqual(200, response.status_code, "Checking status code returned - 200 (Successful diagnosis)")
         self.assertEqual(response.content_type, "application/json", "Checking data type returned - json")
