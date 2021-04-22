@@ -1,4 +1,4 @@
-from unittest import TestCase
+import unittest
 
 import cv2
 
@@ -6,7 +6,7 @@ from Detector import Detector
 from UserModel import UserModel
 
 
-class TestDetector(TestCase):
+class TestDetector(unittest.TestCase):
     """
     This class unit tests the Detector class
     """
@@ -23,13 +23,13 @@ class TestDetector(TestCase):
         byte_image = im_buf_arr.tobytes()
 
         # Creating the UserModel object
-        user = UserModel(1, 31, 1, 0, byte_image, 10)
+        user = UserModel(5, 31, 1, 1, byte_image, 10)
 
         # Calling the loadFeatures function
         detector.load_features(user)
 
         # Checking if the User object has been updated properly
-        self.assertEqual(0, detector.get_user().get_handedness(), "Incorrect value - handedness")
+        self.assertEqual(1, detector.get_user().get_handedness(), "Incorrect value - handedness")
         self.assertEqual(1, detector.get_user().get_gender(), "Incorrect value - gender")
         self.assertEqual(31, detector.get_user().get_age(), "Incorrect value - age")
 
@@ -45,7 +45,7 @@ class TestDetector(TestCase):
         byte_image = im_buf_arr.tobytes()
 
         # Creating the UserModel object
-        user = UserModel(1, 31, 1, 0, byte_image, 10)
+        user = UserModel(5, 31, 1, 0, byte_image, 10)
 
         # Calling the loadFeatures function
         detector.load_features(user)
@@ -54,4 +54,8 @@ class TestDetector(TestCase):
         result = detector.process()
 
         # Checking if the result is correct or not
-        self.assertEqual(False, result, "Incorrect value - result")
+        self.assertEqual(bool, type(result), "Testing result type.")
+
+
+if __name__ == '__main__':
+    unittest.main()
