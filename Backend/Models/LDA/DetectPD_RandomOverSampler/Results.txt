@@ -1,0 +1,48 @@
+==========High========= Model 1
+              precision    recall  f1-score   support
+
+           1       0.93      0.93      0.93        45
+           2       0.92      0.92      0.92        39
+
+    accuracy                           0.93        84
+   macro avg       0.93      0.93      0.93        84
+weighted avg       0.93      0.93      0.93        84
+
+92.85714285714286
+
+==========High========= Model 2
+              precision    recall  f1-score   support
+
+           1       0.90      0.93      0.92        41
+           2       0.93      0.91      0.92        43
+
+    accuracy                           0.92        84
+   macro avg       0.92      0.92      0.92        84
+weighted avg       0.92      0.92      0.92        84
+
+91.66666666666666
+
+==========High========= Model 3
+              precision    recall  f1-score   support
+
+           1       0.91      0.85      0.88        46
+           2       0.83      0.89      0.86        38
+
+    accuracy                           0.87        84
+   macro avg       0.87      0.87      0.87        84
+weighted avg       0.87      0.87      0.87        84
+
+86.90476190476191
+success
+
+==========Low=========
+              precision    recall  f1-score   support
+
+           1       0.58      0.62      0.60        40
+           2       0.63      0.59      0.61        44
+
+    accuracy                           0.61        84
+   macro avg       0.61      0.61      0.61        84
+weighted avg       0.61      0.61      0.61        84
+
+60.71428571428571

@@ -1,0 +1,39 @@
+Highest accuracy 1 : 79.76190476190477
+ Highest accuracy 2 : 79.76190476190477
+ Highest accuracy 3 : 79.76190476190477
+ Lowest accuracy : 79.76190476190477
+ Highest 1 accuracy : 84.52380952380952
+ Highest 1 accuracy : 85.71428571428571
+ Highest 1 accuracy : 86.90476190476191
+ Highest 2 accuracy : 82.14285714285714
+ Highest 2 accuracy : 85.71428571428571
+ Highest 2 accuracy : 86.90476190476191
+ Highest 3 accuracy : 85.71428571428571 
+ Lowest accuracy : 78.57142857142857
+ Highest 1 accuracy : 89.28571428571429
+ Highest 3 accuracy : 86.90476190476191
+ Highest 2 accuracy : 89.28571428571429
+ Highest 3 accuracy : 88.09523809523809
+ Highest 3 accuracy : 89.28571428571429
+ Highest 1 accuracy : 90.47619047619048
+ Highest 1 accuracy : 92.85714285714286
+ Highest 2 accuracy : 90.47619047619048
+ Highest 2 accuracy : 91.66666666666666
+ Highest 2 accuracy : 92.85714285714286
+ Highest 3 accuracy : 90.47619047619048
+ Highest 3 accuracy : 91.66666666666666 
+ Lowest accuracy : 77.38095238095238 
+ Lowest accuracy : 75.0
+ Highest 1 accuracy : 95.23809523809523
+ Highest 3 accuracy : 92.85714285714286 
+ Lowest accuracy : 73.80952380952381
+ Highest 2 accuracy : 95.23809523809523 
+ Lowest accuracy : 72.61904761904762
+ Highest 3 accuracy : 94.04761904761905 
+ Lowest accuracy : 70.23809523809523
+ Highest 3 accuracy : 95.23809523809523
+ Highest 1 accuracy : 96.42857142857143
+ Highest 2 accuracy : 96.42857142857143
+ Highest 3 accuracy : 96.42857142857143 
+ Lowest accuracy : 69.04761904761905 
+ Lowest accuracy : 66.66666666666666
