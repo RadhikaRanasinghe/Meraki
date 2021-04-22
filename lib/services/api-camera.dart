@@ -137,6 +137,10 @@ class CameraAccessState extends State<CameraAccess> {
 
     } catch (exception) {
         print("ERROR OCCURRED");
+        // display error
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => ErrorPage()));
     }
   }
 
@@ -302,7 +306,7 @@ class CameraAccessState extends State<CameraAccess> {
                       doUpload();
                     }
                   },
-                  child: Icon(Icons.add),
+                  child: Text("Start"),
                   backgroundColor: Colors.teal,
                 ),
               ), // SizedBox
