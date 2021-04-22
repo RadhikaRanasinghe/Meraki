@@ -35,3 +35,4 @@
     400 - missing input (GET/POST)
     416 - not found content (GET)
     415 - invalid input type (GET/POST)
+    510 - Server was unable to calculate the test(GET)
