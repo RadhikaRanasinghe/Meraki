@@ -38,7 +38,8 @@ def create_user():
 
         # checking all input data are correct format.
         if age.isdigit() and gender.isdigit() and handedness.isdigit() and \
-                'image/jpeg' in file.headers.get('Content-Type'):
+                ('image/jpeg' in file.headers.get('Content-Type') or 
+                 'image/jpg' in file.headers.get('Content-Type')):
             # converting all string text fields to integers.
             age = int(age)
             gender = int(gender)
