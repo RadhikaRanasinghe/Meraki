@@ -9,11 +9,10 @@ application = Flask(__name__)
 @application.route('/')
 def about_pd():
     """
-    Method for the root URL of the API.
-    :return: A String containing 'Hello DetectPD'.
+    Method to preview user about Parkinson Decease.
+    :return: Redirect to website containing parkinson details.
     """
-    print("Hello DetectPD")
-    return "Hello DetectPD"
+    return redirect(location="https://www.parkinson.org/understanding-parkinsons/what-is-parkinsons", code=302)
 
 
 @application.route('/create_user', methods=['POST'])
@@ -38,8 +37,7 @@ def create_user():
 
         # checking all input data are correct format.
         if age.isdigit() and gender.isdigit() and handedness.isdigit() and \
-                ('image/jpeg' in file.headers.get('Content-Type') or 
-                 'image/jpg' in file.headers.get('Content-Type')):
+                'image/jpeg' in file.headers.get('Content-Type'):
             # converting all string text fields to integers.
             age = int(age)
             gender = int(gender)
@@ -51,19 +49,12 @@ def create_user():
             user_id = conn.insert_values_test(age, gender, handedness, image)
 
             # Returning the primary key of the RDS database record.
-            print(f"OK 200 - image_no: {user_id}")
             return jsonify({"image_no": user_id}), 201
         else:
             message = "Invalid input type. \n'age'/'gender'/'handedness' - Integer, \n'image' - jpg/jpeg image"
-            info = f"ERROR 415 - age: {age}, gender: {gender}, handedness: {handedness}, " \
-                   f"image: {file.headers.get('Content-Type')}"
-            print(info)
-            return jsonify({"error": message, 'info': info}), 415
+            return jsonify({"error": message}), 415
     else:
-        info = f"ERROR 400 - age: {'age' in payload.keys()}, gender: {'gender' in payload.keys()}, " \
-               f"handedness: {'handedness' in payload.keys()}, image: {'image' in request.files}"
-        print(info)
-        return jsonify({"error": "Missing input. \n'age', 'gender', 'handedness', 'image' is required.", 'info': info}), 400
+        return jsonify({"error": "Missing input. \n'age', 'gender', 'handedness', 'image' is required."}), 400
 
 
 @application.route('/retrieve_result', methods=['GET'])
@@ -97,34 +88,24 @@ def retrieve_result():
                     detector.load_features(user_model)
                     result = detector.process()
 
-                    if result is None:
-                        return jsonify({"error": "Server could not determine a proper result."}), 510
-                    else:
-                        # Saving the test result to RDS.
-                        conn.insert_result_test_image(image_no, result)
+                    # Saving the test process details to RDS.
+                    test_image = detector.get_user().get_test_image()
+                    conn.insert_values_test_image(test_image, image_no, result)
 
-                        # Return the test result.
-                        print(f"OK 200 - result: {result}")
-                        return jsonify({"result": result}), 200
+                    # Return the test result.
+                    return jsonify({"result": result}), 200
                 # When reprocessed result is available.
                 else:
                     # Loading the preprocessed result.
                     result = conn.select_test_image_result(test_image_id)
                     # Return the test result.
-                    print(f"OK 200 - result: {result}")
                     return jsonify({"result": result}), 200
             else:
-                info = f"ERROR 416 - image_no: {image_no}"
-                print(info)
-                return jsonify({"error": "Invalid image_no, No such id exists in the database.", 'info': info}), 416
+                return jsonify({"error": "Invalid image_no, No such id exists in the database."}), 416
         else:
-            info = f"ERROR 415 - image_no: {image_no}"
-            print(info)
-            return jsonify({"error": "Invalid input type. \n'image_no' - Integer", 'info': info}), 415
+            return jsonify({"error": "Invalid input type. \n'image_no' - Integer"}), 415
     else:
-        info = f"ERROR 400 - image_no: {'image_no' in request.args}"
-        print(info)
-        return jsonify({"error": "Missing input. \n'image_no' is required.", 'info': info}), 400
+        return jsonify({"error": "Missing input. \n'image_no' is required."}), 400
 
 
 if __name__ == '__main__':

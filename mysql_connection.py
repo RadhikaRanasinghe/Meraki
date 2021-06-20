@@ -1,5 +1,6 @@
 import mysql.connector
 
+from TestImage import TestImage
 from UserModel import UserModel
 
 # Database details.
@@ -34,7 +35,7 @@ def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
         # Initialising cursor.
         my_cursor = my_db.cursor()
 
-        print(f"MySQL connection started, Insert Values test (age: {age}, handedness: {handedness}, image: {type(image)})")
+        print("MySQL connection started, Insert Values test")
 
         # Checking if all the values are in correct format.
         if isinstance(age, int) and isinstance(gender, int) and isinstance(handedness, int) and isinstance(image,
@@ -54,7 +55,6 @@ def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
             my_db.commit()
 
             # Return the primary key of the last added record.
-            print(f"Insert Values test - {{'output': {added_id}}}")
             return added_id
 
         # When the data type of values to be inserted are incorrect.
@@ -79,7 +79,7 @@ def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
         if my_db.is_connected():
             my_cursor.close()
             my_db.close()
-            print(f"MySQL connection is closed, Insert Values test (age: {age}, handedness: {handedness}, image: {type(image)})")
+            print("MySQL connection is closed, Insert Values test")
 
 
 def select_record_test(user_id: int):
@@ -103,7 +103,7 @@ def select_record_test(user_id: int):
         # Initialising cursor.
         my_cursor = my_db.cursor()
 
-        print(f"MySQL connection started, Select Record test (user_id: {user_id})")
+        print("MySQL connection started, Select Record test")
 
         # Checking if the primary key is in correct format.
         if isinstance(user_id, int):
@@ -132,7 +132,6 @@ def select_record_test(user_id: int):
                                        test_image=my_result[4],
                                        test_image_id=test_image_id)
                 # Returning the UserModel object.
-                print(f"Select Record test - {{'output': {user_model}}}")
                 return user_model
             # When a record is not found.
             else:
@@ -162,12 +161,13 @@ def select_record_test(user_id: int):
         if my_db.is_connected():
             my_cursor.close()
             my_db.close()
-            print(f"MySQL connection is closed, Select Record test (user_id: {user_id})")
+            print("MySQL connection is closed, Select Record test")
 
 
-def insert_result_test_image(image_no: int, result: bool):
+def insert_values_test_image(test_image: TestImage, image_no: int, result: bool):
     """
     Method to insert values to the "test_image" table in the database.
+    :param test_image: A TestImage object containing values according to the users hand drawing.
     :param image_no: The record primary key for the associated row in "test" table in database.
     :param result: The result of the test.
     :return: If there is no error, the primary key of the record added to the "test_image" table, else 0.
@@ -187,44 +187,60 @@ def insert_result_test_image(image_no: int, result: bool):
         # Initialising cursor.
         my_cursor = my_db.cursor()
 
-        print(f"MySQL connection started, Insert result test_image (image_no: {image_no}, result: {result})")
+        print("MySQL connection started, Insert Values test_image")
 
         # Checking if all the values are in correct format.
-        if isinstance(image_no, int) and isinstance(result, bool):
+        if isinstance(test_image, TestImage) and isinstance(image_no, int) and isinstance(result, bool):
 
-            sql = f"SELECT test_image_id FROM test WHERE id={image_no}"
+            # Creating the query.
+            sql_insert_query_test_image = """INSERT INTO test_image 
+                                    (result, rms, max_between_st_ht, min_between_st_ht, std_deviation_st_ht, mrt, 
+                                    max_ht, min_ht, std_ht, changes_from_n_to_p_between_st_ht) 
+                                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
 
-            my_cursor.execute(sql)
+            insert_tuple_test_image = (
+                result,
+                test_image.get_rms(),
+                test_image.get_max_between_st_ht(),
+                test_image.get_min_between_st_ht(),
+                test_image.get_std_deviation_st_ht(),
+                test_image.get_mrt(),
+                test_image.get_max_ht(),
+                test_image.get_min_ht(),
+                test_image.get_std_ht(),
+                test_image.get_changes_from_negative_to_positive_between_st_ht()
+            )
 
-            my_result = my_cursor.fetchone()
+            # executing the query.
+            my_cursor.execute(sql_insert_query_test_image, insert_tuple_test_image)
 
-            if my_result is None:
-                # Print the error message.
-                print(f"ERROR(Insert result test_image) - Record with image_no={image_no}.")
+            # Getting the primary key of the last added record.
+            added_id = my_cursor.lastrowid
 
-                # Return 0 since an error occurred.
-                return 0
-            else:
-                test_image_id = bool(my_result[0])
+            # Commit the changes to the database.
+            my_db.commit()
 
-                # Creating the query.
-                sql_insert_query_test_image = f"UPDATE test_image SET result = {result} WHERE id={test_image_id}"
+            # Creating the query to update the "test" table.
+            sql_insert_query_test = """UPDATE test
+                                        SET test_image_id = %s
+                                        WHERE id = %s"""
 
-                # executing the query.
-                my_cursor.execute(sql_insert_query_test_image)
+            insert_tuple_test = (added_id, image_no)
 
-                # Commit the changes to the database.
-                my_db.commit()
+            # executing the query to update the "test" table.
+            my_cursor.execute(sql_insert_query_test, insert_tuple_test)
 
-                # Returning the primary key of the record added to the "test_image" table.
-                print(f"Insert result test_image - {{'output': {type(test_image_id)}}}")
-                return test_image_id
+            # Commit the changes to the database.
+            my_db.commit()
+
+            # Returning the primary key of the record added to the "test_image" table.
+            return added_id
 
         # When the data type of values to be inserted are incorrect.
         else:
             # Print the error message.
-            print(f"ERROR(Insert result test_image) - Invalid argument type, expected Integer, Boolean. "
-                  f"(image_no={type(image_no)}, result={type(result)})")
+            print(f"ERROR(Insert Values test_image) - Invalid argument type, expected TestImage, Integer, Boolean. "
+                  f"(test_image={type(test_image)}, image_no={type(image_no)}, result={type(result)})")
 
             # Return 0 since an error occurred.
             return 0
@@ -232,7 +248,7 @@ def insert_result_test_image(image_no: int, result: bool):
     # When mysql error occurs.
     except mysql.connector.Error as error:
         # Print the error message.
-        print(f"ERROR(Insert result test_image) - {error}")
+        print(f"ERROR(Insert Values test_image) - {error}")
 
         # Return 0 since an error occurred.
         return 0
@@ -242,7 +258,7 @@ def insert_result_test_image(image_no: int, result: bool):
         if my_db.is_connected():
             my_cursor.close()
             my_db.close()
-            print(f"MySQL connection is closed, Insert result test_image (image_no: {image_no}, result: {result})")
+            print("MySQL connection is closed, Insert Values test_image")
 
 
 def select_test_image_result(test_image_id: int):
@@ -266,7 +282,7 @@ def select_test_image_result(test_image_id: int):
         # Initialising cursor.
         my_cursor = my_db.cursor()
 
-        print(f"MySQL connection started, Select Record test_image_result (test_image_id: {test_image_id})")
+        print("MySQL connection started, Select Record test_image_result")
 
         # Checking if the primary key is in correct format.
         if isinstance(test_image_id, int):
@@ -283,7 +299,6 @@ def select_test_image_result(test_image_id: int):
             # When a record is found.
             if my_result:
                 # Return the "result".
-                print(f"Select Record test_image_result - {{'output': {bool(my_result[0])}}}")
                 return bool(my_result[0])
 
             # When a record is not found.
@@ -313,4 +328,4 @@ def select_test_image_result(test_image_id: int):
         if my_db.is_connected():
             my_cursor.close()
             my_db.close()
-            print("MySQL connection is closed, Select Record test_image_result (test_image_id: {test_image_id})")
+            print("MySQL connection is closed, Select Record test_image_result")
