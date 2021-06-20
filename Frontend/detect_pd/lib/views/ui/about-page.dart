@@ -13,15 +13,15 @@ class AboutPDPage extends StatelessWidget {
       body: HomeForeground(
         expandedHeight: 153.0,
         appBarChild: HomeBackground(
-          title: 'About Us',
+          title: 'About',
           logoPath: 'assets/pd_log_bg_small.png',
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-          backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          backgroundColor: Colors.transparent,
           titleColor: Colors.white,
         ), // HomeBackground
-        appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
+        appBarBackgroundColor: Colors.transparent,
         fillChild: AboutPD(
           description: "DetectPD is an application that let's you "
               "conduct a self diagnosis on Parkinson's Disease. The procedure is fairly"
@@ -29,11 +29,25 @@ class AboutPDPage extends StatelessWidget {
               "Then, take the test. It will give you a diagnosis afterwards. DetectPD uses "
               "Machine Learning Algorithms to analyze the image and produce the diagnosis. "
               "You may consult a medical professional to further clarify the result.",
-          fontSize: 20.0,
+          fontSize: 17.0,
           alignment: Alignment.topCenter,
           textColor: Colors.white,
         ), // AboutPD
-        fillColor:  Color(0xff033e6b),
+        fillColor:  BoxDecoration(
+          // color: fillColor,
+          gradient: new LinearGradient(
+            colors: [
+              const Color(0xff033e6b),
+              const Color(0xFF0277BD)
+            ],
+            begin: const FractionalOffset(0.0, 0.0),
+            end:const FractionalOffset(1.0, 0.0),
+          ),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+            )
+        ),
       ), // HomeForeground
       bottomNavigationBar: NavBar(
         link1: launcher,
@@ -47,7 +61,7 @@ class AboutPDPage extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
-        backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
+        backgroundColor: Colors.transparent ,
       ), // NavBar
     ); // Scaffold
   }
@@ -69,7 +83,7 @@ class AboutPD extends StatelessWidget {
           style: TextStyle(
             color: textColor,
             fontSize: fontSize,
-            fontWeight: FontWeight.bold
+            // fontWeight: FontWeight.bold
           ), // TextStyle
         ), // Text
         margin: EdgeInsets.all(30.0),

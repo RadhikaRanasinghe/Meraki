@@ -43,27 +43,36 @@ class _NewSqaureState extends State<NewSqaure> {
         child: Column(
           children: <Widget>[
             Container(
-              width: 300.0,
-              height: 70.0,
-              margin: const EdgeInsets.only(left:30.0, top:30.0,right:30.0,bottom:5.0),
-              child: RaisedButton.icon(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                    side: BorderSide(color: Colors.grey, width: 1)
-                ),  // RoundedRectangleBorder
-                color: Colors.grey,
-                icon: Icon(Icons.search_sharp, color: Colors.black),
-                label: Text("START TEST",
+                margin: EdgeInsets.only(top: 25.0),
+                padding: EdgeInsets.all(25.0),
+                // color: Colors.blueGrey,
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  border: Border.all(
+                    color: Colors.blueGrey,
+                  ),
+                  borderRadius: BorderRadius.circular(25.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 4,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+              ),
+              child: Column(
+          children: <Widget>[
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 0.0),
+                child: Text("Start Test",
                   style: TextStyle(
-                      color: Colors.white70, fontSize: 25.0
-                  ),  // TextStyle
-                ),  // Text
-                padding: EdgeInsets.all(5.0),
-                splashColor: null,
-                elevation: 6.0,
-                onPressed: null,
-              ),  // RaisedButton.icon
-            ),  // Container
+                      color: Colors.white, fontSize: 25.0
+                  ),
+                ),
+              ),
+            ),
             Icon(Icons.arrow_drop_down, color: Colors.black, size: 30.0,),
             CustomShowcaseWidget(
               globalKey: globals.keyOne,
@@ -90,7 +99,10 @@ class _NewSqaureState extends State<NewSqaure> {
                     Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => CameraFormPage()));
                   },
                   icon: Icons.camera_alt_outlined), // Dropdown
-            ),  // CustomShowcaseWidget
+                  )
+                ],
+              ),
+            ),
             Flexible(
               child: SquareButtons(),
             ),  // Flexible
@@ -192,10 +204,10 @@ class _SquareButtonsState extends State<SquareButtons> {
         children: <Widget>[
           Card(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.grey, width: 1),
+              // side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
             ),  // RoundedRectangleBorder
-            color: Colors.grey,
+            color: Colors.blueGrey,
             margin: buttonMargin,
             child: InkWell(
               onTap: () async { // function to download meander template when button pressed
@@ -224,10 +236,10 @@ class _SquareButtonsState extends State<SquareButtons> {
           ),  // Card
           Card(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.grey, width: 1),
+              // side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
             ),  // RoundedRectangleBorder
-            color: Colors.grey,
+            color: Colors.blueGrey,
             margin: buttonMargin,
             child: InkWell(
               onTap:(){
@@ -247,10 +259,10 @@ class _SquareButtonsState extends State<SquareButtons> {
           ),  // Card
           Card(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.grey, width: 1),
+              // side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
             ),  // RoundedRectangleBorder
-            color: Colors.grey,
+            color: Colors.blueGrey,
             margin: buttonMargin,
             child: InkWell(
               onTap: (){
@@ -270,10 +282,10 @@ class _SquareButtonsState extends State<SquareButtons> {
           ),  // Card
           Card(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.grey, width: 1),
+              // side: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(20),
             ),  // RoundedRectangleBorder
-            color: Colors.grey,
+            color: Colors.blueGrey,
             margin: buttonMargin,
             child: InkWell(
               onTap: (){
