@@ -42,8 +42,10 @@ class HomePage extends StatelessWidget {
           // color: fillColor,
           gradient: new LinearGradient(
             colors: [
-              const Color.fromRGBO(240, 241, 226, 100),
-              const Color.fromRGBO(240, 241, 226, 100)
+              // const Color.fromRGBO(240, 241, 226, 100),
+              // const Color.fromRGBO(240, 241, 226, 100)
+              Colors.white70,
+              Colors.white70
             ],
             begin: const FractionalOffset(0.0, 0.0),
             end:const FractionalOffset(1.0, 0.0),

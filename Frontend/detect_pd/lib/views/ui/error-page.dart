@@ -17,10 +17,10 @@ class ErrorPage extends StatelessWidget {
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-          backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          backgroundColor: Colors.transparent,
           titleColor: Colors.white,
         ), // HomeBackground
-        appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
+        appBarBackgroundColor: Colors.transparent,
         fillChild: ErrorForeground(
           errorMessage: "Unexpected error. Please resubmit the form.",
           padding: EdgeInsets.all(8.0),
@@ -34,7 +34,21 @@ class ErrorPage extends StatelessWidget {
             Navigator.pushReplacement(context,  MaterialPageRoute(builder: (context) => HomePage()));
           },
         ),
-        fillColor:  Color.fromRGBO(240, 241, 226, 100),
+        fillColor:  BoxDecoration(
+          // color: fillColor,
+            gradient: new LinearGradient(
+              colors: [
+                Colors.white70,
+                Colors.white70
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end:const FractionalOffset(1.0, 0.0),
+            ),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+            )
+        ),
       ), // HomeForeground
     ); // Scaffold
   }
@@ -74,9 +88,9 @@ class ErrorForeground extends StatelessWidget {
               child: RaisedButton.icon(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
-                    side: BorderSide(color: Colors.grey, width: 1)
+                    side: BorderSide(color: Colors.blueGrey, width: 1)
                 ),  // RoundedRectangleBorder
-                color: Colors.grey,
+                color: Colors.blueGrey,
                 icon: Icon(Icons.autorenew, color: Colors.black),
                 label: Text("Resubmit",
                   style: TextStyle(
@@ -95,9 +109,9 @@ class ErrorForeground extends StatelessWidget {
               child: RaisedButton.icon(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
-                    side: BorderSide(color: Colors.grey, width: 1)
+                    side: BorderSide(color: Colors.blueGrey, width: 1)
                 ),  // RoundedRectangleBorder
-                color: Colors.grey,
+                color: Colors.blueGrey,
                 icon: Icon(Icons.cancel, color: Colors.black),
                 label: Text("Cancel",
                   style: TextStyle(

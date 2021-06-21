@@ -19,9 +19,23 @@ class _GalleryFormPageState extends State<GalleryFormPage> {
       body: HomeForeground(
         expandedHeight: null,
         appBarChild: Text('home Background'),
-        appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
+        appBarBackgroundColor:Colors.transparent,
         fillChild: GalleryAccess(),
-        fillColor:  Color(0xfff9fbe7),
+        fillColor:  BoxDecoration(
+          // color: fillColor,
+            gradient: new LinearGradient(
+              colors: [
+                Colors.white70,
+                Colors.white70
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end:const FractionalOffset(1.0, 0.0),
+            ),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+            )
+        ),
       ), // HomeForeground
       bottomNavigationBar: NavBar(
         link1: launcher,

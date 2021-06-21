@@ -21,14 +21,28 @@ class FaqPage extends StatelessWidget {
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-          backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          backgroundColor: Colors.transparent,
           titleColor: Colors.white,
         ),
         //HomeBackground
-        appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
+        appBarBackgroundColor: Colors.transparent,
 
         fillChild: FaqForground(spacing: 40.0),
-        fillColor: Color.fromRGBO(240, 241, 226, 100),
+        fillColor: BoxDecoration(
+          // color: fillColor,
+            gradient: new LinearGradient(
+              colors: [
+                Colors.white70,
+                Colors.white70
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end:const FractionalOffset(1.0, 0.0),
+            ),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+            )
+        ),
       ), //HomeBackground
       bottomNavigationBar: NavBar(
         link1: launcher,
@@ -114,7 +128,7 @@ class GreyButtons extends StatelessWidget {
       height: 60.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(33.0),
-        color: const Color(0xff687b8d),
+        color: Colors.blueGrey,
         boxShadow: [
           BoxShadow(
             color: const Color(0x29000000),

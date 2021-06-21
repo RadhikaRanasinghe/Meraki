@@ -37,8 +37,9 @@ class AboutPDPage extends StatelessWidget {
           // color: fillColor,
           gradient: new LinearGradient(
             colors: [
-              const Color(0xff033e6b),
-              const Color(0xFF0277BD)
+              const Color(0xFF0277BD),
+              Color.fromRGBO(22, 111, 123, 100)
+
             ],
             begin: const FractionalOffset(0.0, 0.0),
             end:const FractionalOffset(1.0, 0.0),

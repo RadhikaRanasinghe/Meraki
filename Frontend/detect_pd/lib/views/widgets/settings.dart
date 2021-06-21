@@ -5,9 +5,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Color.fromRGBO(5, 88, 115, 100),
+    return Container(
+        // color: Color.fromRGBO(94, 163, 184, 100),
+        // decoration: BoxDecoration(
+        //   // color: fillColor,
+        //     gradient: new LinearGradient(
+        //       colors: [
+        //         const Color.fromRGBO(240, 241, 226, 100),
+        //         const Color.fromRGBO(240, 241, 226, 100)
+        //       ],
+        //       begin: const FractionalOffset(0.0, 0.0),
+        //       end:const FractionalOffset(1.0, 0.0),
+        //     ),
+        //     borderRadius: new BorderRadius.only(
+        //       topLeft: const Radius.circular(40.0),
+        //       topRight: const Radius.circular(40.0),
+        //     )
+        // ),
         //center the widgets in the body
         child: Center(
           child: Column(
@@ -22,8 +36,7 @@ class Settings extends StatelessWidget {
             ],  // <Widget>[]
           ),  // Column
         ),  // Center
-      ),  // Container
-    );  // Scaffold
+      );  // Container
   }
 }
 
@@ -53,7 +66,7 @@ class SettingsButton extends StatelessWidget{
             borderRadius: BorderRadius.circular(100),
             // side: BorderSide(color: Colors.grey, width: 1)
         ),  // RoundedRectangleBorder
-        color: Colors.grey,
+        color: Colors.blueGrey,
         icon: Icon(Icons.settings, color: Colors.white70,),
         label: Text(buttonName,
           style: TextStyle(

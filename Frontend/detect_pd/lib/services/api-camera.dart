@@ -167,10 +167,11 @@ class CameraAccessState extends State<CameraAccess> {
               ), // Padding
               Container(
                 height: 70.0,
+                width: 340.0,
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(118, 176, 195, 100),
+                  color: Color.fromRGBO(22, 111, 123, 100),
                   borderRadius: BorderRadius.circular(10),
                 ), // BoxDecoration
                 child: TextFormField(
@@ -181,7 +182,7 @@ class CameraAccessState extends State<CameraAccess> {
                     contentPadding: EdgeInsets.all(2.0),
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
-                    labelStyle: TextStyle(color: const Color(0xFF033E6B), fontSize: 18),
+                    labelStyle: TextStyle(color: Colors.white70, fontSize: 18),
                     icon: Icon(Icons.add),
                   ), // InputDecoration
                   autovalidateMode: AutovalidateMode.always,
@@ -198,7 +199,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(118, 176, 195, 100),
+                  color: Color.fromRGBO(22, 111, 123, 100),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Container(
@@ -207,15 +208,15 @@ class CameraAccessState extends State<CameraAccess> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   margin: EdgeInsets.only(bottom: 5.0),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(118, 176, 195, 100),
+                    color: Color.fromRGBO(22, 111, 123, 100),
                     borderRadius: BorderRadius.circular(10),
                   ), // BoxDecoration
                   child: DropdownButton(
                     isExpanded: true,
-                    hint: Text("Gender"),
-                    dropdownColor: Colors.teal[200],
+                    hint: Text("Gender", style: TextStyle(color: Colors.white70),),
+                    dropdownColor: Colors.teal,
                     style: TextStyle(
-                      color: const Color(0xFF033E6B),
+                      color: Colors.white70,
                       fontSize: 18,
                     ), // TextStyle
                     value: gender,
@@ -231,6 +232,7 @@ class CameraAccessState extends State<CameraAccess> {
                       ); // DropdownMenuItem
                     }).toList(),
                     iconSize: 36,
+                    iconEnabledColor: Colors.white70,
                     underline: SizedBox(),
                   ), // DropDownButton
                 ), // Container
@@ -239,7 +241,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(118, 176, 195, 100),
+                  color: Color.fromRGBO(22, 111, 123, 100),
                   borderRadius: BorderRadius.circular(10),
                 ), // BoxDecoration
                 child: Container(
@@ -248,14 +250,14 @@ class CameraAccessState extends State<CameraAccess> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   margin: EdgeInsets.only(bottom: 5.0),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(118, 176, 195, 100),
+                      color: Color.fromRGBO(22, 111, 123, 100),
                       borderRadius: BorderRadius.circular(10)), // BoxDecoration
                   child: DropdownButton(
                     isExpanded: true,
-                    hint: Text("Handedness"),
-                    dropdownColor: Colors.teal[200],
+                    hint: Text("Handedness", style: TextStyle(color: Colors.white70),),
+                    dropdownColor: Colors.teal,
                     style: TextStyle(
-                      color: const Color(0xFF033E6B),
+                      color: Colors.white70,
                       fontSize: 18,
                     ), // TextStyle
                     value: handedness,
@@ -271,6 +273,7 @@ class CameraAccessState extends State<CameraAccess> {
                       ); // DropDownMenuItem
                     }).toList(),
                     iconSize: 36,
+                    iconEnabledColor: Colors.white70,
                     underline: SizedBox(),
                   ), // DropDownButton
                 ), // Container
@@ -278,8 +281,8 @@ class CameraAccessState extends State<CameraAccess> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
-                  child: new Text('Take photo from camera'),
-                  color: Colors.grey[400],
+                  child: new Text('Take photo with camera', style: TextStyle(color: Colors.white70),),
+                  color: Colors.blueGrey,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ), // RoundedRectangularBorder
@@ -290,7 +293,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: const EdgeInsets.all(10.0),
                 child: SizedBox(
                   child: image == null
-                      ? Center(child: new Text('Image Required', style: TextStyle(color: Colors.red[400]),))
+                      ? Center(child: new Text('Image Required', style: TextStyle(color: Colors.red[900]),))
                       : Center(child: new Image.file(image)),
                 ),
               ),
@@ -306,8 +309,8 @@ class CameraAccessState extends State<CameraAccess> {
                       doUpload();
                     }
                   },
-                  child: Text("Start"),
-                  backgroundColor: Colors.teal,
+                  child: Text("Start", style: TextStyle(color: Colors.white70)),
+                  backgroundColor: Colors.blueGrey,
                 ), // FloatingActionButton
               ), // SizedBox
             ], // <Widget>[]

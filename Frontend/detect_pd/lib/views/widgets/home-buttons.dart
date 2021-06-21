@@ -171,7 +171,7 @@ class DropdownButton extends StatelessWidget{
 class SquareButtons extends StatefulWidget {
   @override
   _SquareButtonsState createState() => _SquareButtonsState(
-      EdgeInsets.all(50.0),
+      EdgeInsets.only(right: 50.0, left: 50.0),
       EdgeInsets.all(0.0),
       EdgeInsets.all(8.0),
       60.0,

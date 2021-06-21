@@ -7,7 +7,7 @@ class NavBar extends StatelessWidget {
   final link2;
   final link3;
   final iconSize = 40.0;
-  final height = 80.0;
+  final height = 70.0;
   final borderRadius = 40.0;
 
   NavBar({this.link1, this.link2, this.link3, this.backgroundColor});

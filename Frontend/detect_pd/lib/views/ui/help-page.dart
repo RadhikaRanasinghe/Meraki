@@ -18,10 +18,10 @@ class HelpPage extends StatelessWidget {
           height: 153.0,
           bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
           smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-          backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          backgroundColor: Colors.transparent,
           titleColor: Colors.white,
         ),  //HomeBackground
-        appBarBackgroundColor:Color.fromRGBO(118, 176, 195, 100),
+        appBarBackgroundColor:Colors.transparent,
         fillChild: AboutPD(
           description: "Step 1 : Download the template from Home page\n\n\n"
               "Step 2 : Print and trace on the template\n\n\n"
@@ -32,8 +32,22 @@ class HelpPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           textColor: Colors.white,
         ),  //AboutPD
-        fillColor:  Color(0xff033e6b),
-      ),  // HomeForeground
+        fillColor:  BoxDecoration(
+          // color: fillColor,
+            gradient: new LinearGradient(
+              colors: [
+                const Color(0xFF0277BD),
+                Color.fromRGBO(22, 111, 123, 100)
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end:const FractionalOffset(1.0, 0.0),
+            ),
+            borderRadius: new BorderRadius.only(
+              topLeft: const Radius.circular(40.0),
+              topRight: const Radius.circular(40.0),
+            )
+        ),
+      ),// HomeForeground
       bottomNavigationBar: NavBar(
         link1: launcher,
         link2: (){
@@ -46,7 +60,7 @@ class HelpPage extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => SettingsPage()));
         },
-        backgroundColor: Color.fromRGBO(240, 241, 226, 100) ,
+        backgroundColor: Colors.transparent ,
       ),  // NavBar
     );  // Scaffold
   }

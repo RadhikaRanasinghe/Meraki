@@ -12,7 +12,7 @@ class HomeForeground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+      backgroundColor: Colors.black,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(

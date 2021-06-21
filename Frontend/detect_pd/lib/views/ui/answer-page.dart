@@ -35,12 +35,26 @@ class AnswerPage extends StatelessWidget {
             height: 10.0,
             bigSquareColor: Color.fromRGBO(22, 111, 123, 100),
             smallSquareColor: Color.fromRGBO(169, 229, 238, 30),
-            backgroundColor: Color.fromRGBO(94, 163, 184, 100),
+            backgroundColor: Colors.transparent,
             titleColor: Colors.white,
           ),//HomeBackground
-          appBarBackgroundColor: Color.fromRGBO(94, 163, 184, 100),
+          appBarBackgroundColor: Colors.transparent,
           fillChild: answerForeground(question:question, answer:answer),
-          fillColor: Color.fromRGBO(240, 241, 226, 100),
+          fillColor: BoxDecoration(
+            // color: fillColor,
+              gradient: new LinearGradient(
+                colors: [
+                  const Color.fromRGBO(240, 241, 226, 100),
+                  const Color.fromRGBO(240, 241, 226, 100)
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end:const FractionalOffset(1.0, 0.0),
+              ),
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(40.0),
+                topRight: const Radius.circular(40.0),
+              )
+          ),
         ));//HomeBackground,Scaffold
   }
 }
@@ -88,7 +102,7 @@ class answerForeground extends StatelessWidget {
                 ), // Text
               ),// Padding
               width: 290.0,
-              height: 369.0,
+              height: 300.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
                 color: const Color(0xff687b8d),
@@ -104,8 +118,8 @@ class answerForeground extends StatelessWidget {
           ],
         ),//Column
       ),//Center
-      width: 340.0,
-      height: 541.0,
+      width: 360.0,
+      height: 450.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
         color: const Color(0xfff0f1e2),
