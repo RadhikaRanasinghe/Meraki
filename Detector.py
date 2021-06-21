@@ -49,8 +49,8 @@ class Detector:
 
         """
 
-        # Initializing and assigning the variable 'result' to True
-        result: bool = True
+        # Initializing and assigning the variable 'result' to None
+        result = None
 
         # Opening the voting classifier pickle file and storing the model in the variable 'ensemble_classifier'
         with open('models/VotingClassifier.pickle', 'rb') as file:

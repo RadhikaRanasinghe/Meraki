@@ -87,7 +87,7 @@ class TestImageBuilder(object):
         self.__std_deviation_st_ht = std_deviation_st_ht
         return self
 
-    def set_mrt(self, mrt):
+    def set_mrt(self, mrt: float):
         """
         Setter of the Mean Relative Tremor of the TestImage.
 

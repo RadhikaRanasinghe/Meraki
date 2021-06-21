@@ -510,15 +510,15 @@ def extractFeats(img, img1):
     std = sqrt(std)
 
     test_image = TestImageBuilder() \
-        .set_rms(RMS) \
-        .set_std_deviation_st_ht(std) \
-        .set_max_between_st_ht(maxRMS) \
-        .set_min_between_st_ht(minRMS) \
-        .set_mrt(mean_tremor) \
-        .set_max_ht(max_tremor) \
-        .set_min_ht(min_tremor) \
-        .set_std_ht(std_tremor) \
-        .set_changes_from_negative_to_positive_between_st_ht(count_cross / count) \
+        .set_rms(float(RMS)) \
+        .set_std_deviation_st_ht(float(std)) \
+        .set_max_between_st_ht(float(maxRMS)) \
+        .set_min_between_st_ht(float(minRMS)) \
+        .set_mrt(float(mean_tremor)) \
+        .set_max_ht(float(max_tremor)) \
+        .set_min_ht(float(min_tremor)) \
+        .set_std_ht(float(std_tremor)) \
+        .set_changes_from_negative_to_positive_between_st_ht(float(count_cross / count)) \
         .build()
 
     return test_image

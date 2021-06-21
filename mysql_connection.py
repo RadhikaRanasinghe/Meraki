@@ -4,11 +4,11 @@ from TestImage import TestImage
 from UserModel import UserModel
 
 # Database details.
-HOST = "detectpd.c4e71ercisib.us-east-2.rds.amazonaws.com"
+HOST = "localhost"
 PORT = "3306"
-USER = "admin"
-PASSWORD = "password1234"
-DATABASE = "DetectPD"
+USER = "charindu"
+PASSWORD = "test1234"
+DATABASE = "detectpd"
 
 
 def insert_values_test(age: int, gender: int, handedness: int, image: bytes):
@@ -125,12 +125,12 @@ def select_record_test(user_id: int):
                     test_image_id = 0
 
                 # Making the UserModel object.
-                user_model = UserModel(user_id=my_result[0],
-                                       age=my_result[1],
-                                       gender=my_result[2],
-                                       handedness=my_result[3],
-                                       test_image=my_result[4],
-                                       test_image_id=test_image_id)
+                user_model = UserModel(user_id=int(my_result[0]),
+                                       age=int(my_result[1]),
+                                       gender=int(my_result[2]),
+                                       handedness=int(my_result[3]),
+                                       test_image=bytes(my_result[4]),
+                                       test_image_id=int(test_image_id))
                 # Returning the UserModel object.
                 return user_model
             # When a record is not found.
