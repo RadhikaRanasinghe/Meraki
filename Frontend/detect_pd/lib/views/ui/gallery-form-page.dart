@@ -25,8 +25,8 @@ class _GalleryFormPageState extends State<GalleryFormPage> {
           // color: fillColor,
             gradient: new LinearGradient(
               colors: [
-                Colors.white70,
-                Colors.white70
+                Colors.white,
+                Colors.white
               ],
               begin: const FractionalOffset(0.0, 0.0),
               end:const FractionalOffset(1.0, 0.0),

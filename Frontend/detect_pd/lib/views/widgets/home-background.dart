@@ -42,12 +42,15 @@ class HomeBackground extends StatelessWidget {
             left : 40,
             child: FlatButton(
               onPressed: () {},
-              child: Text(title,
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: titleColor
-                ),  // TextStyle
+              child: Padding(
+                padding: const EdgeInsets.only(top:20.0),
+                child: Text(title,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: titleColor
+                  ),  // TextStyle
+                ),
               ),  // Text
             ),  // FlatButton
           ),  // Positioned

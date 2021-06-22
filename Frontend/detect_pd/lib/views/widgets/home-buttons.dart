@@ -52,14 +52,14 @@ class _NewSqaureState extends State<NewSqaure> {
                     color: Colors.blueGrey,
                   ),
                   borderRadius: BorderRadius.circular(25.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 3,
-                      blurRadius: 4,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
+                  // boxShadow: [
+                  //   BoxShadow(
+                  //     color: Colors.grey.withOpacity(0.5),
+                  //     spreadRadius: 3,
+                  //     blurRadius: 4,
+                  //     offset: Offset(0, 3), // changes position of shadow
+                  //   ),
+                  // ],
               ),
               child: Column(
           children: <Widget>[
@@ -156,7 +156,7 @@ class DropdownButton extends StatelessWidget{
         icon: Icon(icon, color: Colors.black),
         label: Text(buttonName,
           style: TextStyle(
-              color: Colors.white70, fontSize: fontSize
+              color: Colors.white, fontSize: fontSize
           ),  // TextStyle
         ),  // Text
         padding: padding,
@@ -228,7 +228,8 @@ class _SquareButtonsState extends State<SquareButtons> {
                     CustomShowcaseWidget(description: 'Download Template before starting test',
                         globalKey: globals.keyThree,
                         child: Icon(Icons.file_download, size: iconSize,)),
-                    Text("Download \nTemplate", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
+                    Text("Download \nTemplate", style: new TextStyle(fontSize: fontSize, color: Colors.white,height: 1.5, // the height between text, default is null
+                        letterSpacing: 1.0),)
                   ],  // <Widget>[]
                 ),  // Column
               ),  // Center
@@ -251,7 +252,8 @@ class _SquareButtonsState extends State<SquareButtons> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.menu_book_sharp, size: iconSize,),
-                    Text("About Us", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
+                    Text("About Us", style: new TextStyle(fontSize: fontSize, color: Colors.white, height: 1.5, // the height between text, default is null
+                        letterSpacing: 1.0),)
                   ],  // <Widget>[]
                 ),  // Column
               ),  // Center
@@ -274,7 +276,8 @@ class _SquareButtonsState extends State<SquareButtons> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.find_in_page_rounded, size: iconSize,),
-                    Text("User Guide", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
+                    Text("User Guide", style: new TextStyle(fontSize: fontSize, color: Colors.white, height: 1.5, // the height between text, default is null
+                        letterSpacing: 1.0),)
                   ],  // <Widget>[]
                 ),  // Column
               ),  // Center
@@ -297,7 +300,8 @@ class _SquareButtonsState extends State<SquareButtons> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Icon(Icons.headset_mic_rounded, size: iconSize,),
-                    Text("FAQ", style: new TextStyle(fontSize: fontSize, color: Colors.white),)
+                    Text("FAQ", style: new TextStyle(fontSize: fontSize, color: Colors.white, height: 1.5, // the height between text, default is null
+                        letterSpacing: 1.0),)
                   ],  // <Widget>[]
                 ),  // Column
               ),  // Center

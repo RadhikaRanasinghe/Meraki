@@ -44,8 +44,10 @@ class HomePage extends StatelessWidget {
             colors: [
               // const Color.fromRGBO(240, 241, 226, 100),
               // const Color.fromRGBO(240, 241, 226, 100)
-              Colors.white70,
-              Colors.white70
+              // const Color(0xFF0277BD),
+              // Color.fromRGBO(22, 111, 123, 100)
+              Colors.white,
+              Colors.white
             ],
             begin: const FractionalOffset(0.0, 0.0),
             end:const FractionalOffset(1.0, 0.0),

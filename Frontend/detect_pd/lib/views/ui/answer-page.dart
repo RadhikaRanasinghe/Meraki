@@ -22,7 +22,7 @@ class AnswerPage extends StatelessWidget {
       answer='•	If so, you should consult a health care professional as soon as possible and start treatment.';
     }else if (quesNum == 4){
       question='How accurate is the test result?';
-      answer='The results are relatively accurate, but it is always advised to meet with a medical professional.';
+      answer='•	The results are relatively accurate, but it is always advised to meet with a medical professional.';
     }
 
 
@@ -44,8 +44,8 @@ class AnswerPage extends StatelessWidget {
             // color: fillColor,
               gradient: new LinearGradient(
                 colors: [
-                  const Color.fromRGBO(240, 241, 226, 100),
-                  const Color.fromRGBO(240, 241, 226, 100)
+                  Colors.transparent,
+                  Colors.transparent
                 ],
                 begin: const FractionalOffset(0.0, 0.0),
                 end:const FractionalOffset(1.0, 0.0),
@@ -74,15 +74,18 @@ class answerForeground extends StatelessWidget {
             SizedBox(height: 30),
             Container(
               child: Center(
-                  child: Text(
-                    question, textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text(
+                      question, textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
+                    ),
                   )),//Text,Center
               width: 330.0,
-              height: 46.0,
+              // height: 46.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
-                color: const Color(0xff687b8d),
+                color: Colors.blueGrey,
                 boxShadow: [
                   BoxShadow(
                     color: const Color(0x29000000),
@@ -105,7 +108,7 @@ class answerForeground extends StatelessWidget {
               height: 300.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(33.0),
-                color: const Color(0xff687b8d),
+                color: Colors.blueGrey,
                 boxShadow: [
                   BoxShadow(
                     color: const Color(0x29000000),
@@ -122,7 +125,7 @@ class answerForeground extends StatelessWidget {
       height: 450.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: const Color(0xfff0f1e2),
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: const Color(0x29000000),

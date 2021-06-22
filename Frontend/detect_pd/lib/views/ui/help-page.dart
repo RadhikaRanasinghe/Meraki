@@ -23,11 +23,11 @@ class HelpPage extends StatelessWidget {
         ),  //HomeBackground
         appBarBackgroundColor:Colors.transparent,
         fillChild: AboutPD(
-          description: "Step 1 : Download the template from Home page\n\n\n"
-              "Step 2 : Print and trace on the template\n\n\n"
-              "Step 3 : Fill out form details\n\n\n"
-              "Step 4 : Upload photo of the traced template\n\n\n"
-              "Step 5 : Check the result\n\n\n",
+          description: "Step 1 : Download the template from Home page\n\n"
+              "Step 2 : Print and trace on the template\n\n"
+              "Step 3 : Fill out form details\n\n"
+              "Step 4 : Upload photo of the traced template\n\n"
+              "Step 5 : Check the result\n\n",
           fontSize: 17.0,
           alignment: Alignment.topCenter,
           textColor: Colors.white,
@@ -85,6 +85,8 @@ class AboutPD extends StatelessWidget {
           style: TextStyle(
             color: textColor,
             fontSize: fontSize,
+              height: 1.5, // the height between text, default is null
+              letterSpacing: 1.0
           ),  // TextStyle
         ),  // Text
         margin: EdgeInsets.all(30.0),

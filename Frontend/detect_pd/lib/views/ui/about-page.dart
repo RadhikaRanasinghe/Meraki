@@ -84,6 +84,8 @@ class AboutPD extends StatelessWidget {
           style: TextStyle(
             color: textColor,
             fontSize: fontSize,
+              height: 1.5, // the height between text, default is null
+              letterSpacing: 1.0
             // fontWeight: FontWeight.bold
           ), // TextStyle
         ), // Text
