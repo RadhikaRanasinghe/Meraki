@@ -7,51 +7,61 @@ class ResultsForeground extends StatelessWidget {
   final resultImage;
   final expandedHeight;
   final result;
+  final foregroundColor;
+  final borderColor;
 
-  ResultsForeground({this.mainBackgroundColor, this.fillColor , this.resultImage,this.expandedHeight,this.result});
+  ResultsForeground({this.mainBackgroundColor, this.fillColor , this.resultImage,this.expandedHeight,this.result, this.foregroundColor, this.borderColor});
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-            floating: false,
-            pinned: false,
-            automaticallyImplyLeading: false,
-            expandedHeight: expandedHeight,
-            flexibleSpace: FlexibleSpaceBar(
-                background:resultImage
-            )
-        ),
-        SliverFillRemaining(
-          child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: mainBackgroundColor,
+    return Scaffold(
+        body:CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+                floating: false,
+                pinned: false,
+                automaticallyImplyLeading: false,
+                expandedHeight: expandedHeight,
+                flexibleSpace: FlexibleSpaceBar(
+                    background:Container(
+                      child: resultImage,
+                      decoration: BoxDecoration(
+                        color: foregroundColor,
+                        border: Border.all(color: Colors.transparent)
+                      ),
+                    ),
+
+
+                )
+            ),
+            SliverFillRemaining(
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
-                  color: fillColor,
-                  // borderRadius: BorderRadius.only(
-                  //     topLeft: Radius.circular(40),
-                  //     topRight: Radius.circular(40)),
-                ),
-                child:ResultsText(result: result,disclaimer: 'Disclaimer: Consult a medical professional for further clarification ',fontcolor:const Color(0xffe8e8e8)) ,
-              )),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  color: mainBackgroundColor,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      color: fillColor,
+                      border: Border.all(color: borderColor)
+                      // borderRadius: BorderRadius.only(
+                      //     topLeft: Radius.circular(40),
+                      //     topRight: Radius.circular(40)),
+                    ),
+                    child:ResultsText(result: result,disclaimer: 'Disclaimer: Consult a medical professional for further clarification ',fontcolor:const Color(0xffe8e8e8)) ,
+                  )),
+            ),
+          ],
         ),
-      ],
     );
   }
 }
 
 class ResultsText extends StatelessWidget{
-
   final result;
   final disclaimer;
   final fontcolor;
-
-
 
   ResultsText({this.result, this.disclaimer,this.fontcolor});
   @override
@@ -105,6 +115,5 @@ class ResultsText extends StatelessWidget{
             ),
           )
         ]);
-  }
-
+    }
 }
