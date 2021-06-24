@@ -26,7 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: [
           Container(
-            decoration: BoxDecoration(color: Colors.black),
+            decoration: BoxDecoration(
+                // color: Color(0x90EE90)
+                color: Colors.teal[400]
+            ),
           ),  // Container
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -37,11 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        // assigning the image logo
-                        'assets/pd_log_bg_small.png',
-                        height: 150.0,
-                        width: 150.0,
+                      Padding(
+                        padding: const EdgeInsets.only(left:15.0),
+                        child: Image.asset(
+                          // assigning the image logo
+                          'assets/pd_log_bg_small.png',
+                          height: 150.0,
+                          width: 150.0,
+                        ),
                       ) // Image.asset
                     ],
                   ),  // Column
@@ -57,15 +63,15 @@ class _SplashScreenState extends State<SplashScreen> {
                     Padding(
                       padding: EdgeInsets.only(top: 20.0),
                     ),  // Padding
+                    // Text(
+                    //   "from",
+                    //   style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 18.0,
+                    //       fontWeight: FontWeight.bold), // TextStyle
+                    // ),  // Text
                     Text(
-                      "from",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold), // TextStyle
-                    ),  // Text
-                    Text(
-                      "Meraki",
+                      "by MERAKI",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,

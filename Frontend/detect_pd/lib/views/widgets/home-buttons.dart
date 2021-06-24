@@ -228,7 +228,7 @@ class _SquareButtonsState extends State<SquareButtons> {
                     CustomShowcaseWidget(description: 'Download Template before starting test',
                         globalKey: globals.keyThree,
                         child: Icon(Icons.file_download, size: iconSize,)),
-                    Text("Download \nTemplate", style: new TextStyle(fontSize: fontSize, color: Colors.white,height: 1.5, // the height between text, default is null
+                    Text("Template", style: new TextStyle(fontSize: fontSize, color: Colors.white,height: 1.5, // the height between text, default is null
                         letterSpacing: 1.0),)
                   ],  // <Widget>[]
                 ),  // Column

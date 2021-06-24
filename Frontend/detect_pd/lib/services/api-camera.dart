@@ -171,7 +171,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(22, 111, 123, 100),
+                  color: Colors.teal[500],
                   borderRadius: BorderRadius.circular(10),
                 ), // BoxDecoration
                 child: TextFormField(
@@ -199,7 +199,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(22, 111, 123, 100),
+                  color: Colors.teal[500],
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Container(
@@ -208,7 +208,7 @@ class CameraAccessState extends State<CameraAccess> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   margin: EdgeInsets.only(bottom: 5.0),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(22, 111, 123, 100),
+                    color: Colors.teal[800],
                     borderRadius: BorderRadius.circular(10),
                   ), // BoxDecoration
                   child: DropdownButton(
@@ -241,7 +241,7 @@ class CameraAccessState extends State<CameraAccess> {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 margin: EdgeInsets.only(bottom: 5.0),
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(22, 111, 123, 100),
+                  color: Colors.teal[500],
                   borderRadius: BorderRadius.circular(10),
                 ), // BoxDecoration
                 child: Container(
@@ -250,7 +250,7 @@ class CameraAccessState extends State<CameraAccess> {
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   margin: EdgeInsets.only(bottom: 5.0),
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(22, 111, 123, 100),
+                      color: Colors.teal[800],
                       borderRadius: BorderRadius.circular(10)), // BoxDecoration
                   child: DropdownButton(
                     isExpanded: true,

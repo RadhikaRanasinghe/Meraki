@@ -29,8 +29,8 @@ class SettingsPage extends StatelessWidget {
           // color: fillColor,
             gradient: new LinearGradient(
               colors: [
-                Colors.white,
-                Colors.white
+                Colors.lime[50],
+                Colors.lime[50]
               ],
               begin: const FractionalOffset(0.0, 0.0),
               end:const FractionalOffset(1.0, 0.0),
